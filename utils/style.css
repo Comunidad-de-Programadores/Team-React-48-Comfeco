@@ -1,0 +1,22 @@
+:root {
+  --main-gradiant: linear-gradient(
+    90deg,
+    #521e87 0.01%,
+    #5c1d88 14.55%,
+    #751a8a 38.82%,
+    #8a178c 54.92%,
+    #8e1c87 56.27%,
+    #c36e42 77.54%,
+    #e4a017 92.6%,
+    #f1b406 99.98%
+  );
+  --bg-color: linear-gradient(
+    269.78deg,
+    #ffffff -1.82%,
+    #f5f5f5 -1.81%,
+    #f7f8f8 100.67%
+  );
+  --bg-footer: #f3f3f3;
+  --bg-texbox: #e9eff6;
+  --color-texto-textbox: #85898d;
+}
