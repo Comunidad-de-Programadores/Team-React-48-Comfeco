@@ -65,7 +65,7 @@ const ImageStyles = styled.div`
 const InputSubmit = styled.div`
   text-align: center;
   margin-top: 1.5rem;
-
+  
   input {
     background: linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 
     14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%);
@@ -73,7 +73,21 @@ const InputSubmit = styled.div`
     color: white;
     padding: 1rem 0;
     border-radius: 10px;
+    font-weight: bold;
   }
+
+  p {
+    margin-top: 2rem;
+  }
+`
+
+const SocialSignUpStyle = styled.div`
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export default function SignUp({}: Props): ReactElement {
@@ -131,12 +145,24 @@ export default function SignUp({}: Props): ReactElement {
               type="submit"
               value="Registrarse"
             />
+
+            <p>
+              O continua
+            </p>
+
+            <SocialSignUpStyle>
+              <div>
+                Google
+              </div>
+              <div>
+                Con
+              </div>
+              <div>
+                Facebook
+              </div>
+            </SocialSignUpStyle>
           </InputSubmit>
         </form>
-
-        <div>
-          O continua
-        </div>
       </SingUpFormStyle>
       <ImageStyles>
         <Image 
