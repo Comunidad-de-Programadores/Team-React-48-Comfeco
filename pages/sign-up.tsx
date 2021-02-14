@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import Image from 'next/image';
 import Layout from "../components/Layout";
 import styled from "@emotion/styled";
+import usePasswordToggle from "../hooks/usePasswordToggle";
 
 interface Props {}
 
@@ -36,11 +37,19 @@ const Field = styled.div`
   display: flex;
   margin: 0.5rem 1rem;
   width: 100%;
+  position: relative;
 
   input {
     width: 100%;
     padding: 1rem;
     border-radius: 10px;
+  }
+
+  span {
+    position: absolute;
+    top: 35%;
+    left: 90%;
+    cursor: pointer;
   }
 `
 
@@ -68,6 +77,9 @@ const InputSubmit = styled.div`
 `
 
 export default function SignUp({}: Props): ReactElement {
+  const {inputType: inputTypePassword, Icon: IconPassword} = usePasswordToggle();
+  const {inputType: inputTypeConfirmPassword, Icon: IconConfirmPassword} = usePasswordToggle();
+  
   return <Layout title="Registro">
 
     <SignUpStyle>
@@ -96,19 +108,21 @@ export default function SignUp({}: Props): ReactElement {
           <FieldGroup>
             <Field>
               <input 
-                  type="password"
+                  type={inputTypePassword}
                   id="password"
                   placeholder="Contrase;a"
                   name="password"
                 />
+                <span>{IconPassword}</span>
             </Field>
             <Field>
               <input 
-                  type="password"
+                  type={inputTypeConfirmPassword}
                   id="confirm-password"
                   placeholder="Confirmar contrase;a"
                   name="confirm-password"
                 />
+                <span>{IconConfirmPassword}</span>
             </Field>
           </FieldGroup>
 
