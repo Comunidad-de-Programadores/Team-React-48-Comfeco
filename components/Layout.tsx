@@ -21,9 +21,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       backgroundSize="cover"
     >
       <header>
-       <nav>
-        <HeaderComponent />
-      </nav>
+        <nav>
+          <HeaderComponent />
+        </nav>
       </header>
       {children}
       <footer>
