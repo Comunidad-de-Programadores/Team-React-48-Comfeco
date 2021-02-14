@@ -56,6 +56,7 @@ const Field = styled.div`
 const ImageStyles = styled.div`
   width: 30%;
   margin-top: 5rem;
+  margin-right: 5rem;
   img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
