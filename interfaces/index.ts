@@ -8,3 +8,13 @@ export type User = {
   id: number
   name: string
 }
+
+export type LoginErrors = {
+  email: string | null
+  password: string | null
+}
+
+export type Login = {
+  email: string
+  password: string
+}
