@@ -6,6 +6,12 @@ class UserService {
     const userDB = new UserModel(user.toPersistence());
     await userDB.save();
   }
+
+  async getByEmail(email: string): Promise<User> {
+    const userDB = await UserModel.findOne({ email });
+    const user = new User(userDB)
+    return user;
+  }
 }
 
 export default UserService;

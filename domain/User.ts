@@ -12,14 +12,17 @@ class User {
   {
     this.username = username;
     this.email = email;
-    this.password = this.hashPassword(password);
+    this.password = password;
   }
 
-  private hashPassword(password: string) : string {
+  public hashPassword() : void {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
-    const hashedPassword = bcrypt.hashSync(password, salt);
-    return hashedPassword;
+    this.password = bcrypt.hashSync(this.password, salt);
+  }
+
+  public isAuthenticate(password: string): boolean {
+    return bcrypt.compareSync(password, this.password);
   }
 
   public toPersistence() {
@@ -27,6 +30,13 @@ class User {
       username: this.username,
       email: this.email,
       password: this.password
+    }
+  }
+
+  public toPresentation() {
+    return {
+      username: this.username,
+      email: this.email
     }
   }
 }

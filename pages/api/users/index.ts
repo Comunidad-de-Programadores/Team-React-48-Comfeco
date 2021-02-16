@@ -15,9 +15,16 @@ handler.get((_req: NextApiRequest, res: NextApiResponse) => {
 });
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const data = req.body;
-  const user = new User(data);
-  await userService.create(user);
-  res.status(201).json("Created");
+  try {
+    const data = req.body;
+    const user = new User(data);
+    user.hashPassword();
+    await userService.create(user);
+    res.status(201).json("Created");
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
 });
+
+
 export default handler
