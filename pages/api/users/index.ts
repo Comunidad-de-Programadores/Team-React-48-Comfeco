@@ -1,16 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { sampleUserData } from '../../../utils/sample-data'
+import nextConnect from 'next-connect';
+import middleware from '../../../middlewares/middleware';
 
-const handler = (_req: NextApiRequest, res: NextApiResponse) => {
-  try {
-    if (!Array.isArray(sampleUserData)) {
-      throw new Error('Cannot find user data')
-    }
+const handler = nextConnect();
 
-    res.status(200).json(sampleUserData)
-  } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message })
-  }
-}
+handler.use(middleware);
+
+handler.get((_req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json(sampleUserData);
+});
 
 export default handler
