@@ -10,7 +10,7 @@ export default function FooterComponent(): ReactElement {
            <Grid templateColumns="repeat(4, 1fr)" gap={6}>
             <GridItem w="100%" h="100%" >
                 <a  href="#">
-                    <img src="" alt="logo-conf"/>
+                    <img src="/images/logo1.png" alt="logo-conf"/>
                 </a>
             </GridItem>
             <GridItem w="100%" h="100%" colSpan={2} >
@@ -21,10 +21,10 @@ export default function FooterComponent(): ReactElement {
             <GridItem w="100%" h="100%">
                 <p>Siguenos en nuestras Redes:</p>
                 <Box w="100%" >
-                    <a href="#">Github</a>
-                    <a href="#">Youtube</a>
-                    <a href="#">Github</a>
-                    <a href="#">Discord</a>
+                    <a href="#"><img src="/images/github-small.png" alt="Github Logo"/></a>
+                    <a href="#"><img src="/images/youtube-small.png" alt="Youtube Logo"/></a>
+                    <a href="#"><img src="/images/facebook-small.png" alt="Facebook Logo"/></a>
+                    <a href="#"><img src="/images/discord-small.png" alt="Discord Logo"/></a>
                 </Box>
             </GridItem>
            </Grid>
