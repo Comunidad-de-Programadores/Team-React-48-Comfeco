@@ -8,17 +8,17 @@ export default function FooterComponent(): ReactElement {
     return (
        <Box w="100%" h="4rem">
            <Grid templateColumns="repeat(4, 1fr)" gap={6} p="0 3rem">
-            <GridItem w="100%" h="100%" bg="blue">
+            <GridItem w="100%" h="100%">
                 <Link  href="#">
                     <Image w="50%" src="/images/logo1.png" alt="logo-conf"/>
                 </Link>
             </GridItem>
-            <GridItem w="100%" h="50%" colSpan={2} fontSize="14px" textAlign="center" bg="brown">
+            <GridItem w="100%" h="50%" colSpan={2} fontSize="14px" textAlign="center">
                 <Link  color="#D740DA" href="#">Terminos y Condiciones</Link>
                 <Link  color="#D740DA" href="#" mr="1rem" ml="1rem">Proteccion de Datos</Link>
                 <Link  color="#D740DA" href="#">Politica de Privacidad</Link>
             </GridItem>
-            <GridItem w="100%" h="100%" bg="yellow">
+            <GridItem w="100%" h="100%">
                 <Text>Siguenos en nuestras Redes:</Text>
                 <Box w="100%" display="flex" justifyContent="space-evenly" >
                     <Link href="#"><Image boxSize="40px" src="/images/github-small.png" alt="Github Logo"/></Link>
