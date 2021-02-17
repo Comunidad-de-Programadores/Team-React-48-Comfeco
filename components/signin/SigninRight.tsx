@@ -44,8 +44,12 @@ export default  function SigninRight ({}: Props) : ReactElement {
                         type={show ? 'text' : 'password' } 
                         />
                         <InputRightElement
+                            width='3.5em'
+                            top="50%"
+                            pr='1rem'
+                            color='#85898D'
                             onClick={handleClick} 
-                            children={show ? <GrFormViewHide style={{top:"50%"}}/> : <GrFormView  style={{top:"50%"}} />}
+                            children={show ? <GrFormViewHide size='large'/> : <GrFormView  size='large' color='#85898D'/>}
                         />
                     </InputGroup>
                 </Box>
@@ -75,8 +79,9 @@ export default  function SigninRight ({}: Props) : ReactElement {
                 >
                     <Button 
                     width="100%"
-                    borderRadius="1em"
-                    p="1.5em"
+                    height="4.5rem"
+                    borderRadius="1.5rem"
+                    p="1.5rem"
                     bg="linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 
                     14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)"
                     fontSize="30px"
@@ -128,11 +133,12 @@ export default  function SigninRight ({}: Props) : ReactElement {
                     height="80px"
                     backgroundColor="white"
                     borderRadius='1.5em'
+                    padding='1.5em'
                     display='flex'
                     justifyContent='center'
                     alignItems='center'
                     >
-                        <GrGoogle width='5rem'/>
+                        <GrGoogle size='medium'/>
                     </Box>
                     <Text>
                         con
@@ -140,12 +146,14 @@ export default  function SigninRight ({}: Props) : ReactElement {
                     <Box
                     width='100px'
                     height="80px"
+                    padding='1.5em'
                     backgroundColor="white"
                     borderRadius='1.5em'
+                    display='flex'
                     justifyContent='center'
                     alignItems='center'
                     >
-                        <GrFacebook width='medium' />
+                        <GrFacebook size='small' />
                     </Box>
 
                 </Box>
