@@ -3,6 +3,8 @@ import { Box } from "@chakra-ui/react";
 
 import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
+import SigninRight from "../components/signin/SigninRight";
+
 
 interface Props {}
 
@@ -16,10 +18,12 @@ export default function SignIn({}: Props): ReactElement {
         alignItems="center"
         px="4em"
       >
-        <Box w="70%">
+        <Box w="65%">
           <SignInLeft />
         </Box>
-        <Box w="30%">Formularios</Box>
+        <Box w="35%">
+          <SigninRight />
+        </Box>
       </Box>
     </Layout>
   );

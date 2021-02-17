@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import { Box } from "@chakra-ui/react";
 import HeaderComponent from "./HeaderComponent";
+import FooterComponent from "./FooterComponent";
 
 type Props = {
   children?: ReactNode;
@@ -28,7 +29,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       {children}
       <footer>
         <hr />
-        <span>I'm here to stay (Footer)</span>
+        <span>
+          <FooterComponent/>
+        </span>
       </footer>
     </Box>
   </div>
