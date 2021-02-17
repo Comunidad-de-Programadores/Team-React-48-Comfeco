@@ -10,7 +10,7 @@ class UserError extends IApiErrors {
   );
 
   static readonly ALREADY_REGISTERED = new UserError(
-    HttpStatusCode.NOT_FOUND,
+    HttpStatusCode.UNAUTHORIZED,
     'error',
     'The user is already registered.'
   );
@@ -19,6 +19,12 @@ class UserError extends IApiErrors {
     HttpStatusCode.UNAUTHORIZED,
     'error',
     'Bad credentials.'
+  );
+
+  static readonly TOKEN_EXPIRED = new UserError(
+    HttpStatusCode.UNAUTHORIZED,
+    'error',
+    'Token expired.'
   );
 
   private constructor(

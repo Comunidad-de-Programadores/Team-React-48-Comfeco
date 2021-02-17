@@ -5,9 +5,12 @@ import UserError from "../../../../../errors/UserError";
 import db from "../../../../../middlewares/db";
 import TokenService from "../../../../../services/TokenService";
 import UserService from "../../../../../services/user-service";
+import { ApiResponse } from "../../../../../utils/ApiResponse";
+import ErrorHandler from "../../../../../utils/ErrorHandler";
 
 const tokenService = new TokenService();
 const userService = new UserService();
+const errorHandler = new ErrorHandler();
 const handler = nextConnect();
 
 handler.use(db);
@@ -16,9 +19,10 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const token = req.query.token.toString();
     const isValid = Boolean(await tokenService.getPasswordResetToken(token));
-    res.status(200).json(isValid);
+    const response = ApiResponse.ok("OK", isValid);
+    res.status(response.code).send(response);
   } catch (error) {
-    res.status(500).json(error.message)
+    errorHandler.sendError(error, req, res);
   }
 });
 
@@ -26,10 +30,11 @@ handler.put(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const requestToken = req.query.token.toString();
     const { password } = req.body;
-
     const token = await tokenService.getPasswordResetToken(requestToken);
-    if(!token) return res.status(403).json("Token expired");
+    
+    if(!token) throw UserError.TOKEN_EXPIRED;
     const user = await userService.getById(token.userId);
+    
     if(!user) throw UserError.NOT_FOUND;
     const newUser = new User({
       id: user.id,
@@ -41,9 +46,10 @@ handler.put(async (req: NextApiRequest, res: NextApiResponse) => {
     newUser.hashPassword();
 
     await userService.update(newUser);
-    res.status(200).json(newUser.toPresentation());
+    const response = ApiResponse.ok("Update successful.", newUser.toPresentation());
+    res.status(response.code).json(response);
   } catch (error) {
-    res.status(500).json(error.message);
+    errorHandler.sendError(error, req, res);
   }
 });
 
