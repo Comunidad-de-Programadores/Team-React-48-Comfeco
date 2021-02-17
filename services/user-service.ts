@@ -13,9 +13,10 @@ class UserService {
     });
   }
 
-  async getByEmail(email: string): Promise<User> {
+  async getByEmail(email: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ email });
     const user = new User(userDB);
+    if(!user) return null;
     return user;
   }
 

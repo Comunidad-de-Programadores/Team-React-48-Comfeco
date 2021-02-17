@@ -5,9 +5,13 @@ import middleware from '../../../middlewares/middleware';
 import UserService from '../../../services/user-service';
 import User from '../../../domain/User';
 import IdService from '../../../services/IdService';
+import { ApiResponse } from '../../../utils/ApiResponse';
+import UserError from '../../../errors/UserError';
+import ErrorHandler from '../../../utils/ErrorHandler';
 
 const userService = new UserService();
 const idService = new IdService();
+const errorHandler = new ErrorHandler();
 
 const handler = nextConnect();
 
@@ -22,11 +26,16 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     const data = req.body;
     const id = idService.generate();
     const user = new User({...data, id});
+    const isRegistered = await userService.getByEmail(user.email);
+
+    if(isRegistered) throw UserError.ALREADY_REGISTERED;
+    
     user.hashPassword();
     await userService.create(user);
-    res.status(201).json("Created");
+    const response = ApiResponse.created('successful registration', user.toPresentation());
+    res.status(response.code).json(response);
   } catch (error) {
-    res.status(500).json(error.message);
+    errorHandler.sendError(error, req, res);
   }
 });
 
