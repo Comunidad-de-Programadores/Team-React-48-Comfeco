@@ -9,7 +9,7 @@ const usePasswordToggle = () => {
     setIsVisible(!isVisible);
   };
 
-  const Icon = !isVisible ? <FaEye onClick={handleClick}/> : <FaEyeSlash onClick={handleClick} />;
+  const Icon = !isVisible ? <FaEye onClick={handleClick} size="sm" /> : <FaEyeSlash onClick={handleClick} size="sm" />;
   const inputType = isVisible ? "text" : "password";
 
 

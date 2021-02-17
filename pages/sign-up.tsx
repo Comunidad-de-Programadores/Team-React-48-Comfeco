@@ -2,80 +2,80 @@ import React, { ReactElement } from "react";
 import Image from 'next/image';
 import Layout from "../components/Layout";
 import styled from "@emotion/styled";
-import {Box, Input, Text} from 
+import {Box, InputGroup, Input, InputRightElement, Text, FormControl, Button} from '@chakra-ui/react'
 import usePasswordToggle from "../hooks/usePasswordToggle";
 
 interface Props {}
 
-const SignUpStyle = styled.div`
-  display: flex;
+// const SignUpStyle = styled.div`
+//   display: flex;
 
-  h1 {
-    font-size: 2rem;
-  }
+//   h1 {
+//     font-size: 2rem;
+//   }
 
-  form {
-    width: 100%;
-    margin-top: 2rem; 
-  }
-`
+//   form {
+//     width: 100%;
+//     margin-top: 2rem; 
+//   }
+// `
 
-const SingUpFormStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  text-align: center;
-`
+// const SingUpFormStyle = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 80%;
+//   text-align: center;
+// `
 
-const FieldGroup = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-`
+// const FieldGroup = styled.div`
+//   width: 80%;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-direction: row;
+// `
 
-const Field = styled.div`
-  display: flex;
-  margin: 0.5rem 1rem;
-  width: 100%;
-  position: relative;
+// const Field = styled.div`
+//   display: flex;
+//   margin: 0.5rem 1rem;
+//   width: 100%;
+//   position: relative;
 
-  input {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 10px;
-  }
+//   input {
+//     width: 100%;
+//     padding: 1rem;
+//     border-radius: 10px;
+//   }
 
-  span {
-    position: absolute;
-    top: 35%;
-    left: 90%;
-    cursor: pointer;
-  }
-`
+//   span {
+//     position: absolute;
+//     top: 35%;
+//     left: 90%;
+//     cursor: pointer;
+//   }
+// `
 
-const ImageStyles = styled.div`
-  width: 30%;
-  margin-top: 5rem;
-  img {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
-`
+// const ImageStyles = styled.div`
+//   width: 30%;
+//   margin-top: 5rem;
+//   img {
+//     -webkit-transform: scaleX(-1);
+//     transform: scaleX(-1);
+//   }
+// `
 
-const InputSubmit = styled.div`
-  text-align: center;
-  margin-top: 1.5rem;
+// const InputSubmit = styled.div`
+//   text-align: center;
+//   margin-top: 1.5rem;
 
-  input {
-    background: linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 
-    14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%);
-    width: 60%;
-    color: white;
-    padding: 1rem 0;
-    border-radius: 10px;
-  }
-`
+//   input {
+//     background: linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 
+//     14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%);
+//     width: 60%;
+//     color: white;
+//     padding: 1rem 0;
+//     border-radius: 10px;
+//   }
+// `
 
 export default function SignUp({}: Props): ReactElement {
   const {inputType: inputTypePassword, Icon: IconPassword} = usePasswordToggle();
@@ -83,141 +83,173 @@ export default function SignUp({}: Props): ReactElement {
   
   return <Layout title="Registro">
 
-    <SignUpStyle
-    style={{
-      display:'flex'
-    }}>
-      <SingUpFormStyle style={{
-      display:'flex',
-      flexDirection:"column",
-      width: "55%",
-      textAlign:"center"
-      }}>
-        <h1 style={{
-          fontSize:'2rem'
-        }}>
+    <Box
+      display='flex'
+    >
+      <Box
+      display='flex'
+      height='100vh'
+      flexDirection="column"
+      width= "55%"
+      paddingTop='6em'
+      textAlign="center"
+      >
+        <Text
+        fontSize ='3rem'
+        color='#555555'
+        >
           Bienvenido a bordo
-        </h1>
-        <form style={{
-          width:"100%",
-          marginTop:"2rem"
-        }}>
-          <FieldGroup style={{
-            width:'80%',
-            margin: "0 auto",
-            display:'flex',
-            flexDirection: "row"
-          }}>
-            <Field style={{
-              display:'flex',
-              margin: "0.5rem 1rem",
-              width: "100%",
-              position: "relative"
-            }}>
-              <input 
+        </Text>
+        <FormControl
+          width="100%"
+          marginTop="2rem"
+        >
+          <InputGroup
+            width='80%'
+            margin= "0 auto"
+            display='flex'
+            flexDirection= "row"
+          >
+            <Box
+              display='flex'
+              margin= "0.5rem 1rem"
+              width= "100%"
+              position= "relative"
+            >
+              <Input 
+                variant='filled'
                 type="text"
                 id="username"
                 placeholder="Nombre de usuario"
                 name="username"
-                style={{
-                  width: "100%",
-                  padding: "1rem",
-                  borderRadius: "10px"
-                }}
+                width= "100%"
+                padding= "1rem"
+                borderRadius= "10px"
+                height="5rem"
               />
-            </Field>
-            <Field>
-              <input 
-                  type="text"
-                  id="email"
-                  placeholder="Correo eletronico"
-                  name="email"
-                  style={{
-                    width: "100%",
-                    padding: "1rem",
-                    borderRadius: "10px"
-                  }}
-                />
-            </Field>
-          </FieldGroup>
+            </Box>
+            <Box
+            display='flex'
+            margin= "0.5rem 1rem"
+            width= "100%"
+            position= "relative"
+            >
+              <Input
+                variant='filled'
+                type="text"
+                id="email"
+                placeholder="Correo eletronico"
+                name="email"
+                width= "100%"
+                padding= "1rem"
+                borderRadius= "10px"
+                height="5rem"
+              />
+            </Box>
+          </InputGroup>
           
-          <FieldGroup>
-            <Field>
-              <input 
-                  type={inputTypePassword}
-                  id="password"
-                  placeholder="Contrase;a"
-                  name="password"
-                  style={{
-                    width: "100%",
-                    padding: "1rem",
-                    borderRadius: "10px"
-                  }}
-                />
-                <span style={{
-                  position: "absolute",
-                  top: "35%",
-                  left: "90%",
-                  cursor: "pointer",
-                }}>{IconPassword}</span>
-            </Field>
-            <Field>
-              <input 
-                  type={inputTypeConfirmPassword}
-                  id="confirm-password"
-                  placeholder="Confirmar contrase;a"
-                  name="confirm-password"
-                  style={{
-                    width: "100%",
-                    padding: "1rem",
-                    borderRadius: "10px"
-                  }}
-                />
-                <span style={{
-                  position: "absolute",
-                  top: "35%",
-                  left: "90%",
-                  cursor: "pointer",
-                }}>
-                  {IconConfirmPassword}
-                </span>
-            </Field>
-          </FieldGroup>
+          <InputGroup
+            width='80%'
+            margin= "0 auto"
+            display='flex'
+            flexDirection= "row"
+          >
+            <Box
+            display='flex'
+            margin= "1rem 1rem"
+            width= "100%"
+            position= "relative"
+            >
+              <Input
+                variant='filled'
+                type={inputTypePassword}
+                id="password"
+                placeholder="Contraseña"
+                name="password"   
+                width= "100%"
+                padding= "1rem"
+                borderRadius= "10px"
+                height="5rem"
+              />
+              <InputRightElement 
+                width='1.5rem'
+                position= "absolute"
+                top= "calc(50% - 20px)"
+                left= "calc(90% - 6px)"
+                cursor= "pointer"
+                children={IconPassword}
+              />
+            </Box>
+            <Box
+            display='flex'
+            margin= "1rem 1rem"
+            width= "100%"
+            position= "relative"
+            >
+              <Input
+                variant='filled'
+                type={inputTypeConfirmPassword}
+                id="confirm-password"
+                placeholder="Confirmar contraseña"
+                name="confirm-password"                  
+                width= "100%"
+                padding= "1rem"
+                borderRadius= "10px"
+                height="5rem"
+              
+              />
+              <InputRightElement
+                width='1.5rem'
+                position= "absolute"
+                top= "calc(50% - 20px)"
+                left= "calc(90% - 6px)"
+                cursor= "pointer"
+                children= {IconConfirmPassword}
+              />
+            </Box>
+          </InputGroup>
 
-          <InputSubmit style={{
-            textAlign: "center",
-            marginTop: "1.5rem",
-          }}>
-            <input 
+          <Box
+            textAlign= "center"
+            marginTop= "1.5rem"
+          >
+            <Button
               type="submit"
-              value="Registrarse"
-              style={{
-                background: `linear-gradient(90deg,
-                rgba(82, 30, 135, 0.8) 0.01%,
-                rgba(91, 29, 136, 0.8) 14.55%,
-                rgba(117, 26, 138, 0.8) 38.82%,
-                rgba(138, 23, 140, 0.8) 54.92%,
-                rgba(142, 28, 134, 0.8) 56.27%,
-                rgba(195, 109, 66, 0.8) 77.54%,
-                rgba(228, 160, 23, 0.8) 92.6%,
-                rgba(241, 178, 6, 0.8) 99.98%)`,
-                width: "60%",
-                padding: "1rem 0",
-                borderRadius: "10px",
-                color:"white"
+              background= {`linear-gradient(90deg,
+              rgba(82, 30, 135, 0.8) 0.01%,
+              rgba(91, 29, 136, 0.8) 14.55%,
+              rgba(117, 26, 138, 0.8) 38.82%,
+              rgba(138, 23, 140, 0.8) 54.92%,
+              rgba(142, 28, 134, 0.8) 56.27%,
+              rgba(195, 109, 66, 0.8) 77.54%,
+              rgba(228, 160, 23, 0.8) 92.6%,
+              rgba(241, 178, 6, 0.8) 99.98%)`}
+              _hover={{
+                background:
+                  "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
+                color: "#fafafa",
               }}
-            />
-          </InputSubmit>
-        </form>
+              width= "50%"
+              height="5rem"
+              padding= "1rem 0"
+              borderRadius= "10px"
+              color="white"
+              fontSize="30px"
+            >
+              Registrarse
+            </Button>
+          </Box>
+        </FormControl>
 
-        <div>
+        <Box>
           O continua
-        </div>
-      </SingUpFormStyle>
-      <ImageStyles style={{
-        width: "45%",
-        marginTop: "5rem",
-      }}>
+        </Box>
+      </Box>
+      <Box
+        height='100vh'
+        width= "45%"
+        marginTop= "5rem"
+      >
         <Image 
           src="/images/registro.png"
           alt="Sign up"
@@ -225,8 +257,8 @@ export default function SignUp({}: Props): ReactElement {
           height={450}
           
         />
-      </ImageStyles>
-    </SignUpStyle>
+      </Box>
+    </Box>
     
   </Layout>;
 }
