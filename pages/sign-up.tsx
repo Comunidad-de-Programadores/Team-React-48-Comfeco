@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import Image from 'next/image';
 import Layout from "../components/Layout";
 import styled from "@emotion/styled";
+import {GrFacebook, GrGoogle} from "react-icons/gr"
 import {Box, InputGroup, Input, InputRightElement, Text, FormControl, Button} from '@chakra-ui/react'
 import usePasswordToggle from "../hooks/usePasswordToggle";
 
@@ -93,6 +94,7 @@ export default function SignUp({}: Props): ReactElement {
       width= "55%"
       paddingTop='6em'
       textAlign="center"
+      alignItems="center"
       >
         <Text
         fontSize ='3rem'
@@ -240,15 +242,14 @@ export default function SignUp({}: Props): ReactElement {
             </Button>
           </Box>
         </FormControl>
-
-        {/* <Box>
-          O continua
-        </Box> */}
         <Box
-        position="relative"
-        mt="2em"
-        height='2rem'
+        width='50%'
         >
+          <Box
+          position="relative"
+          mt="2em"
+          height='2rem'
+          >
             <hr
             style={{
                 position:"absolute",
@@ -271,12 +272,12 @@ export default function SignUp({}: Props): ReactElement {
             >
                 O continua
             </Text>
-        </Box>
-        <Box
-        display='flex'
-        justifyContent='space-around'
-        mt='2rem'
-        >
+          </Box>
+          <Box
+          display='flex'
+          justifyContent='space-around'
+          mt='2rem'
+          >
             <Box
             width='100px'
             height="80px"
@@ -304,6 +305,7 @@ export default function SignUp({}: Props): ReactElement {
             >
                 <GrFacebook size='small' />
             </Box>
+          </Box>
         </Box>
       </Box>
       <Box
