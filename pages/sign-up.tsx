@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
-import Image from 'next/image';
+// import Image from 'next/image';
 import Layout from "../components/Layout";
 import styled from "@emotion/styled";
 import {GrFacebook, GrGoogle} from "react-icons/gr"
-import {Box, InputGroup, Input, InputRightElement, Text, FormControl, Button} from '@chakra-ui/react'
+import {Box, InputGroup, Input, InputRightElement, Text, FormControl, Button, Image} from '@chakra-ui/react'
 import usePasswordToggle from "../hooks/usePasswordToggle";
 
 interface Props {}
@@ -316,9 +316,8 @@ export default function SignUp({}: Props): ReactElement {
         <Image 
           src="/images/registro.png"
           alt="Sign up"
-          width={600}
-          height={450}
-          
+          width={"90%"}
+          transform="scaleX(-1)"
         />
       </Box>
     </Box>
