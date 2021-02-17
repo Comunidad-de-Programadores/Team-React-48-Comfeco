@@ -241,8 +241,69 @@ export default function SignUp({}: Props): ReactElement {
           </Box>
         </FormControl>
 
-        <Box>
+        {/* <Box>
           O continua
+        </Box> */}
+        <Box
+        position="relative"
+        mt="2em"
+        height='2rem'
+        >
+            <hr
+            style={{
+                position:"absolute",
+                top:"50%",
+                zIndex:1,
+                borderTopWidth:"2px",
+                borderColor:"#E1E2E7",
+                width:"100%",
+            }}
+            />
+            <Text
+            fontSize="16px"
+            position='absolute'
+            top="calc(50% - 28px)"
+            padding="1rem"
+            right='calc(50% - 73px)'
+            zIndex="2"
+            backgroundColor='#F3F2F3'
+            color='#85898D'
+            >
+                O continua
+            </Text>
+        </Box>
+        <Box
+        display='flex'
+        justifyContent='space-around'
+        mt='2rem'
+        >
+            <Box
+            width='100px'
+            height="80px"
+            backgroundColor="white"
+            borderRadius='1.5em'
+            padding='1.5em'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            >
+                <GrGoogle size='medium'/>
+            </Box>
+            <Text>
+                con
+            </Text>
+            <Box
+            width='100px'
+            height="80px"
+            padding='1.5em'
+            backgroundColor="white"
+            borderRadius='1.5em'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            >
+                <GrFacebook size='small' />
+            </Box>
         </Box>
       </Box>
       <Box
