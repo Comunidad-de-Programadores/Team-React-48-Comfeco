@@ -1,4 +1,4 @@
-import { Login, LoginErrors } from "../interfaces";
+import { Login, LoginErrors } from "../../interfaces";
 
 export default function loginValidator(values: Login) {
   let errors: LoginErrors = {
@@ -17,4 +17,5 @@ export default function loginValidator(values: Login) {
   }else if(values.password.length < 6) {
     errors.password = 'Pasword must be at least 6 characters long';
   }
+  return errors
 }
