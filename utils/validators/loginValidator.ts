@@ -1,4 +1,4 @@
-import { Login, LoginErrors } from "../interfaces";
+import { Login, LoginErrors } from "../../interfaces";
 
 export default function loginValidator(values: Login) {
   let errors: LoginErrors = {
