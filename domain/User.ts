@@ -1,15 +1,18 @@
 import bcrypt from 'bcrypt';
+import Token from './Token';
 
 class User {
-  private username: string;
-  private email: string;
+  readonly id: string;
+  readonly username: string;
+  readonly email: string;
   private password: string;
 
   constructor(
-    { username,email,password } : 
-    { username: string,email: string,password:string }
+    { id, username,email,password } : 
+    { id: string, username: string,email: string,password:string }
   ) 
   {
+    this.id = id
     this.username = username;
     this.email = email;
     this.password = password;
@@ -22,11 +25,20 @@ class User {
   }
 
   public isAuthenticate(password: string): boolean {
-    return bcrypt.compareSync(password, this.password);
+  return bcrypt.compareSync(password, this.password);
+  }
+
+  public generateResetPasswordToken(): Token {
+    const token = new Token({ 
+      userId: this.id, 
+      type: 'passwordReset'
+    });
+    return token;
   }
 
   public toPersistence() {
     return {
+      _id: this.id,
       username: this.username,
       email: this.email,
       password: this.password
@@ -35,6 +47,7 @@ class User {
 
   public toPresentation() {
     return {
+      id: this.id,
       username: this.username,
       email: this.email
     }

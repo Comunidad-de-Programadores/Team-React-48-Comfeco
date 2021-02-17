@@ -9,7 +9,7 @@ export default async function connect(_req: NextApiRequest, _res: NextApiRespons
     };
 
     await mongoose.connect(
-      'mongodb://127.0.0.1:27017/comfeco', 
+      process.env.MONGO_URL || '', 
       {
         useNewUrlParser: true,
         useUnifiedTopology: true
