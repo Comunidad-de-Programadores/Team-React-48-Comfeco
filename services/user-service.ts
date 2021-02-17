@@ -15,14 +15,26 @@ class UserService {
 
   async getByEmail(email: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ email });
-    const user = new User(userDB);
-    if(!user) return null;
+    if(!userDB) return null;
+    const user = new User({
+      id: userDB._id,
+      username: userDB.username,
+      email: userDB.email,
+      password: userDB.password
+    });
     return user;
   }
 
-  async getById(id: string): Promise<User> {
+  async getById(id: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ _id:  id});
-    const user = new User(userDB);
+    if(!userDB) return null;
+    const user = new User({
+      id: userDB._id,
+      username: userDB.username,
+      email: userDB.email,
+      password: userDB.password
+    });
+
     return user;
   }
 }

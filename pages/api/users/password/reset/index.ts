@@ -26,7 +26,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     
     await emailService.send(user, "Reset Password", token.token);
     await tokenService.create(token);
-    const response = ApiResponse.ok("Token is valid", null);
+    const response = ApiResponse.ok("Token sent.", null);
     res.status(response.code).send(response);
   } catch (error) {
     errorHandler.sendError(error, req, res)

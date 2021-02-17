@@ -8,8 +8,8 @@ class User {
   private password: string;
 
   constructor(
-    { id, username,email,password } : 
-    { id: string, username: string,email: string,password:string }
+    { id, username, email, password } : 
+    { id: string, username: string, email: string,password:string }
   ) 
   {
     this.id = id

@@ -35,6 +35,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     const response = ApiResponse.created('successful registration', user.toPresentation());
     res.status(response.code).json(response);
   } catch (error) {
+    console.log(error)
     errorHandler.sendError(error, req, res);
   }
 });
