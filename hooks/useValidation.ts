@@ -7,12 +7,12 @@ const useValidation = (initalState: any, handleValidation: any, handler: any) =>
 
   useEffect(() => {
     if(isReady) {
-      const haveErrors = Object.keys(errors).length !== 0;
+      const haveErrors = Object.values(errors).some(error => error !== null);
       if(!haveErrors) handler();
 
       setIsReady(false);
     }
-  }, []);
+  }, [errors]);
 
   const handleChange = (e: any) => {
     setValues({

@@ -1,6 +1,6 @@
 import { Login, LoginErrors } from "../../interfaces";
 
-export default function loginValidator(values: Login) {
+export default function loginValidator(values: Login) : LoginErrors {
   let errors: LoginErrors = {
     email: null,
     password: null
