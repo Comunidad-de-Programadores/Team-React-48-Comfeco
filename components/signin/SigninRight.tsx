@@ -33,7 +33,7 @@ export default function SigninRight({}: Props): ReactElement {
 
   const loginUser = async () => {
     try {
-      const response = await fetch("/api/auth", {
+      const response = await fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

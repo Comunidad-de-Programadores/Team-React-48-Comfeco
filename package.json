@@ -17,12 +17,14 @@
     "framer-motion": "^3.3.0",
     "mongoose": "^5.11.16",
     "next": "latest",
+    "next-auth": "^3.4.2",
     "next-connect": "^0.10.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@types/next-auth": "^3.1.24",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
