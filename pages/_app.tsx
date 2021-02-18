@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import { extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
+import { Provider } from "next-auth/client";
 
 import "../utils/style.css";
 // 2. Update the breakpoints as key-value pairs
@@ -16,9 +17,11 @@ const theme = extendTheme({ breakpoints });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Provider session={pageProps.session}>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </Provider>
   );
 }
 export default MyApp;
