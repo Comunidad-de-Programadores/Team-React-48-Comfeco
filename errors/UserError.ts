@@ -6,7 +6,7 @@ class UserError extends IApiErrors {
   static readonly NOT_FOUND = new UserError(
     HttpStatusCode.NOT_FOUND,
     'error',
-    'user not found.'
+    'User not found.'
   );
 
   static readonly ALREADY_REGISTERED = new UserError(
@@ -18,7 +18,7 @@ class UserError extends IApiErrors {
   static readonly BAD_CREDENTIALS = new UserError(
     HttpStatusCode.UNAUTHORIZED,
     'error',
-    'Bad credentials.'
+    'Invalid email or password.'
   );
 
   static readonly TOKEN_EXPIRED = new UserError(
