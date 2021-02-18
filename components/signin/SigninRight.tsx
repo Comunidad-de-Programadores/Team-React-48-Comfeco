@@ -1,5 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/client";
+
 import {
   Box,
   InputGroup,
@@ -176,9 +178,11 @@ export default function SigninRight({}: Props): ReactElement {
               width="100px"
               height="80px"
               backgroundColor="white"
+              cursor="pointer"
               borderRadius="1.5em"
               padding="1.5em"
               display="flex"
+              onClick={() => signIn("google")}
               justifyContent="center"
               alignItems="center"
             >
@@ -191,7 +195,9 @@ export default function SigninRight({}: Props): ReactElement {
               padding="1.5em"
               backgroundColor="white"
               borderRadius="1.5em"
+              cursor="pointer"
               display="flex"
+              onClick={() => signIn("facebook")}
               justifyContent="center"
               alignItems="center"
             >
