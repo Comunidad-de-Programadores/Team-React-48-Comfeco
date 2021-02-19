@@ -18,3 +18,17 @@ export type Login = {
   email: string
   password: string
 }
+
+export type SignupErrors = {
+  username: string | null,
+  email: string | null,
+  password: string | null,
+  confirmPassword: string | null
+}
+
+export type Signup = {
+  username: string,
+  email: string,
+  password: string,
+  confirmPassword: string
+}
