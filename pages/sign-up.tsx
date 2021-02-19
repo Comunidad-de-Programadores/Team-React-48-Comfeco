@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import Layout from "../components/Layout";
 import { GrFacebook, GrGoogle } from "react-icons/gr";
 import {
@@ -12,6 +12,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 import usePasswordToggle from "../hooks/usePasswordToggle";
+import useValidation from "../hooks/useValidation";
+import signupValidator from "../utils/validators/signupValidator";
+import { SignupErrors } from "../interfaces";
 
 interface Props {}
 
@@ -24,6 +27,44 @@ export default function SignUp({}: Props): ReactElement {
     inputType: inputTypeConfirmPassword,
     Icon: IconConfirmPassword,
   } = usePasswordToggle();
+
+  const [apiError, setApiError] = useState(null);
+  const [registerSuccess, setregisterSuccess] = useState(false);
+
+  const initialState = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+
+  const register = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/users", {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(values)
+      });
+
+      const data = await response.json();
+
+      if(data.code === 201) {
+        setregisterSuccess(true);
+        setApiError(null);
+        return;
+      }
+
+      setApiError(data?.error);
+      setregisterSuccess(false);
+    } catch (error) {
+      setApiError(error?.message);
+    }
+  };
+
+  const {values, errors, handleChange, handleSubmit} = useValidation(initialState, signupValidator, register);
+  const {username, email, password, confirmPassword} = values;
 
   return (
     <Layout title="Registro">
@@ -41,137 +82,155 @@ export default function SignUp({}: Props): ReactElement {
             Bienvenido a bordo
           </Text>
           <FormControl width="100%" marginTop="2rem">
-            <InputGroup
-              width="80%"
-              margin="0 auto"
-              display="flex"
-              flexDirection="row"
-            >
-              <Box
+            <form onSubmit={handleSubmit}>
+              <InputGroup
+                width="80%"
+                margin="0 auto"
                 display="flex"
-                margin="0.5rem 1rem"
-                width="100%"
-                position="relative"
+                flexDirection="row"
               >
-                <Input
-                  variant="filled"
-                  type="text"
-                  id="username"
-                  placeholder="Nombre de usuario"
-                  name="username"
+                <Box
+                  // display="flex"
+                  margin="0.5rem 1rem"
                   width="100%"
-                  padding="1rem"
-                  borderRadius="10px"
-                  height="5rem"
-                />
-              </Box>
-              <Box
-                display="flex"
-                margin="0.5rem 1rem"
-                width="100%"
-                position="relative"
-              >
-                <Input
-                  variant="filled"
-                  type="text"
-                  id="email"
-                  placeholder="Correo eletronico"
-                  name="email"
+                  position="relative"
+                >
+                  <Input
+                    variant="filled"
+                    type="text"
+                    id="username"
+                    placeholder="Nombre de usuario"
+                    name="username"
+                    width="100%"
+                    padding="1rem"
+                    borderRadius="10px"
+                    height="5rem"
+                    value={username}
+                    onChange={handleChange}
+                  />
+                {(errors as SignupErrors).username && <Text color="red">{(errors as SignupErrors).username}</Text>} 
+                </Box>
+                <Box
+                  // display="flex"
+                  margin="0.5rem 1rem"
                   width="100%"
-                  padding="1rem"
-                  borderRadius="10px"
-                  height="5rem"
-                />
-              </Box>
-            </InputGroup>
+                  position="relative"
+                >
+                  <Input
+                    variant="filled"
+                    type="text"
+                    id="email"
+                    placeholder="Correo eletronico"
+                    name="email"
+                    width="100%"
+                    padding="1rem"
+                    borderRadius="10px"
+                    height="5rem"
+                    value={email}
+                    onChange={handleChange}
+                  />
+                  {(errors as SignupErrors).email && <Text color="red">{(errors as SignupErrors).email}</Text>} 
 
-            <InputGroup
-              width="80%"
-              margin="0 auto"
-              display="flex"
-              flexDirection="row"
-            >
-              <Box
-                display="flex"
-                margin="1rem 1rem"
-                width="100%"
-                position="relative"
-              >
-                <Input
-                  variant="filled"
-                  type={inputTypePassword}
-                  id="password"
-                  placeholder="Contraseña"
-                  name="password"
-                  width="100%"
-                  padding="1rem"
-                  borderRadius="10px"
-                  height="5rem"
-                />
-                <InputRightElement
-                  width="1.5rem"
-                  position="absolute"
-                  top="calc(50% - 20px)"
-                  left="calc(90% - 6px)"
-                  cursor="pointer"
-                  children={IconPassword}
-                />
-              </Box>
-              <Box
-                display="flex"
-                margin="1rem 1rem"
-                width="100%"
-                position="relative"
-              >
-                <Input
-                  variant="filled"
-                  type={inputTypeConfirmPassword}
-                  id="confirm-password"
-                  placeholder="Confirmar contraseña"
-                  name="confirm-password"
-                  width="100%"
-                  padding="1rem"
-                  borderRadius="10px"
-                  height="5rem"
-                />
-                <InputRightElement
-                  width="1.5rem"
-                  position="absolute"
-                  top="calc(50% - 20px)"
-                  left="calc(90% - 6px)"
-                  cursor="pointer"
-                  children={IconConfirmPassword}
-                />
-              </Box>
-            </InputGroup>
+                </Box>
+              </InputGroup>
 
-            <Box textAlign="center" marginTop="1.5rem">
-              <Button
-                type="submit"
-                background={`linear-gradient(90deg,
-              rgba(82, 30, 135, 0.8) 0.01%,
-              rgba(91, 29, 136, 0.8) 14.55%,
-              rgba(117, 26, 138, 0.8) 38.82%,
-              rgba(138, 23, 140, 0.8) 54.92%,
-              rgba(142, 28, 134, 0.8) 56.27%,
-              rgba(195, 109, 66, 0.8) 77.54%,
-              rgba(228, 160, 23, 0.8) 92.6%,
-              rgba(241, 178, 6, 0.8) 99.98%)`}
-                _hover={{
-                  background:
-                    "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
-                  color: "#fafafa",
-                }}
-                width="50%"
-                height="5rem"
-                padding="1rem 0"
-                borderRadius="10px"
-                color="white"
-                fontSize="30px"
+              <InputGroup
+                width="80%"
+                margin="0 auto"
+                display="flex"
+                flexDirection="row"
               >
-                Registrarse
-              </Button>
-            </Box>
+                <Box
+                  // display="flex"
+                  margin="1rem 1rem"
+                  width="100%"
+                  position="relative"
+                >
+                  <Input
+                    variant="filled"
+                    type={inputTypePassword}
+                    id="password"
+                    placeholder="Contraseña"
+                    name="password"
+                    width="100%"
+                    padding="1rem"
+                    borderRadius="10px"
+                    height="5rem"
+                    value={password}
+                    onChange={handleChange}
+                  />
+                  <InputRightElement
+                    width="1.5rem"
+                    position="absolute"
+                    // top="calc(50% - 20px)"
+                    top="1.2rem"
+                    left="calc(90% - 6px)"
+                    cursor="pointer"
+                    children={IconPassword}
+                  />
+                  {(errors as SignupErrors).password && <Text color="red">{(errors as SignupErrors).password}</Text>} 
+                </Box>
+                <Box
+                  // display="flex"
+                  margin="1rem 1rem"
+                  width="100%"
+                  position="relative"
+                >
+                  <Input
+                    variant="filled"
+                    type={inputTypeConfirmPassword}
+                    id="confirmPassword"
+                    placeholder="Confirmar contraseña"
+                    name="confirmPassword"
+                    width="100%"
+                    padding="1rem"
+                    borderRadius="10px"
+                    height="5rem"
+                    values={confirmPassword}
+                    onChange={handleChange}
+                  />
+                  <InputRightElement
+                    width="1.5rem"
+                    position="absolute"
+                    // top="calc(50% - 20px)"
+                    top="1.2rem"
+                    left="calc(90% - 6px)"
+                    cursor="pointer"
+                    children={IconConfirmPassword}
+                  />
+                  {(errors as SignupErrors).confirmPassword && <Text color="red">{(errors as SignupErrors).confirmPassword}</Text>} 
+                </Box>
+              </InputGroup>
+              {apiError && <Text color="red">{apiError}</Text>}
+              {registerSuccess && <Text color="green">Register successful!</Text>}
+              <Box textAlign="center" marginTop="1.5rem">
+                <Button
+                  type="submit"
+                  background={`linear-gradient(90deg,
+                rgba(82, 30, 135, 0.8) 0.01%,
+                rgba(91, 29, 136, 0.8) 14.55%,
+                rgba(117, 26, 138, 0.8) 38.82%,
+                rgba(138, 23, 140, 0.8) 54.92%,
+                rgba(142, 28, 134, 0.8) 56.27%,
+                rgba(195, 109, 66, 0.8) 77.54%,
+                rgba(228, 160, 23, 0.8) 92.6%,
+                rgba(241, 178, 6, 0.8) 99.98%)`}
+                  _hover={{
+                    background:
+                      "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
+                    color: "#fafafa",
+                  }}
+                  width="50%"
+                  height="5rem"
+                  padding="1rem 0"
+                  borderRadius="10px"
+                  color="white"
+                  fontSize="30px"
+                >
+                  Registrarse
+                </Button>
+              </Box>
+            </form>
           </FormControl>
           <Box width="50%">
             <Box position="relative" mt="2em" height="2rem">
