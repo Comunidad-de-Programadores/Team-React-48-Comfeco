@@ -27,6 +27,7 @@ export default function SigninRight({}: Props): ReactElement {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [apiError, setApiError] = useState(null);
+  const [loginSuccess, setloginSuccess] = useState(false);
 
   const initialState = {
     email: "",
@@ -45,7 +46,14 @@ export default function SigninRight({}: Props): ReactElement {
 
       const data = await response.json();
 
-      if (data.code !== 200) setApiError(data.error);
+      if (data.code !== 200) {
+        setApiError(data?.error);
+        setloginSuccess(false);
+        return;
+      }
+
+      setApiError(null);
+      setloginSuccess(true);
     } catch (error) {
       setApiError(error.error);
     }
@@ -127,6 +135,12 @@ export default function SigninRight({}: Props): ReactElement {
             {apiError && (
               <Text textAlign="center" color="red">
                 {apiError}
+              </Text>
+            )}
+
+            {loginSuccess && (
+              <Text textAlign="center" color="green">
+                Login successful!
               </Text>
             )}
 
