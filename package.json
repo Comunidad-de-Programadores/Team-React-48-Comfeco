@@ -18,7 +18,8 @@
       "eslint"
     ],
     "*src/**/*..{js,jsx,ts,tsx,json}": [
-      "prettier --write"
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {
