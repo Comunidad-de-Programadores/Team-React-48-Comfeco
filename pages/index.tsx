@@ -1,10 +1,10 @@
-import Layout from '../components/Layout'
-import Dashboard from '../components/Countdown'
+import Layout from "../components/Layout";
+import Countdown from "../components/Countdown";
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-      <Dashboard/>
+    <Countdown />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
