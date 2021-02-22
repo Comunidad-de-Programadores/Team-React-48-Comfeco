@@ -1,15 +1,19 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import Banner from '../components/Banner'
+import Countdown from '../components/Timer'
 
 const AboutPage = () => (
   <Layout title="About | Next.js + TypeScript Example">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
+    <div>
+    <Banner/>
+    <Countdown/>
+    <p style={{backgroundColor: "blue"}}>
       <Link href="/">
         <a>Go home</a>
       </Link>
     </p>
+    </div>
   </Layout>
 )
 

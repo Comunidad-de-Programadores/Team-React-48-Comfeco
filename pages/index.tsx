@@ -20,6 +20,6 @@ const IndexPage = () => (
         </GridItem>
       </Grid>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
