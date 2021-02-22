@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import LeftSidebar from '../components/LeftSidebar'
-import Dashboard from '../components/Dashboard'
+import Countdown from '../components/Countdown'
 import RightSidebar from '../components/RightSidebar'
 import {Grid, GridItem} from '@chakra-ui/react'
 
@@ -13,7 +13,7 @@ const IndexPage = () => (
           <LeftSidebar/>
         </GridItem>
         <GridItem colSpan={5}>
-          <Dashboard/>
+          <Countdown/>
         </GridItem>
         <GridItem colSpan={2}>
           <RightSidebar/>
