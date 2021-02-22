@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
-import Countdown from '../components/Countdown'
+import Countdown from '../components/Timer'
 
 const AboutPage = () => (
   <Layout title="About | Next.js + TypeScript Example">
