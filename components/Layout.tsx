@@ -10,7 +10,7 @@ type Props = {
   title?: string;
 };
 const Layout = ({ children, title = "This is the default title" }: Props) => (
-  <div>
+  <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -28,7 +28,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       {children}
           <FooterComponent/>
     </Grid>
-  </div>
+  </>
 );
 
 export default Layout;

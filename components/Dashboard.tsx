@@ -17,27 +17,26 @@ export default function Dashboard(): ReactElement{
                     <Heading color="#9A30A6" as="h6" size="sm" textAlign="center" mb="5px">Preparate lo bueno esta por venir</Heading>
                     <Box w="100%" h="5rem" display="flex" justifyContent="center" bg="blue">
                         <Box display="flex" bg="brown" justifyContent="space-evenly" w="80%">
-                                <Box position="relative" w="20%" bg="palegoldenrod">
-                                    <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">365</Text>
-                                    <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Dias</Text>
-                                    <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
-                                </Box>
-                                <Box position="relative" w="20%" bg="palegoldenrod">
-                                    <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">24</Text>
-                                    <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Horas</Text>
-                                    <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
-                                </Box>
-                                <Box position="relative" w="20%" bg="palegoldenrod">  
-                                    <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">60</Text>
-                                    <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Minutos</Text>
-                                    <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
-                                </Box>
-                                <Box position="relative" w="20%" bg="palegoldenrod">
-                                    <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">60</Text>
-                                    <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Segundos</Text>
-                                </Box>
+                            <Box position="relative" w="20%" bg="palegoldenrod">
+                                <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">365</Text>
+                                <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Dias</Text>
+                                <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
                             </Box>
-
+                            <Box position="relative" w="20%" bg="palegoldenrod">
+                                <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">24</Text>
+                                <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Horas</Text>
+                                <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
+                            </Box>
+                            <Box position="relative" w="20%" bg="palegoldenrod">  
+                                <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">60</Text>
+                                <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Minutos</Text>
+                                <span style={{position: "absolute", bottom: "20%", left: "105%", fontSize: "30px", fontWeight: "bold"}}>:</span>
+                            </Box>
+                            <Box position="relative" w="20%" bg="palegoldenrod">
+                                <Text fontSize="30px" fontWeight="bold" display="flex" alignItems="center" justifyContent="center" bg="red" h="70%">60</Text>
+                                <Text fontSize="20px" bg="pink" h="30%" textAlign="center">Segundos</Text>
+                            </Box>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
