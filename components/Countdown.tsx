@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { } from "react-icons/fa";
 import { Box, Text, Heading } from "@chakra-ui/react";
 
-export default function Dashboard(): ReactElement{
+export default function Countdown(): ReactElement{
     return (
         <section>
             <Box h="100%" w="100%" display="flex" justifyContent="center">
