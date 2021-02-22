@@ -9,9 +9,9 @@ export default function Banner(){
             height: "30rem",
             backgroundColor: "brown",
             }}>
-            <Box bg="palegoldenrod" w="55%" p="5rem 0 2rem 10rem">
-                <Heading w="50%" bg="blue" as="h1" size="xl" > Bienvenidos a Community Fest and Code </Heading>
-                <Heading w="50%" bg="blue" as="h2" size="md" > Hazte parte de la comunidad. <br/> ¡Concursa y Gana!</Heading>
+            <Box bg="blueviolet" w="55%" p="5rem 0 2rem 10rem">
+                <Heading color="#FFFFFF" w="50%"  as="h1" size="xl" > Bienvenidos a Community Fest and Code </Heading>
+                <Heading color="#FFFFFF" w="50%"  as="h2" size="md" > Hazte parte de la comunidad. <br/> ¡Concursa y Gana!</Heading>
             </Box>
             <Box bg="blueviolet" flexGrow={1} pt="2rem">
                 <Image
