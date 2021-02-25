@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import HeaderComponent from "./HeaderComponent";
 import FooterComponent from "./FooterComponent";
 
@@ -23,9 +23,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       w="100vw"
       templateRows="100px 1fr 170px"
     >
-          <HeaderComponent />
+      <HeaderComponent />
       {children}
-          <FooterComponent/>
+      <FooterComponent />
     </Grid>
   </>
 );
