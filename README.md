@@ -1,41 +1,85 @@
-# TypeScript Next.js example
+# Comfeco Comunity fest and Code 🎌
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+Landing page para la Hackathon del proximo año 2022. El cliente podra inscribirse, iniciar session y demas. Ademas de haber una cuenta regresiva que apunta a la fecha de inicio del Evento.
+Mas informacion en [Comfeco.com](https://www.comfeco.com/)
 
-## Deploy your own
+## Status
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+---
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+En desarrollo, Landing Page.
 
-## How to use it?
+## Getting Started 🏇
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+---
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
+> Survivor Kit
+
+| Technology | Documentation                                      |
+| ---------- | -------------------------------------------------- |
+| Node       | https://www.npmjs.com/get-npm                      |
+| Prettier   | https://prettier.io/docs/en/install.html           |
+| Eslint     | https://eslint.org/docs/user-guide/getting-started |
+
+---
+
+> Installation
+
+```sh
+$ npm install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+---
 
-## Notes
+> Local
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
+```sh
+$ npm run dev
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+---
+
+> Deploy
 
 ```
-npm install --save-dev @types/react @types/react-dom @types/node
+$ npm run start
+$ npm run build
 ```
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+---
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+> Testing
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+```sh
+$ npm run test
+```
+
+## Issues ⚒️
+
+---
+
+> Errors
+
+> Bugs
+
+> FAQ
+
+## Versioning
+
+---
+
+Node v14.15.1
+
+Npm v6.14.10
+
+Comfeco v0.1.35
+
+## Authors 🧑‍🔧
+
+---
+
+| [Jose Rivera](https://github.com/nekitori) |
+[Antonio Jimenez](https://github.com/Tonnraus) |
+[Nelson Mandela](https://github.com/nel193) |
+[Diango Gavidia](https://github.com/diangogav) |
+[Arias](https://github.com/Arias753) |
