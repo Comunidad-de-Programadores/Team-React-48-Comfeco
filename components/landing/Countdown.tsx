@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-import {} from "react-icons/fa";
 import { Box, Text, Heading } from "@chakra-ui/react";
 
 export default function Countdown(): ReactElement {
