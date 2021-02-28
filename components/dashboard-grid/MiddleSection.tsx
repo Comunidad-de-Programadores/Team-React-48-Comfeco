@@ -4,10 +4,9 @@ import { FaUser, FaUsers, FaAward, FaCalendarDay } from "react-icons/fa";
 
 function MiddleSection() {
   return (
-    <Box bg="blueviolet" h="27rem" justifyContent="center" p="1rem 2rem">
+    <Box h="27rem" justifyContent="center" p="1rem 2rem">
       <Box
         display="flex"
-        bg="brown"
         w="100%"
         h="2.5rem"
         justifyContent="space-evenly"
@@ -16,33 +15,36 @@ function MiddleSection() {
       >
         <Box display="flex">
           <FaUser />
-          <Text ml="10px">Perfil</Text>
+          <Text color="#8A0E98" ml="10px">
+            Perfil
+          </Text>
         </Box>
         <Box display="flex">
           <FaAward />
-          <Text ml="10px">Insignias</Text>
+          <Text color="#8A0E98" ml="10px">
+            Insignias
+          </Text>
         </Box>
         <Box display="flex">
           <FaUsers />
-          <Text ml="10px">Grupos</Text>
+          <Text color="#8A0E98" ml="10px">
+            Grupos
+          </Text>
         </Box>
         <Box display="flex">
           <FaCalendarDay />
-          <Text ml="10px">Eventos</Text>
+          <Text color="#8A0E98" ml="10px">
+            Eventos
+          </Text>
         </Box>
       </Box>
-      <Box mt="1rem" bg="yellow">
-        <Heading as="h3" size="md">
+      <Box mt="1rem">
+        <Heading as="h3" size="md" color="#8A0E98">
           Actividades recientes:
         </Heading>
         <Box mt="1rem">
-          <Box
-            bg="palegoldenrod"
-            boxShadow="0px 1px 1px black"
-            borderRadius="15px"
-            p="10px"
-          >
-            <Heading as="h4" size="sm">
+          <Box boxShadow="0px 1px 1px black" borderRadius="15px" p="10px">
+            <Heading color="#A976AD" fontWeight="light" as="h4" size="sm">
               19 Febrero, 2021
             </Heading>
             <Box
@@ -51,8 +53,12 @@ function MiddleSection() {
               justifyContent="space-between"
               alignItems="center"
             >
-              <Text>Te has Unido al evento Community Fest and Code</Text>
-              <Button size="xs">ver evento</Button>
+              <Text fontSize="14px">
+                Te has Unido al evento Community Fest and Code
+              </Text>
+              <Button bg="#A976AD" color="#ffff" size="xs">
+                ver evento
+              </Button>
             </Box>
           </Box>
         </Box>
