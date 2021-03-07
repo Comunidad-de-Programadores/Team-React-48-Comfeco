@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Box, Text, Button, Img } from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 
 function HeaderLogout() {
   return (
