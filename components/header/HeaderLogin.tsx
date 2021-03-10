@@ -1,6 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import { Box, Text, Img, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Img,
+  Grid,
+  GridItem,
+  Avatar,
+  Stack,
+} from "@chakra-ui/react";
+import { AiFillCaretDown } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 
 function HeaderLogin() {
   return (
@@ -11,8 +21,17 @@ function HeaderLogin() {
       display="grid"
       gridTemplateColumns="20rem 1fr 20rem"
     >
-      <GridItem bg="yellow">
+      <GridItem
+        bg="yellow"
+        d="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        px="5rem"
+      >
         <Img boxSize="3rem" src="/images/isotipo.png" />
+        <Text color="#555555" fontWeight="bold" fontSize="20px">
+          C#MFECO
+        </Text>
       </GridItem>
 
       <GridItem
@@ -36,16 +55,27 @@ function HeaderLogin() {
           <Text position="relative">Creadores de Contenido</Text>
         </Link>
       </GridItem>
-      <GridItem display="flex" pl="2rem" alignItems="center">
+      <GridItem display="flex" pl="5rem" alignItems="center">
         <Link href="/signup">
-          <Box bg="red.300" display="flex" p="5px" borderRadius="15px">
-            <Img />
-            Logo
-            <Box fontSize="10px">
-              <Text>Nick</Text>
-            </Box>
-            <Img />
-            Cmp
+          <Box
+            bg="red.300"
+            display="flex"
+            p="5px"
+            borderRadius="15px"
+            justifyContent="space-evenly"
+          >
+            <Avatar size="xs" src="https://bit.ly/broken-link" />
+            <Stack
+              fontSize="12px"
+              direction={["column", "row"]}
+              spacing="5px"
+              ml="5px"
+              alignSelf="center"
+              alignItems="center"
+            >
+              <Text>Nekitory</Text>
+              <AiFillCaretDown size="12px" />
+            </Stack>
           </Box>
         </Link>
       </GridItem>
