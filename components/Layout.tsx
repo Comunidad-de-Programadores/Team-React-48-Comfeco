@@ -25,7 +25,8 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       w="100vw"
       templateRows="100px 1fr 170px"
     >
-      <HeaderLogin />
+      {/* <HeaderLogin /> */}
+      <HeaderLogout />
       {children}
       <FooterComponent />
     </Grid>

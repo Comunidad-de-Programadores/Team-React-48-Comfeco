@@ -10,19 +10,18 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
 
-function HeaderLogin() {
+function HeaderLogin({ type }) {
   return (
     <Grid
-      bg="brown"
       h="100%"
-      w="100vw"
+      bg="transparent"
+      maxW="100vw"
       display="grid"
       gridTemplateColumns="20rem 1fr 20rem"
+      color={type}
     >
       <GridItem
-        bg="yellow"
         d="flex"
         alignItems="center"
         justifyContent="space-between"
@@ -35,7 +34,6 @@ function HeaderLogin() {
       </GridItem>
 
       <GridItem
-        bg="pink"
         w="100%"
         display="flex"
         alignItems="center"
@@ -58,7 +56,6 @@ function HeaderLogin() {
       <GridItem display="flex" pl="5rem" alignItems="center">
         <Link href="/signup">
           <Box
-            bg="red.300"
             display="flex"
             p="5px"
             borderRadius="15px"
