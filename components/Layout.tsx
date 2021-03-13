@@ -2,7 +2,9 @@ import React, { ReactNode } from "react";
 import Head from "next/head";
 
 import { Grid } from "@chakra-ui/react";
-import HeaderComponent from "./HeaderComponent";
+import HeaderComponent from "./header/HeaderComponent";
+import HeaderLogout from "./header/HeaderLogout";
+import HeaderLogin from "./header/HeaderLogin";
 import FooterComponent from "./FooterComponent";
 
 type Props = {
@@ -28,7 +30,8 @@ const Layout = ({
       w="100%"
       templateRows="100px 1fr 170px"
     >
-      <HeaderComponent />
+      {/* <HeaderLogin /> */}
+      <HeaderLogout />
       {children}
       <FooterComponent />
     </Grid>
