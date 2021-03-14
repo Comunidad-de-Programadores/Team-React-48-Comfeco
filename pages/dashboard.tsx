@@ -4,9 +4,11 @@ import DashboardLanding from "../components/dashboard-grid";
 
 function Dashboard() {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <DashboardLanding />
-    </Layout>
+    <>
+      <Layout title="Home | Next.js + TypeScript Example">
+        <DashboardLanding />
+      </Layout>
+    </>
   );
 }
 
