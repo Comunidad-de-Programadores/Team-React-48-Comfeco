@@ -15,7 +15,6 @@ function HeaderLogout({ type }) {
   return (
     <Box bg="transparent" color={type} h="100%" w="100%" display="flex">
       <Box
-        bg="yellow"
         d="flex"
         w="100%"
         alignItems="center"
@@ -31,7 +30,6 @@ function HeaderLogout({ type }) {
       </Box>
       <Box
         w="100%"
-        bg="#ffff"
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
