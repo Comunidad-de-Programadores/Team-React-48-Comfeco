@@ -20,6 +20,9 @@ const colors = {
     300: "#ffff",
     400: "#2222",
   },
+  gradiant: {
+    10: "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
+  },
 };
 // 3. Extend the theme
 const theme = extendTheme({ breakpoints, colors });

@@ -30,8 +30,8 @@ function HeaderLogout({ type }) {
         </Box>
       </Box>
       <Box
-        bg="pink"
         w="100%"
+        bg="#ffff"
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
@@ -81,7 +81,7 @@ function HeaderLogout({ type }) {
         </Link>
         <Link href="/signup">
           <Text
-            bg="red.300"
+            bg="gradiant.10"
             textAlign="center"
             borderRadius="20px"
             w="10rem"
