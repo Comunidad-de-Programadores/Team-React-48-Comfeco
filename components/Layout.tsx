@@ -31,7 +31,7 @@ const Layout = ({
       templateRows="100px 1fr 170px"
     >
       {/* <HeaderLogin /> */}
-      <HeaderLogout />
+      <HeaderLogout type />
       {children}
       <FooterComponent />
     </Grid>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { Box, Text, Img, Divider } from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 
 function HeaderLogout({ type }) {
   const [hover, setHover] = useState(false);
