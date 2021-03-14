@@ -17,6 +17,8 @@ const colors = {
   bg: {
     100: "linear-gradient(269.78deg,rgba(255, 255, 255, 0.7) -1.82%,rgba(245, 245, 245, 0.7) -1.81%,rgba(247, 248, 248, 0.7) 100.67%), url('/images/bg.jpg')",
     200: " linear-gradient(269.78deg, rgba(0, 0, 0, 0.25) -1.82%, rgba(143, 53, 182, 0.698) -1.81%, rgba(68, 97, 241, 0.698) 100.67%), url('/images/bg.jpg')",
+    300: "#ffff",
+    400: "#2222",
   },
 };
 // 3. Extend the theme
