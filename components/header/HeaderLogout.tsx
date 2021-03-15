@@ -15,7 +15,6 @@ function HeaderLogout({ type }) {
   return (
     <Box bg="transparent" color={type} h="100%" w="100%" display="flex">
       <Box
-        bg="yellow"
         d="flex"
         w="100%"
         alignItems="center"
@@ -30,7 +29,6 @@ function HeaderLogout({ type }) {
         </Box>
       </Box>
       <Box
-        bg="pink"
         w="100%"
         display="flex"
         alignItems="center"
@@ -81,7 +79,7 @@ function HeaderLogout({ type }) {
         </Link>
         <Link href="/signup">
           <Text
-            bg="red.300"
+            bg="gradiant.10"
             textAlign="center"
             borderRadius="20px"
             w="10rem"

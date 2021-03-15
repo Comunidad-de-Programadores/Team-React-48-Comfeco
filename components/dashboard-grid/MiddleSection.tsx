@@ -1,43 +1,10 @@
 import React from "react";
 import { Box, Text, Button, Heading } from "@chakra-ui/react";
-import { FaUser, FaUsers, FaAward, FaCalendarDay } from "react-icons/fa";
-
+import Nav from "./Nav";
 function MiddleSection() {
   return (
     <Box h="27rem" justifyContent="center" p="1rem 2rem">
-      <Box
-        display="flex"
-        w="100%"
-        h="2.5rem"
-        justifyContent="space-evenly"
-        alignItems="center"
-        boxShadow="0px 1px 1px black"
-      >
-        <Box display="flex">
-          <FaUser />
-          <Text color="#8A0E98" ml="10px">
-            Perfil
-          </Text>
-        </Box>
-        <Box display="flex">
-          <FaAward />
-          <Text color="#8A0E98" ml="10px">
-            Insignias
-          </Text>
-        </Box>
-        <Box display="flex">
-          <FaUsers />
-          <Text color="#8A0E98" ml="10px">
-            Grupos
-          </Text>
-        </Box>
-        <Box display="flex">
-          <FaCalendarDay />
-          <Text color="#8A0E98" ml="10px">
-            Eventos
-          </Text>
-        </Box>
-      </Box>
+      <Nav />
       <Box mt="1rem">
         <Heading as="h3" size="md" color="#8A0E98">
           Actividades recientes:

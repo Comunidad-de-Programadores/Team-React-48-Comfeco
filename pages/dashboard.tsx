@@ -1,12 +1,16 @@
 import React from "react";
 import Layout from "../components/Layout";
 import DashboardLanding from "../components/dashboard-grid";
+import Events from "../components/dashboard/Events";
 
 function Dashboard() {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <DashboardLanding />
-    </Layout>
+    <>
+      <Layout title="Comfeco">
+        {/* <DashboardLanding /> */}
+        <Events />
+      </Layout>
+    </>
   );
 }
 
