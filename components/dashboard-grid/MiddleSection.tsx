@@ -9,8 +9,13 @@ function MiddleSection() {
         <Heading as="h3" size="md" color="#8A0E98">
           Actividades recientes:
         </Heading>
-        <Box mt="1rem">
-          <Box boxShadow="0px 1px 1px black" borderRadius="15px" p="10px">
+        <Box
+          filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+          mt="1rem"
+          bg="#ffff"
+          borderRadius="15px"
+        >
+          <Box p="10px">
             <Heading color="#A976AD" fontWeight="light" as="h4" size="sm">
               19 Febrero, 2021
             </Heading>
