@@ -1,5 +1,5 @@
-import bcrypt from 'bcrypt';
-import Token from './Token';
+import bcrypt from "bcrypt";
+import Token from "./Token";
 
 class User {
   readonly id: string;
@@ -7,16 +7,23 @@ class User {
   readonly email: string;
   readonly genre: string;
   readonly country: string;
-  readonly social: SocialMedia; 
+  readonly social: SocialMedia;
   readonly description: string;
   readonly photo: string;
   public password: string;
 
-  constructor(
-    { id, username, photo, email, password, genre, country, social, description } : UserAttr
-  ) 
-  {
-    this.id = id
+  constructor({
+    id,
+    username,
+    photo,
+    email,
+    password,
+    genre,
+    country,
+    social,
+    description,
+  }: UserAttr) {
+    this.id = id;
     this.username = username;
     this.email = email;
     this.password = password;
@@ -24,23 +31,23 @@ class User {
     this.country = country;
     this.social = social;
     this.description = description;
-    this.photo = photo
+    this.photo = photo;
   }
 
-  public hashPassword() : void {
+  public hashPassword(): void {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
     this.password = bcrypt.hashSync(this.password, salt);
   }
 
   public isAuthenticate(password: string): boolean {
-  return bcrypt.compareSync(password, this.password);
+    return bcrypt.compareSync(password, this.password);
   }
 
   public generateResetPasswordToken(): Token {
-    const token = new Token({ 
-      userId: this.id, 
-      type: 'passwordReset'
+    const token = new Token({
+      userId: this.id,
+      type: "passwordReset",
     });
     return token;
   }
@@ -55,8 +62,8 @@ class User {
       country: this.country,
       social: this.social,
       description: this.description,
-      photo: this.photo
-    }
+      photo: this.photo,
+    };
   }
 
   public toPresentation() {
@@ -68,8 +75,8 @@ class User {
       country: this.country,
       social: this.social,
       description: this.description,
-      photo: this.photo
-    }
+      photo: this.photo,
+    };
   }
 }
 
@@ -86,7 +93,7 @@ interface UserAttr {
   email: string;
   genre: string;
   country: string;
-  social: SocialMedia; 
+  social: SocialMedia;
   description: string;
   password: string;
   photo: string;
