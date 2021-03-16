@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
 
-function HeaderLogin({ type }) {
+function HeaderLogin() {
   return (
     <Grid
       h="100%"
@@ -19,7 +19,6 @@ function HeaderLogin({ type }) {
       maxW="100vw"
       display="grid"
       gridTemplateColumns="20rem 1fr 20rem"
-      color={type}
     >
       <GridItem
         d="flex"
