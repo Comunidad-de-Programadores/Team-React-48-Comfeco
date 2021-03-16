@@ -32,25 +32,25 @@ export default function SignUp({}: Props): ReactElement {
   const [registerSuccess, setregisterSuccess] = useState(false);
 
   const initialState = {
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   };
 
   const register = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/users", {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type' : 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values)
+        body: JSON.stringify(values),
       });
 
       const data = await response.json();
 
-      if(data.code === 201) {
+      if (data.code === 201) {
         setregisterSuccess(true);
         setApiError(null);
         return;
@@ -63,8 +63,12 @@ export default function SignUp({}: Props): ReactElement {
     }
   };
 
-  const {values, errors, handleChange, handleSubmit} = useValidation(initialState, signupValidator, register);
-  const {username, email, password, confirmPassword} = values;
+  const { values, errors, handleChange, handleSubmit } = useValidation(
+    initialState,
+    signupValidator,
+    register
+  );
+  const { username, email, password, confirmPassword } = values;
 
   return (
     <Layout title="Registro">
@@ -108,7 +112,9 @@ export default function SignUp({}: Props): ReactElement {
                     value={username}
                     onChange={handleChange}
                   />
-                {(errors as SignupErrors).username && <Text color="red">{(errors as SignupErrors).username}</Text>} 
+                  {(errors as SignupErrors).username && (
+                    <Text color="red">{(errors as SignupErrors).username}</Text>
+                  )}
                 </Box>
                 <Box
                   // display="flex"
@@ -129,8 +135,9 @@ export default function SignUp({}: Props): ReactElement {
                     value={email}
                     onChange={handleChange}
                   />
-                  {(errors as SignupErrors).email && <Text color="red">{(errors as SignupErrors).email}</Text>} 
-
+                  {(errors as SignupErrors).email && (
+                    <Text color="red">{(errors as SignupErrors).email}</Text>
+                  )}
                 </Box>
               </InputGroup>
 
@@ -168,7 +175,9 @@ export default function SignUp({}: Props): ReactElement {
                     cursor="pointer"
                     children={IconPassword}
                   />
-                  {(errors as SignupErrors).password && <Text color="red">{(errors as SignupErrors).password}</Text>} 
+                  {(errors as SignupErrors).password && (
+                    <Text color="red">{(errors as SignupErrors).password}</Text>
+                  )}
                 </Box>
                 <Box
                   // display="flex"
@@ -198,11 +207,17 @@ export default function SignUp({}: Props): ReactElement {
                     cursor="pointer"
                     children={IconConfirmPassword}
                   />
-                  {(errors as SignupErrors).confirmPassword && <Text color="red">{(errors as SignupErrors).confirmPassword}</Text>} 
+                  {(errors as SignupErrors).confirmPassword && (
+                    <Text color="red">
+                      {(errors as SignupErrors).confirmPassword}
+                    </Text>
+                  )}
                 </Box>
               </InputGroup>
               {apiError && <Text color="red">{apiError}</Text>}
-              {registerSuccess && <Text color="green">Register successful!</Text>}
+              {registerSuccess && (
+                <Text color="green">Register successful!</Text>
+              )}
               <Box textAlign="center" marginTop="1.5rem">
                 <Button
                   type="submit"
