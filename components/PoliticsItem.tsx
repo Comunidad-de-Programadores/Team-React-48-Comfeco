@@ -5,7 +5,7 @@ interface Props {
   firstItemBorder?: string;
   lastItemBorder?: string;
   label?: string;
-  state: boolean;
+  state?: boolean;
   text?: string;
 }
 
