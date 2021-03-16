@@ -16,9 +16,9 @@ handler.use(middleware);
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { author, profession, emition_date } = req.body;
+    const { author, profession, emition_date, title, description, hour } = req.body;
     const id = idService.generate();
-    const workshop = new WorkShop({ author, profession, emition_date, id});
+    const workshop = new WorkShop({ author, profession, emition_date, id, title, description, hour});
     await workShopService.create(workshop);
     const response = ApiResponse.created("workshop created successfully", workshop);
     res.status(response.code).send(response);

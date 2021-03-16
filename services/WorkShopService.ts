@@ -9,6 +9,7 @@ export class WorkShopService {
 
  async get() : Promise<WorkShop[]> {
    const workshops = await WorkShopModel.find();
+   console.log("workshops", workshops)
    const workshopsDomain = workshops.map(workshop => new WorkShop(workshop));
    return workshopsDomain;
  }
