@@ -5,6 +5,13 @@ import React, { ReactElement, useEffect } from "react";
 import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
 import SigninRight from "../components/signin/SigninRight";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import { useSession } from "next-auth/client";
+=======
+>>>>>>> 1ec4541 (refactor(pages): asigning head titles)
+>>>>>>> 116e40f (refactor(pages): asigning head titles)
 
 interface Props {}
 
