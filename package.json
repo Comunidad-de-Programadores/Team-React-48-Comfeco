@@ -27,6 +27,7 @@
     "@emotion/styled": "^11.1.5",
     "@sendgrid/mail": "^7.4.2",
     "@types/bcrypt": "^3.0.0",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "framer-motion": "^3.3.0",
     "mongoose": "^5.11.16",
