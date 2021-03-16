@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Heading, Box, List, ListItem } from "@chakra-ui/react";
 import CardHorizontal from "./CardHorizontal";
 import ButtonAction from "./ButtonAction";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
+
+  const [communities, setcommunities] = useState([]);
+
+  console.log("communities", communities);
+
+  useEffect(() => {
+    fetchCommunities();
+  }, []);
+
+  const fetchCommunities = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/community/");
+      const communities = await response.json();
+      setcommunities(communities.data);
+    } catch (error) {
+      console.log("Error Fetching communities", error);
+    }
+  };
+  
   return (
     <Box padding="3rem">
       <Box>
@@ -12,7 +31,11 @@ const LeftSidebar = ({}: Props) => {
           Comunidades
         </Heading>
         <List pt="1rem">
-          <ListItem>
+          { communities.map((community: any) => 
+              <ListItem key={community.id}>
+                <CardHorizontal text={community.title} />
+              </ListItem>)}
+          {/* <ListItem>
             <CardHorizontal text="Comunidad de Programadores" />
           </ListItem>
           <ListItem>
@@ -23,7 +46,7 @@ const LeftSidebar = ({}: Props) => {
           </ListItem>
           <ListItem>
             <CardHorizontal text="Comunidad de Programadores" />
-          </ListItem>
+          </ListItem> */}
         </List>
       </Box>
       <ButtonAction textButton="Ver más" />
