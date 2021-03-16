@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import Adapters from "next-auth/adapters";
 import { NextApiRequest, NextApiResponse } from "next";
 import Providers from "next-auth/providers";
+import axios from "axios";
 
 const providers = [
   Providers.Email({
