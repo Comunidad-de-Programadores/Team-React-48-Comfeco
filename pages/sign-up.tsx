@@ -44,17 +44,16 @@ export default function SignUp(): JSX.Element {
       password: "",
       confirmPassword: "",
     };
+
     const register = async () => {
       try {
-        const response = await fetch(`${process.env.PORT}api/users`, {
+        const response = await fetch("http://localhost:3000/api/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(values),
         });
-
-        const data = await response.json();
 
         if (data.code === 201) {
           signIn("credentials", {
