@@ -48,7 +48,7 @@ export default function SignUp({}: Props): ReactElement {
 
   const register = async () => {
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
