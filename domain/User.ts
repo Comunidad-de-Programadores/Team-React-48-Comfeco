@@ -5,17 +5,26 @@ class User {
   readonly id: string;
   readonly username: string;
   readonly email: string;
+  readonly genre: string;
+  readonly country: string;
+  readonly social: SocialMedia; 
+  readonly description: string;
+  readonly photo: string;
   private password: string;
 
   constructor(
-    { id, username, email, password } : 
-    { id: string, username: string, email: string,password:string }
+    { id, username, photo, email, password, genre, country, social, description } : UserAttr
   ) 
   {
     this.id = id
     this.username = username;
     this.email = email;
     this.password = password;
+    this.genre = genre;
+    this.country = country;
+    this.social = social;
+    this.description = description;
+    this.photo = photo
   }
 
   public hashPassword() : void {
@@ -41,7 +50,12 @@ class User {
       _id: this.id,
       username: this.username,
       email: this.email,
-      password: this.password
+      password: this.password,
+      genre: this.genre,
+      country: this.country,
+      social: this.social,
+      description: this.description,
+      photo: this.photo
     }
   }
 
@@ -52,6 +66,25 @@ class User {
       email: this.email
     }
   }
+}
+
+interface SocialMedia {
+  twitter: string;
+  linkedin: string;
+  facebook: string;
+  github: string;
+}
+
+interface UserAttr {
+  id: string;
+  username: string;
+  email: string;
+  genre: string;
+  country: string;
+  social: SocialMedia; 
+  description: string;
+  password: string;
+  photo: string;
 }
 
 export default User;

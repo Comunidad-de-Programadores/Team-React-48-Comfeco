@@ -9,6 +9,24 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String
+  },
+  genre: {
+    type: String
+  },
+  country: {
+    type: String,
+  },
+  social: {
+    twitter: String,
+    linkedin: String,
+    facebook: String,
+    github: String
+  },
+  description: {
+    type: String
+  },
+  photo: {
+    type: String
   }
 });
 
