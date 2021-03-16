@@ -6,7 +6,7 @@ interface Props {
   lastItemBorder?: string;
   label?: string;
   state: boolean;
-  text: string;
+  text?: string;
 }
 
 const PoliticsItem = ({
