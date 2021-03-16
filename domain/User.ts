@@ -10,7 +10,7 @@ class User {
   readonly social: SocialMedia; 
   readonly description: string;
   readonly photo: string;
-  private password: string;
+  public password: string;
 
   constructor(
     { id, username, photo, email, password, genre, country, social, description } : UserAttr
@@ -63,7 +63,12 @@ class User {
     return {
       id: this.id,
       username: this.username,
-      email: this.email
+      email: this.email,
+      genre: this.genre,
+      country: this.country,
+      social: this.social,
+      description: this.description,
+      photo: this.photo
     }
   }
 }
