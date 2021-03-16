@@ -1,26 +1,27 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const WorkShopSchema = new mongoose.Schema({
   author: {
-    type: String
+    type: String,
   },
   profession: {
-    type: String
+    type: String,
   },
   emition_date: {
-    type: Date
+    type: Date,
   },
   title: {
-    type: String
+    type: String,
   },
   description: {
-    type: String
+    type: String,
   },
   hour: {
-    type: String
-  }
+    type: String,
+  },
 });
 
-const WorkShopModel = mongoose.models.WORKSHOP || mongoose.model('WORKSHOP', WorkShopSchema);
+const WorkShopModel =
+  mongoose.models.WORKSHOP || mongoose.model("WORKSHOP", WorkShopSchema);
 
 export default WorkShopModel;
