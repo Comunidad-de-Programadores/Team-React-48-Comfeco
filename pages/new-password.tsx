@@ -6,7 +6,7 @@ interface Props {}
 
 export default function NewPassword({}: Props): ReactElement {
   return (
-    <Layout title="Login">
+    <Layout title="Nueva contraseña">
       <RecoverPaswordComponent
         title="Crea tu Nueva Contraseña"
         description="Sigue las instrucciones para crear una contraseña segura."

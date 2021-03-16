@@ -6,7 +6,7 @@ interface Props {}
 
 export default function RecoverPassword({}: Props): ReactElement {
   return (
-    <Layout title="Login">
+    <Layout title="Recuperar contraseña">
       <RecoverPaswordComponent
         title="Recuperar Contraseña"
         description=" Ingresa tu correo electronico y te enviaremos un link para restaurar tu contraseña"

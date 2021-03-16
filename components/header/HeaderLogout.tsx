@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Box, Text, Img } from "@chakra-ui/react";
 
-function HeaderLogout({ type }) {
-  const [hover, setHover] = useState(false);
+function HeaderLogout() {
+  const [hover, setHover] = useState([false, false]);
 
-  const handleOver = () => {
-    setHover(true);
+  const color = "#ffff";
+
+  const handleOver = (n: number) => {
+    if (n === 0) {
+      setHover([true, false]);
+    }
+    if (n === 1) {
+      setHover([false, true]);
+    }
   };
+
   const handleOut = () => {
-    setHover(false);
+    setHover([false, false]);
   };
 
   return (
-    <Box bg="transparent" color={type} h="100%" w="100%" display="flex">
+    <Box bg="transparent" h="100%" w="100%" display="flex">
       <Box
         d="flex"
         w="100%"
@@ -39,12 +47,12 @@ function HeaderLogout({ type }) {
           <Box position="relative">
             <Text
               cursor="pointer"
-              onMouseOver={handleOver}
+              onMouseOver={(_e) => handleOver(0)}
               onMouseOut={handleOut}
             >
               Home
             </Text>
-            {hover && (
+            {hover[0] && (
               <Box
                 w="25px"
                 h="2px"
@@ -60,12 +68,12 @@ function HeaderLogout({ type }) {
           <Box position="relative">
             <Text
               cursor="pointer"
-              onMouseOver={handleOver}
+              onMouseOver={(_e) => handleOver(1)}
               onMouseOut={handleOut}
             >
               Sign In
             </Text>
-            {hover && (
+            {hover[1] && (
               <Box
                 w="25px"
                 h="2px"
@@ -79,6 +87,7 @@ function HeaderLogout({ type }) {
         </Link>
         <Link href="/signup">
           <Text
+            color={color}
             bg="gradiant.10"
             textAlign="center"
             borderRadius="20px"

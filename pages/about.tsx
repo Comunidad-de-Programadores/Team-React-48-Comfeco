@@ -7,7 +7,7 @@ import Sponsors from "../components/dashboard/Sponsors";
 import Personas from "../components/dashboard/Personas";
 
 const AboutPage = () => (
-  <Layout type={true} title="About | Next.js + TypeScript Example">
+  <Layout type={true} title="About">
     <div>
       <Banner />
       <Personas />

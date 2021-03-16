@@ -5,12 +5,11 @@ import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
 import SigninRight from "../components/signin/SigninRight";
 
-
 interface Props {}
 
 export default function SignIn({}: Props): ReactElement {
   return (
-    <Layout title="Login">
+    <Layout title="Iniciar Sesion">
       <Box
         d="flex"
         justifyContent="space-between"
