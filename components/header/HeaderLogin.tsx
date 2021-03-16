@@ -19,6 +19,7 @@ import { useSession, signOut } from "next-auth/client";
 function HeaderLogin() {
   const [session, loading] = useSession();
 
+function HeaderLogin() {
   return (
     <Grid
       h="100%"
