@@ -1,20 +1,10 @@
-import React, { useEffect } from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
-
-import useAuth from "../hooks/useAuth";
+import React from "react";
 import Layout from "../components/Layout";
+import { Box, Text, Image } from "@chakra-ui/react";
 import Form from "../components/signup/Form";
 import Options from "../components/signup/Otions";
 
 export default function SignUp(): JSX.Element {
-  const { loading, session, router } = useAuth();
-
-  useEffect(() => {
-    !loading && session && router.push("/");
-  }, []);
-
-  const color = "#5555555";
-
   return (
     <Layout title="Registro">
       <Box display="flex" maxW="100vw">
@@ -28,7 +18,7 @@ export default function SignUp(): JSX.Element {
           alignItems="center"
           bg="blue.400"
         >
-          <Text fontSize="3rem" color={color}>
+          <Text fontSize="3rem" color={"#222"}>
             Bienvenido a bordo
           </Text>
 

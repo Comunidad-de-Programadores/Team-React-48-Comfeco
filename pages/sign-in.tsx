@@ -4,7 +4,10 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
 import SigninRight from "../components/signin/SigninRight";
+<<<<<<< HEAD
 import { useSession } from "next-auth/client";
+=======
+>>>>>>> 1ec4541 (refactor(pages): asigning head titles)
 
 interface Props {}
 
