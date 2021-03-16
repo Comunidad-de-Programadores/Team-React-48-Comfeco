@@ -1,4 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
@@ -39,11 +40,16 @@ const theme = extendTheme({ breakpoints, colors });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider session={pageProps.session}>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </Provider>
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/images/icon.ico" />
+      </Head>
+      <Provider session={pageProps.session}>
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </Provider>
+    </>
   );
 }
 export default MyApp;
