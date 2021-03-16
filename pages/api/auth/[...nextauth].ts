@@ -2,7 +2,6 @@ import NextAuth from "next-auth";
 import Adapters from "next-auth/adapters";
 import { NextApiRequest, NextApiResponse } from "next";
 import Providers from "next-auth/providers";
-import axios from "axios";
 
 const providers = [
   Providers.Email({
@@ -50,21 +49,22 @@ const providers = [
       },
       password: { label: "Password", type: "password" },
     },
-    async authorize(credentials){
+    async authorize(credentials) {
       // Add logic here to look up the user from the credentials supplied
       try {
-
-        const user = await axios.post('http://localhost:3000/api/login/',
-        {
-          password: credentials.password,
-          email: credentials.email
-        },
-        {
-          headers: {
-            accept: '*/*',
-            'Content-Type': 'application/json'
+        const user = await axios.post(
+          "http://localhost:3000/api/login/",
+          {
+            password: credentials.password,
+            email: credentials.email,
+          },
+          {
+            headers: {
+              accept: "*/*",
+              "Content-Type": "application/json",
+            },
           }
-        });
+        );
 
         if (user) {
           return { status: "success", data: user };

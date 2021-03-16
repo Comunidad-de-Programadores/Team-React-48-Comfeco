@@ -11,8 +11,8 @@ export default function test({}: Props): ReactElement {
         <button
           onClick={() =>
             signIn("credentials", {
-              email: "diangogavidia@gmail.com",
-              password: "123456",
+              email: "nerivemu@gmail.com",
+              password: "Bbl152800",
             })
           }
         >
