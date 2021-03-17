@@ -2,29 +2,28 @@ import HttpStatusCode from "../enums/HttpStatusCodes";
 import IApiErrors from "../interfaces/IApiErrors";
 
 class UserError extends IApiErrors {
-
   static readonly NOT_FOUND = new UserError(
     HttpStatusCode.NOT_FOUND,
-    'error',
-    'User not found.'
+    "error",
+    "Usuario no encontrado"
   );
 
   static readonly ALREADY_REGISTERED = new UserError(
     HttpStatusCode.UNAUTHORIZED,
-    'error',
-    'The user is already registered.'
+    "error",
+    "El usuario introducido ya esta registrado"
   );
 
   static readonly BAD_CREDENTIALS = new UserError(
     HttpStatusCode.UNAUTHORIZED,
-    'error',
-    'Invalid email or password.'
+    "error",
+    "Email o contraseña incorrectos"
   );
 
   static readonly TOKEN_EXPIRED = new UserError(
     HttpStatusCode.UNAUTHORIZED,
-    'error',
-    'Token expired.'
+    "error",
+    "Token expired."
   );
 
   private constructor(
