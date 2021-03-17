@@ -15,11 +15,6 @@ const AboutPage = () => (
       <Box bg="#fff">
         <Countdown />
       </Box>
-      <p style={{ backgroundColor: "blue" }}>
-        <Link href="/">
-          <a>Go home</a>
-        </Link>
-      </p>
     </div>
   </Layout>
 );
