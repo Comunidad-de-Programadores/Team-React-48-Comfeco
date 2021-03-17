@@ -37,9 +37,7 @@ handler.put(async (req: NextApiRequest, res: NextApiResponse) => {
     
     if(!user) throw UserError.NOT_FOUND;
     const newUser = new User({
-      id: user.id,
-      username: user.username,
-      email: user.email,
+      ...user,
       password
     });
 

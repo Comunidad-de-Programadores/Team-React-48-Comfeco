@@ -9,7 +9,38 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String
-  }
+  },
+  genre: {
+    type: String
+  },
+  country: {
+    type: String,
+  },
+  social: {
+    twitter: String,
+    linkedin: String,
+    facebook: String,
+    github: String
+  },
+  description: {
+    type: String
+  },
+  photo: {
+    type: String
+  },
+  groups: {
+    type: [Object]
+  },
+  communities: {
+    type: [Object]
+  },
+  badges: {
+    type: [Object]
+  },
+  workshops: {
+    type: [Object]
+  },
+  
 });
 
 const User = mongoose.models.User || mongoose.model('User', UserSchema);

@@ -64,7 +64,7 @@ function HeaderLogout() {
             )}
           </Box>
         </Link>
-        <Link href="/signin">
+        <Link href="/sign-in">
           <Box position="relative">
             <Text
               cursor="pointer"
@@ -85,7 +85,7 @@ function HeaderLogout() {
             )}
           </Box>
         </Link>
-        <Link href="/signup">
+        <Link href="/sign-up">
           <Text
             color={color}
             bg="gradiant.10"

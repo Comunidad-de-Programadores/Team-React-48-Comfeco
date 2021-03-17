@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Heading, List, ListItem, Text } from "@chakra-ui/react";
 import { FaCalendarAlt } from "react-icons/fa";
 import EventCard from "./EventCard";
@@ -13,6 +13,23 @@ const RightSidebar = ({}: Props) => {
   const da = new Intl.DateTimeFormat("es", { day: "2-digit" }).format(date);
 
   console.log(date);
+
+  const [events, setevents] = useState([]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/workshops");
+      const events = await response.json();
+      setevents(events.data); 
+    } catch (error) {
+      console.log("error fetching events", error);
+    }
+  };
+
   return (
     <Box padding="3rem">
       <Box>
@@ -42,20 +59,14 @@ const RightSidebar = ({}: Props) => {
           Area de conocimiento
         </Heading>
         <List>
-          <ListItem>
+          { events.map((event: any) => 
+          <ListItem key={event.id}>
             <EventCard
-              title="State Of JavaScript"
-              hour="20:30 PM"
-              author="TechCode"
+              title={event.title}
+              hour={event.hour}
+              author={event.author}
             />
-          </ListItem>
-          <ListItem>
-            <EventCard
-              title="State Of JavaScript"
-              hour="20:30 PM"
-              author="TechCode"
-            />
-          </ListItem>
+          </ListItem>)}
         </List>
       </Box>
     </Box>

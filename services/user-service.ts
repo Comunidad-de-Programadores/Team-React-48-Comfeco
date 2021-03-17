@@ -18,21 +18,18 @@ class UserService {
     if(!userDB) return null;
     const user = new User({
       id: userDB._id,
-      username: userDB.username,
-      email: userDB.email,
-      password: userDB.password
+      ...userDB.toObject()
     });
     return user;
   }
 
   async getById(id: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ _id:  id});
+    console.log("userDB", userDB.toObject())
     if(!userDB) return null;
     const user = new User({
       id: userDB._id,
-      username: userDB.username,
-      email: userDB.email,
-      password: userDB.password
+      ...userDB.toObject()
     });
 
     return user;
