@@ -69,7 +69,7 @@ class User {
   public toPresentation() {
     return {
       id: this.id,
-      username: this.username,
+      name: this.username,
       email: this.email,
       genre: this.genre,
       country: this.country,

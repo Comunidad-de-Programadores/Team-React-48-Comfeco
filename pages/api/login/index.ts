@@ -18,8 +18,10 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(req.body);
     const user = await userService.getByEmail(email);
 
+    console.log("user", user);
     if (!user) throw UserError.NOT_FOUND;
     if (!user.isAuthenticate(password)) throw UserError.BAD_CREDENTIALS;
+
 
     const response = ApiResponse.ok("Success login", user.toPresentation());
     res.status(response.code).json(response);

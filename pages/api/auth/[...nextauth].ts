@@ -53,6 +53,7 @@ const providers = [
     async authorize(credentials) {
       // Add logic here to look up the user from the credentials supplied
       try {
+<<<<<<< HEAD
         const user = await axios.post(
           "http://localhost:3000/api/login/",
           {
@@ -64,11 +65,24 @@ const providers = [
               accept: "*/*",
               "Content-Type": "application/json",
             },
+=======
+
+        const response = await axios.post('http://localhost:3000/api/login/',
+        {
+          password: credentials.password,
+          email: credentials.email
+        },
+        {
+          headers: {
+            accept: '*/*',
+            'Content-Type': 'application/json'
+>>>>>>> a810b21 (Next auth with credentials)
           }
         );
 
-        if (user) {
-          return { status: "success", data: user };
+        if (response) {
+          console.log("user.data", response.data.data)
+          return response.data.data;
         }
       } catch (e) {
         const errorMessage = e.response.data.message;
@@ -80,11 +94,11 @@ const providers = [
 ];
 
 const callbacks = {
-  async jwt(token, user) {
-    if (user) {
-      token.accessToken = user.data.token;
-    }
-
+  async jwt(token, user, account, profile, isNewUser) {
+    // if (user) {
+    //   token.accessToken = user.data.token;
+    // }
+    console.log("token", token)
     return token;
   },
 
