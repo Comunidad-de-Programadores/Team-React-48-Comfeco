@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Heading, Box, List, ListItem } from "@chakra-ui/react";
 import CardHorizontal from "./CardHorizontal";
+=======
+import { Box, Heading, List, ListItem } from "@chakra-ui/react";
+import React from "react";
+>>>>>>> 1a509e3 (feat: responsive homre)
 import ButtonAction from "./ButtonAction";
+import CardHorizontal from "./CardHorizontal";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
@@ -24,11 +30,26 @@ const LeftSidebar = ({}: Props) => {
   };
 
   return (
-    <Box padding="3rem">
-      <Box>
+    <Box 
+    padding={{
+      sm:"initial",
+      md:"3rem"
+    }}
+    overflow={{
+      sm:"hidden",
+      md:"initial"
+    }}
+    maxWidth={{
+      sm:"100vw",
+      md:"initial"
+    }}
+    >
+      <Box
+      >
         <Heading as="h1" size="lg" color="#793E93">
           Comunidades
         </Heading>
+<<<<<<< HEAD
         <List pt="1rem">
           {communities.map((community: any) => (
             <ListItem key={community.id}>
@@ -48,6 +69,35 @@ const LeftSidebar = ({}: Props) => {
             <CardHorizontal text="Comunidad de Programadores" />
           </ListItem> */}
         </List>
+=======
+        <Box
+        overflowX={{
+          sm:"scroll",
+          md:"initial"
+        }}
+        >
+          <List 
+          pt="1rem"
+          display={{
+            sm:"flex",
+            md:"block"
+          }}
+          >
+            <ListItem>
+              <CardHorizontal text="Comunidad de Programadores" />
+            </ListItem>
+            <ListItem>
+              <CardHorizontal text="Comunidad de Programadores" />
+            </ListItem>
+            <ListItem>
+              <CardHorizontal text="Comunidad de Programadores" />
+            </ListItem>
+            <ListItem>
+              <CardHorizontal text="Comunidad de Programadores" />
+            </ListItem>
+          </List>
+        </Box>
+>>>>>>> 1a509e3 (feat: responsive homre)
       </Box>
       <ButtonAction textButton="Ver más" />
     </Box>
