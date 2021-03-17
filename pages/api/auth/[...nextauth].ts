@@ -77,7 +77,7 @@ const providers = [
 ];
 
 const callbacks = {
-  async jwt(token, user, account, profile, isNewUser) {
+  async jwt(token: any, user: any, account: any, profile: any, isNewUser: any) {
     // if (user) {
     //   token.accessToken = user.data.token;
     // }
@@ -85,7 +85,7 @@ const callbacks = {
     return token;
   },
 
-  async session(session, token) {
+  async session(session: any, token: any) {
     session.accessToken = token.accessToken;
     return session;
   },
