@@ -8,6 +8,10 @@ import {
   GridItem,
   Avatar,
   Stack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useSession } from "next-auth/client";
@@ -77,10 +81,19 @@ function HeaderLogin() {
               alignSelf="center"
               alignItems="center"
             >
-              <Text>
-                {loading && "..."} {session && session.user.name}
-              </Text>
-              <AiFillCaretDown size="12px" />
+              <Menu>
+                <MenuButton>
+                  <Text>
+                    {loading && "..."} {session && session.user.name}
+                  </Text>
+                  <AiFillCaretDown size="12px" />
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Mi Perfil</MenuItem>
+                  <MenuItem>Cerrar sesion</MenuItem>
+                  <MenuItem>Notificaciones</MenuItem>
+                </MenuList>
+              </Menu>
             </Stack>
           </Box>
         </Link>
