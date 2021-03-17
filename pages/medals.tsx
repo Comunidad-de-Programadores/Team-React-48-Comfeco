@@ -8,7 +8,7 @@ interface Props {}
 
 const medals = ({}: Props) => {
   return (
-    <Layout>
+    <Layout title="Badges">
       <Grid
         height="100vh"
         gridTemplateColumns="4rem repeat(4, 1fr) 4rem"

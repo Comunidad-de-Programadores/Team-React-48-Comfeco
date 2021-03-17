@@ -7,7 +7,7 @@ interface Props {}
 
 const politics = ({}: Props) => {
   return (
-    <Layout>
+    <Layout title="Politica de privacidad">
       <Grid
         minHeight="50vh"
         gridTemplateColumns="repeat(9, 1fr)"
