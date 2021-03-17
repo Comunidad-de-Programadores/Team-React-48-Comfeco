@@ -181,6 +181,7 @@ export default function FooterComponent(): ReactElement {
         <GridItem 
         w="100%"
         h="100%"
+<<<<<<< HEAD
         rowStart={{
           sm:3,
           md:1
@@ -204,10 +205,22 @@ export default function FooterComponent(): ReactElement {
               sm:"10rem",
               lg:"70%"
               }} src="/images/logo1.png" alt="logo-conf" />
+=======
+        colSpan={{
+          sm:"3",
+          md:"initial",
+        }}>
+          <Link href="#">
+            <Image w="70%" src="/images/logo1.png" alt="logo-conf" />
+>>>>>>> 1a509e3 (feat: responsive homre)
           </Link>
         </GridItem>
-        <MenuTerminos />
-        <MenuSocial />
+        <GridItem>
+          <MenuTerminos />
+        </GridItem>
+        <GridItem>
+          <MenuSocial />
+        </GridItem>
       </Grid>
       <Box bg="#fff">
         <Text fontSize="12px" textAlign="center">
