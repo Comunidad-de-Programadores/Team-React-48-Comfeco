@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Box } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Banner from "../components/dashboard/Banner";
