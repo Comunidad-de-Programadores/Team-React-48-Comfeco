@@ -1,5 +1,9 @@
 import bcrypt from "bcrypt";
+import { Badges } from "./Badges";
+import { Community } from "./Community";
+import { Group } from "./Groups";
 import Token from "./Token";
+import { WorkShop } from "./WorkShop";
 
 class User {
   readonly id: string;
@@ -10,6 +14,10 @@ class User {
   readonly social: SocialMedia;
   readonly description: string;
   readonly photo: string;
+  readonly communities: Community[];
+  readonly groups: Group[];
+  readonly badges: Badges[];
+  readonly workshops: WorkShop[];
   public password: string;
 
   constructor({
@@ -22,6 +30,10 @@ class User {
     country,
     social,
     description,
+    communities,
+    groups,
+    badges,
+    workshops,
   }: UserAttr) {
     this.id = id;
     this.username = username;
@@ -32,6 +44,10 @@ class User {
     this.social = social;
     this.description = description;
     this.photo = photo;
+    this.communities = communities;
+    this.groups = groups;
+    this.badges = badges;
+    this.workshops = workshops;
   }
 
   public hashPassword(): void {
@@ -63,6 +79,10 @@ class User {
       social: this.social,
       description: this.description,
       photo: this.photo,
+      communities: this.communities,
+      groups: this.groups,
+      badges: this.badges,
+      workshops: this.workshops,
     };
   }
 
@@ -97,6 +117,10 @@ interface UserAttr {
   description: string;
   password: string;
   photo: string;
+  communities: Community[];
+  groups: Group[];
+  badges: Badges[];
+  workshops: WorkShop[];
 }
 
 export default User;

@@ -27,7 +27,20 @@ const UserSchema = new mongoose.Schema({
   },
   photo: {
     type: String
-  }
+  },
+  groups: {
+    type: [Object]
+  },
+  communities: {
+    type: [Object]
+  },
+  badges: {
+    type: [Object]
+  },
+  workshops: {
+    type: [Object]
+  },
+  
 });
 
 const User = mongoose.models.User || mongoose.model('User', UserSchema);
