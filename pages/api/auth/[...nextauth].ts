@@ -9,7 +9,6 @@ const providers = [
     server: {
       port: 465,
       host: "smtp.gmail.com",
-      secure: true,
       auth: {
         user: process.env.EMAIL_USERNAME
           ? process.env.EMAIL_USERNAME
@@ -17,9 +16,6 @@ const providers = [
         pass: process.env.EMAIL_PASSWORD
           ? process.env.EMAIL_PASSWORD
           : "Tteam123456789",
-      },
-      tls: {
-        rejectUnauthorized: false,
       },
     },
     from: process.env.EMAIL_FROM,
@@ -53,8 +49,7 @@ const providers = [
     async authorize(credentials) {
       // Add logic here to look up the user from the credentials supplied
       try {
-<<<<<<< HEAD
-        const user = await axios.post(
+        const response = await axios.post(
           "http://localhost:3000/api/login/",
           {
             password: credentials.password,
@@ -65,23 +60,11 @@ const providers = [
               accept: "*/*",
               "Content-Type": "application/json",
             },
-=======
-
-        const response = await axios.post('http://localhost:3000/api/login/',
-        {
-          password: credentials.password,
-          email: credentials.email
-        },
-        {
-          headers: {
-            accept: '*/*',
-            'Content-Type': 'application/json'
->>>>>>> a810b21 (Next auth with credentials)
           }
         );
 
         if (response) {
-          console.log("user.data", response.data.data)
+          console.log("user.data", response.data.data);
           return response.data.data;
         }
       } catch (e) {
@@ -98,7 +81,7 @@ const callbacks = {
     // if (user) {
     //   token.accessToken = user.data.token;
     // }
-    console.log("token", token)
+    console.log("token", token, user, account, profile, isNewUser);
     return token;
   },
 
