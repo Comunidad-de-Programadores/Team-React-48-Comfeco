@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
-import { FaGithub, FaFacebook, FaDiscord, FaYoutube } from "react-icons/fa";
-import { Box, Image, Text, Grid, GridItem, Link } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Image, Link, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import React, { ReactElement } from "react";
+import { FaDiscord, FaFacebook, FaGithub, FaYoutube } from "react-icons/fa";
 
 export default function FooterComponent(): ReactElement {
   const router = useRouter();
@@ -48,14 +48,36 @@ export default function FooterComponent(): ReactElement {
       flexDirection="column"
       justifyContent="space-between"
     >
-      <Grid templateColumns="repeat(4, 1fr)" gap={6} p="1rem 3rem">
-        <GridItem w="100%" h="100%">
+      <Grid 
+      templateColumns={{
+        sm:"1fr",
+        md:"repeat(4, 1fr)",
+      }} 
+      gap={{
+        md:6
+      }} 
+      p={{
+        sm:"1rem .5rem",
+        md:"1rem 3rem"
+      }}
+      >
+        <GridItem 
+        w="100%"
+        h="100%"
+        colSpan={{
+          sm:"3",
+          md:"initial",
+        }}>
           <Link href="#">
             <Image w="70%" src="/images/logo1.png" alt="logo-conf" />
           </Link>
         </GridItem>
-        <MenuTerminos />
-        <MenuSocial />
+        <GridItem>
+          <MenuTerminos />
+        </GridItem>
+        <GridItem>
+          <MenuSocial />
+        </GridItem>
       </Grid>
       <Box bg="#fff">
         <Text fontSize="12px" textAlign="center">
