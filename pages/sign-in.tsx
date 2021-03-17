@@ -1,13 +1,20 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
-
+import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
 import SigninRight from "../components/signin/SigninRight";
+import { useSession } from "next-auth/client";
 
 interface Props {}
 
 export default function SignIn({}: Props): ReactElement {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    !loading && session && router.push("/");
+  }, [session]);
   return (
     <Layout title="Iniciar Sesion">
       <Box

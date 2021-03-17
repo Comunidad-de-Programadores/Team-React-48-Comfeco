@@ -10,8 +10,11 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
+import { useSession } from "next-auth/client";
 
 function HeaderLogin() {
+  const [session, loading] = useSession();
+
   return (
     <Grid
       h="100%"
@@ -42,25 +45,30 @@ function HeaderLogin() {
         <Link href="/">
           <Text position="relative">Inicio</Text>
         </Link>
-        <Link href="/signin">
+        <Link href="/sign-in">
           <Text position="relative">Comunidades</Text>
         </Link>
-        <Link href="/signin">
+        <Link href="/sign-in">
           <Text position="relative">Talleres</Text>
         </Link>
-        <Link href="/signin">
+        <Link href="/sign-in">
           <Text position="relative">Creadores de Contenido</Text>
         </Link>
       </GridItem>
       <GridItem display="flex" pl="5rem" alignItems="center">
-        <Link href="/signup">
+        <Link href="#">
           <Box
             display="flex"
             p="5px"
             borderRadius="15px"
             justifyContent="space-evenly"
           >
-            <Avatar size="xs" src="https://bit.ly/broken-link" />
+            <Avatar
+              size="xs"
+              src={`${
+                session ? session.user.image : "https://bit.ly/broken-link"
+              }`}
+            />
             <Stack
               fontSize="12px"
               direction={["column", "row"]}
@@ -69,7 +77,9 @@ function HeaderLogin() {
               alignSelf="center"
               alignItems="center"
             >
-              <Text>Nekitory</Text>
+              <Text>
+                {loading && "..."} {session && session.user.name}
+              </Text>
               <AiFillCaretDown size="12px" />
             </Stack>
           </Box>

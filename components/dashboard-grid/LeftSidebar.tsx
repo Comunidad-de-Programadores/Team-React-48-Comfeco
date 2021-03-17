@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Button, Heading, Img, Text } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
 
 function LeftSidebar() {
   const userImg =
     "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fposterposse.com%2Fwp-content%2Fuploads%2F2015%2F03%2Ff6cf32bad97eff4e0388a3939c90f628.jpg&f=1&nofb=1";
+  const [session, loading] = useSession();
+
   return (
     <Box
       d="grid"
@@ -22,10 +25,19 @@ function LeftSidebar() {
         filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
       >
         <Box boxSize="8rem" mb="10px">
-          <Img src={userImg} borderRadius="50%" />
+          <Img
+            src={`${
+              session
+                ? session.user.image != null
+                  ? session.user.image
+                  : userImg
+                : userImg
+            }`}
+            borderRadius="50%"
+          />
         </Box>
         <Heading color="#793E93" as="h2" size="sm">
-          Nekitory
+          {loading && "..."} {session && session.user.name}
         </Heading>
         <Text fontSize="14px">Frontend Developer/ UI / UX </Text>
       </Box>

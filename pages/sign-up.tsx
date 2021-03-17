@@ -1,6 +1,8 @@
-import React, { ReactElement, useState } from "react";
-import Layout from "../components/Layout";
+import React, { ReactElement, useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useSession, signIn } from "next-auth/client";
 import { GrFacebook, GrGoogle } from "react-icons/gr";
+import Layout from "../components/Layout";
 import {
   Box,
   InputGroup,
@@ -19,6 +21,12 @@ import { SignupErrors } from "../interfaces";
 interface Props {}
 
 export default function SignUp({}: Props): ReactElement {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    !loading && session && router.push("/");
+  }, []);
   const {
     inputType: inputTypePassword,
     Icon: IconPassword,
@@ -51,6 +59,11 @@ export default function SignUp({}: Props): ReactElement {
       const data = await response.json();
 
       if (data.code === 201) {
+        signIn("credentials", {
+          callbackUrl: window.location.origin,
+          email: values.email,
+          password: values.password,
+        });
         setregisterSuccess(true);
         setApiError(null);
         return;
