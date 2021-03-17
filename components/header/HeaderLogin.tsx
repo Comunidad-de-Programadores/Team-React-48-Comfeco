@@ -47,16 +47,29 @@ function HeaderLogin() {
         px="5rem"
       >
         <Link href="/">
-          <Text position="relative">Inicio</Text>
+          <Text cursor="pointer" position="relative">
+            Home
+          </Text>
         </Link>
-        <Link href="/sign-in">
-          <Text position="relative">Comunidades</Text>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Comunidades
+          </Text>
         </Link>
-        <Link href="/sign-in">
-          <Text position="relative">Talleres</Text>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Talleres
+          </Text>
         </Link>
-        <Link href="/sign-in">
-          <Text position="relative">Creadores de Contenido</Text>
+        <Link href="/dashboard">
+          <Text cursor="pointer" position="relative">
+            Dashboard
+          </Text>
+        </Link>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Creadores de Contenido
+          </Text>
         </Link>
       </GridItem>
       <GridItem display="flex" pl="5rem" alignItems="center">
