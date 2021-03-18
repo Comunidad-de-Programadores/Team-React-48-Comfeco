@@ -51,15 +51,15 @@ export default function TheInput({
         value={values[name]}
         placeholder={placeholder}
         onChange={handleChange}
-        h={{ sm: "", lg: "" }}
-        p={{ sm: "", lg: "" }}
-        borderRadius={{ sm: "", lg: "" }}
+        h={{ sm: "2rem", lg: "3rem" }}
+        p={{ sm: "10px", lg: "1rem" }}
+        borderRadius={{ sm: "5px", lg: "10px" }}
         fontSize={fSize}
         color={color}
       />
       {right && (
         <InputRightElement
-          w={{ lg: "1.5rem" }}
+          w={{ sm: "20px", lg: "1.5rem" }}
           cursor="pointer"
           children={icon}
         />
