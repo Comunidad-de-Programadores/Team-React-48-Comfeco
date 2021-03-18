@@ -46,7 +46,7 @@ function HeaderLogin() {
         justifyContent="space-evenly"
         px="5rem"
       >
-        <Link href="/">
+        <Link href="/dashboard">
           <Text cursor="pointer" position="relative">
             Home
           </Text>
@@ -59,11 +59,6 @@ function HeaderLogin() {
         <Link href="/#">
           <Text cursor="pointer" position="relative">
             Talleres
-          </Text>
-        </Link>
-        <Link href="/dashboard">
-          <Text cursor="pointer" position="relative">
-            Dashboard
           </Text>
         </Link>
         <Link href="/#">
