@@ -6,7 +6,7 @@ import { Grid } from "@chakra-ui/react";
 import HeaderLogout from "./header/HeaderLogout";
 import HeaderLogin from "./header/HeaderLogin";
 import FooterComponent from "./FooterComponent";
-
+import Loader from "./Loader";
 type Props = {
   children?: ReactNode;
   title?: string;
@@ -18,7 +18,9 @@ const Layout = ({
   type,
 }: Props) => {
   const [session, loading] = useSession();
-  return (
+  return loading ? (
+    <Loader title={title} />
+  ) : (
     <>
       <Head>
         <title>{title}</title>

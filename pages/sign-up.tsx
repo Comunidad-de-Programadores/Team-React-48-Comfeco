@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSession, signIn } from "next-auth/client";
 import { GrFacebook, GrGoogle } from "react-icons/gr";
@@ -46,13 +46,15 @@ export default function SignUp(): JSX.Element {
 
   const register = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/users", {
+      const response = await fetch("/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
+
+      const data = await response.json();
 
       if (data.code === 201) {
         signIn("credentials", {

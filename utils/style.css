@@ -21,3 +21,12 @@
   --bg-texbox: #e9eff6;
   --color-texto-textbox: #85898d;
 }
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
