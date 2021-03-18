@@ -1,11 +1,15 @@
+import { Box, Heading, Text } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
-import { Box, Text, Heading } from "@chakra-ui/react";
 
 export default function Countdown(): ReactElement {
   return (
     <section>
       <Box h="100%" w="100%" display="flex" justifyContent="center">
-        <Box bg="#fff" h="100vh" p="1em" borderRadius="1em">
+        <Box bg="#fff" 
+        h={{
+          lg:"100vh"
+        }} 
+        p="2rem 1em" borderRadius="1em">
           <Heading
             color="#850294"
             as="h2"
@@ -42,13 +46,22 @@ export default function Countdown(): ReactElement {
           </Heading>
           <Box
             w="100%"
-            h="5rem"
+            h={{
+              lg:"5rem"
+            }}
             display="flex"
             justifyContent="center"
             mt="2em"
           >
-            <Box display="flex" justifyContent="space-evenly" w="80%">
-              <Box position="relative" w="20%">
+            <Box 
+            display={{
+              sm:"grid",
+              md:"flex"
+            }} 
+            justifyContent="space-evenly"
+            gridTemplateColumns='repeat(2, 1fr)'
+            w="80%">
+              <Box position="relative" w={{md:"20%"}}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -62,19 +75,26 @@ export default function Countdown(): ReactElement {
                 <Text fontSize="20px" h="30%" textAlign="center">
                   Dias
                 </Text>
-                <span
-                  style={{
-                    position: "absolute",
-                    bottom: "20%",
-                    left: "105%",
-                    fontSize: "30px",
-                    fontWeight: "bold",
-                  }}
+                <Box
+                display={{
+                  sm:"none",
+                  md:"block"
+                }}
                 >
-                  :
-                </span>
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "20%",
+                      left: "105%",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    :
+                  </span>
+                </Box>
               </Box>
-              <Box position="relative" w="20%">
+              <Box position="relative" w={{md:"20%"}}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -88,19 +108,26 @@ export default function Countdown(): ReactElement {
                 <Text fontSize="20px" h="30%" textAlign="center">
                   Horas
                 </Text>
-                <span
-                  style={{
-                    position: "absolute",
-                    bottom: "20%",
-                    left: "105%",
-                    fontSize: "30px",
-                    fontWeight: "bold",
-                  }}
+                <Box
+                display={{
+                  sm:"none",
+                  md:"block"
+                }}
                 >
-                  :
-                </span>
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "20%",
+                      left: "105%",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    :
+                  </span>
+                </Box>
               </Box>
-              <Box position="relative" w="20%">
+              <Box position="relative" w={{md:"20%"}}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -114,19 +141,26 @@ export default function Countdown(): ReactElement {
                 <Text fontSize="20px" h="30%" textAlign="center">
                   Minutos
                 </Text>
-                <span
-                  style={{
-                    position: "absolute",
-                    bottom: "20%",
-                    left: "105%",
-                    fontSize: "30px",
-                    fontWeight: "bold",
-                  }}
+                <Box
+                display={{
+                  sm:"none",
+                  md:"block"
+                }}
                 >
-                  :
-                </span>
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "20%",
+                      left: "105%",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    :
+                  </span>
+                </Box>
               </Box>
-              <Box position="relative" w="20%">
+              <Box position="relative" w={{md:"20%"}}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"

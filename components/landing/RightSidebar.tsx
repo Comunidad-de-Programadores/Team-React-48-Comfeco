@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { Box, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-import EventCard from "./EventCard";
 import ButtonAction from "./ButtonAction";
+import EventCard from "./EventCard";
 
 interface Props {}
 
@@ -31,16 +31,39 @@ const RightSidebar = ({}: Props) => {
   };
 
   return (
-    <Box padding="3rem">
-      <Box>
-        <Heading as="h1" size="lg" color="#793E93" margin="0 0 1rem 0">
+    <Box
+    padding={{
+      sm:"initial",
+      lg:"3rem"
+    }}>
+      <Box
+      overflow={{
+        sm:'hidden',
+        md:'initial'
+      }}
+      width={{
+        sm:'100vw',
+        md:'initial'
+      }}
+      >
+        <Heading 
+        as="h1" 
+        size="lg" 
+        color="#793E93" 
+        margin="0 0 1rem 0"
+        padding={{sm:'0 0 0 1rem', md:'initial'}}
+        >
           Talleres
         </Heading>
         <Box margin="0 0 2rem 0">
           <Box
-            display="flex"
-            justifyContent="space-between"
-            margin="0 0 2rem 0"
+          display="flex"
+          justifyContent="space-between"
+          margin="0 0 2rem 0"
+          padding={{
+            sm:'0 1rem',
+            md:'initial'
+          }}
           >
             <Text fontSize="1.1rem" color="#555555">
               {da} {mo}, {ye}
@@ -48,26 +71,62 @@ const RightSidebar = ({}: Props) => {
             {console.log(da, mo, ye)}
             <FaCalendarAlt color="#555555" fontSize="2rem" />
           </Box>
-          <ButtonAction textButton="Filtro" />
+          <Box
+          display={{
+            sm:'flex',
+            md:'block'
+          }}
+          justifyContent='center'
+          >
+            <Box
+            width={{
+              sm:'15rem',
+              md:'initial'
+            }}
+            >
+              <ButtonAction textButton="Filtro" />
+            </Box>
+          </Box>
         </Box>
         <Heading
-          as="h4"
-          fontSize="1.5rem"
-          color="#793E93"
-          margin="0 0 1.5rem 0"
+        as="h4"
+        fontSize="1.5rem"
+        color="#793E93"
+        margin="0 0 1.5rem 0"
+        padding={{
+          sm:'0 1rem',
+          md:'initial'
+        }}
         >
           Area de conocimiento
         </Heading>
-        <List>
-          { events.map((event: any) => 
-          <ListItem key={event.id}>
-            <EventCard
-              title={event.title}
-              hour={event.hour}
-              author={event.author}
-            />
-          </ListItem>)}
-        </List>
+        <Box
+        overflowX={{
+          sm:"scroll",
+          md:"initial"
+        }}
+        >
+          <List
+          display={{
+            sm:'flex',
+            md:'block'
+          }}
+          >
+            { events.map((event: any) => 
+            <ListItem
+            key={event.id}
+            minWidth={{sm:'20rem', md:'initial',}}
+            padding={{sm:'0 1rem', md:'initial'}}
+            >
+              <EventCard
+                title={event.title}
+                hour={event.hour}
+                author={event.author}
+              />
+            </ListItem>
+            )}
+          </List>
+        </Box>
       </Box>
     </Box>
   );

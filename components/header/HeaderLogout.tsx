@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { Box, Img, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { Box, Text, Img } from "@chakra-ui/react";
-
+import React, { useState } from "react";
+import { GrUserAdd } from 'react-icons/gr';
 function HeaderLogout() {
   const [hover, setHover] = useState([false, false]);
 
@@ -27,13 +27,36 @@ function HeaderLogout() {
         w="100%"
         alignItems="center"
         justifyContent="space-between"
-        pl="5rem"
+        pl={{
+          sm:"1rem",
+          md:"5rem"
+        }}
       >
-        <Box d="flex" alignItems="center">
-          <Img boxSize="3rem" src="/images/isotipo.png" />
-          <Text ml="10px" color="#555555" fontWeight="bold" fontSize="20px">
+        <Box 
+        d="flex" 
+        alignItems="center"
+        width={{
+          sm:'3rem',
+          md:'10rem'
+        }}
+        >
+          <Img
+          display={{
+            sm:'block',
+            md:'none'
+          }}
+          src="/images/isotipo.png"
+          />
+          <Img 
+          src="/images/logo1.png"
+          display={{
+            sm:'none',
+            md:'block'
+          }}
+          />
+          {/* <Text ml="10px" color="#555555" fontWeight="bold" fontSize="20px">
             C#MFECO
-          </Text>
+          </Text> */}
         </Box>
       </Box>
       <Box
@@ -41,7 +64,10 @@ function HeaderLogout() {
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
-        pr="10rem"
+        pr={{
+          sm:"initial",
+          lg:"10rem"
+        }}
       >
         <Link href="/">
           <Box position="relative">
@@ -86,17 +112,32 @@ function HeaderLogout() {
           </Box>
         </Link>
         <Link href="/sign-up">
-          <Text
-            cursor="pointer"
-            color={color}
-            bg="gradiant.10"
-            textAlign="center"
-            borderRadius="20px"
-            w="10rem"
-            padding="10px"
+          <Box
+          color={color}
+          bg="gradiant.10"
+          textAlign="center"
+          borderRadius="20px"
+          w={{
+            sm:"initial",
+            md:"10rem"
+          }}
+          padding="10px"
+          display='flex'
+          justifyContent='center'
           >
-            Registrate
-          </Text>
+            <GrUserAdd 
+            fontSize='1.5rem'
+            color='#fffff'
+            />
+            <Text
+            display={{
+              sm:"none",
+              md:"block"
+            }}
+            >
+              Registrate
+            </Text>
+          </Box>
         </Link>
       </Box>
     </Box>

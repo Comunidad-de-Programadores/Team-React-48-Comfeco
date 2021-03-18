@@ -1,10 +1,10 @@
-import React, { ReactElement, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
+import React, { ReactElement, useEffect } from "react";
 import Layout from "../components/Layout";
 import SignInLeft from "../components/signin/SigninLeft";
 import SigninRight from "../components/signin/SigninRight";
-import { useSession } from "next-auth/client";
 
 interface Props {}
 

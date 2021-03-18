@@ -1,5 +1,5 @@
+import { Avatar, Box, Text } from "@chakra-ui/react";
 import React from "react";
-import { Text, Avatar, Box } from "@chakra-ui/react";
 
 interface Props {
   text?: string;
@@ -14,7 +14,10 @@ const CardHorizontal = (props: Props) => {
       py="1.5rem"
       px="1rem"
       backgroundColor="#FAFAFA"
-      margin="0 0 1.5rem"
+      margin={{
+        sm:"0 1rem 1.5rem",
+        md: "0 0 1.5rem"
+      }}
       borderRadius="20px"
       justifyContent="space-around"
       alignItems="center"
