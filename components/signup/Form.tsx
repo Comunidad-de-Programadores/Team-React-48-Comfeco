@@ -1,4 +1,6 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
+import { SignupErrors } from "../../interfaces";
 import {
   Box,
   InputGroup,
@@ -9,12 +11,11 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-import useAuth from "../../hooks/useAuth";
-import { SignupErrors } from "../../interfaces";
-
 function Form(): JSX.Element {
   const {
+    values,
     handleSubmit,
+    handleChange,
     errors,
     inputTypeConfirmPassword,
     inputTypePassword,
@@ -22,10 +23,7 @@ function Form(): JSX.Element {
     IconPassword,
     registerSuccess,
     apiError,
-    handleChange,
-    values,
   } = useAuth();
-
   const { username, email, password, confirmPassword } = values;
 
   const hover = {
@@ -42,157 +40,128 @@ function Form(): JSX.Element {
     rgba(195, 109, 66, 0.8) 77.54%,
     rgba(228, 160, 23, 0.8) 92.6%,
     rgba(241, 178, 6, 0.8) 99.98%)`;
-  const alert = "red";
 
   return (
-    <FormControl w="100%" marginTop="2rem">
+    <FormControl width="100%" marginTop="2rem">
       <form onSubmit={handleSubmit}>
-        <Box
-          w={{ sm: "100%" }}
-          h={{ sm: "4rem", lg: "5rem" }}
-          position="relative"
+        <InputGroup
+          width="80%"
+          margin="0 auto"
+          display="flex"
+          flexDirection="row"
         >
-          <Input
-            variant="filled"
-            type="text"
-            id="username"
-            placeholder="Nombre de usuario"
-            name="username"
-            w="100%"
-            p={{ sm: "10px", lg: "0.5rem" }}
-            borderRadius={{ sm: "5px", lg: "7px" }}
-            value={username}
-            onChange={handleChange}
-            filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-          />
-          {(errors as SignupErrors).username && (
-            <Text
-              fontSize={{ sm: "12px", lg: "14px" }}
-              mt={{ sm: "3px", lg: "5px" }}
-              color={alert}
-            >
-              {(errors as SignupErrors).username}
-            </Text>
-          )}
-        </Box>
-        <Box
-          w={{ sm: "100%" }}
-          h={{ sm: "4rem", lg: "5rem" }}
-          position="relative"
-        >
-          <Input
-            variant="filled"
-            type="text"
-            id="email"
-            placeholder="Correo eletronico"
-            name="email"
-            w="100%"
-            p={{ sm: "10px", lg: "0.5rem" }}
-            borderRadius={{ sm: "5px", lg: "7px" }}
-            value={email}
-            onChange={handleChange}
-            filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-          />
-          {(errors as SignupErrors).email && (
-            <Text
-              fontSize={{ sm: "12px", lg: "14px" }}
-              mt={{ sm: "3px", lg: "5px" }}
-              color={alert}
-            >
-              {(errors as SignupErrors).email}
-            </Text>
-          )}
-        </Box>
+          <Box margin="0.5rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type="text"
+              id="username"
+              placeholder="Nombre de usuario"
+              name="username"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={username}
+              onChange={handleChange}
+            />
+            {(errors as SignupErrors).username && (
+              <Text color="red">{(errors as SignupErrors).username}</Text>
+            )}
+          </Box>
+          <Box margin="0.5rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type="text"
+              id="email"
+              placeholder="Correo eletronico"
+              name="email"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={email}
+              onChange={handleChange}
+            />
+            {(errors as SignupErrors).email && (
+              <Text color="red">{(errors as SignupErrors).email}</Text>
+            )}
+          </Box>
+        </InputGroup>
 
-        <Box
-          w={{ sm: "100%" }}
-          h={{ sm: "4rem", lg: "5rem" }}
-          position="relative"
+        <InputGroup
+          width="80%"
+          margin="0 auto"
+          display="flex"
+          flexDirection="row"
         >
-          <Input
-            variant="filled"
-            type={inputTypePassword}
-            id="password"
-            placeholder="Contraseña"
-            name="password"
-            w="100%"
-            p={{ sm: "10px", lg: "0.5rem" }}
-            borderRadius={{ sm: "5px", lg: "7px" }}
-            value={password}
-            onChange={handleChange}
-            filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-          />
-          <InputRightElement
-            w={{ sm: "30px", lg: "1.5rem" }}
-            position="absolute"
-            top={{ sm: "5px", lg: "10px" }}
-            right={{ sm: "10px" }}
-            cursor="pointer"
-            children={IconPassword}
-          />
-          {(errors as SignupErrors).password && (
-            <Text
-              fontSize={{ sm: "12px", lg: "14px" }}
-              mt={{ sm: "3px", lg: "5px" }}
-              color={alert}
-            >
-              {(errors as SignupErrors).password}
-            </Text>
-          )}
-        </Box>
-
-        <Box
-          w={{ sm: "100%" }}
-          h={{ sm: "4rem", lg: "5rem" }}
-          position="relative"
-        >
-          <Input
-            variant="filled"
-            type={inputTypeConfirmPassword}
-            id="confirmPassword"
-            placeholder="Confirmar contraseña"
-            name="confirmPassword"
-            w="100%"
-            p={{ sm: "10px", lg: "0.5rem" }}
-            borderRadius={{ sm: "5px", lg: "7px" }}
-            values={confirmPassword}
-            onChange={handleChange}
-            filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-          />
-          <InputRightElement
-            w={{ sm: "30px", lg: "1.5rem" }}
-            position="absolute"
-            top={{ sm: "5px", lg: "10px" }}
-            right={{ sm: "10px" }}
-            cursor="pointer"
-            children={IconConfirmPassword}
-          />
-          {(errors as SignupErrors).confirmPassword && (
-            <Text
-              fontSize={{ sm: "12px", lg: "14px" }}
-              mt={{ sm: "3px", lg: "5px" }}
-              color={alert}
-            >
-              {(errors as SignupErrors).confirmPassword}
-            </Text>
-          )}
-        </Box>
-
-        {apiError && <Text color={alert}>{apiError}</Text>}
+          <Box margin="1rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type={inputTypePassword}
+              id="password"
+              placeholder="Contraseña"
+              name="password"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={password}
+              onChange={handleChange}
+            />
+            <InputRightElement
+              width="1.5rem"
+              position="absolute"
+              top="1.2rem"
+              left="calc(90% - 6px)"
+              cursor="pointer"
+              children={IconPassword}
+            />
+            {(errors as SignupErrors).password && (
+              <Text color="red">{(errors as SignupErrors).password}</Text>
+            )}
+          </Box>
+          <Box margin="1rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type={inputTypeConfirmPassword}
+              id="confirmPassword"
+              placeholder="Confirmar contraseña"
+              name="confirmPassword"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              values={confirmPassword}
+              onChange={handleChange}
+            />
+            <InputRightElement
+              width="1.5rem"
+              position="absolute"
+              top="1.2rem"
+              left="calc(90% - 6px)"
+              cursor="pointer"
+              children={IconConfirmPassword}
+            />
+            {(errors as SignupErrors).confirmPassword && (
+              <Text color="red">
+                {(errors as SignupErrors).confirmPassword}
+              </Text>
+            )}
+          </Box>
+        </InputGroup>
+        {apiError && <Text color="red">{apiError}</Text>}
         {registerSuccess && <Text color="green">Registro exitoso!!</Text>}
-        <Box textAlign="center" mt={{ lg: "1.5rem" }}>
+        <Box textAlign="center" marginTop="1.5rem">
           <Button
-            mt={{ sm: "1rem" }}
             type="submit"
             background={bg}
             _hover={hover}
-            py={{ sm: "10px", lg: "1rem" }}
-            px={{ sm: "5px", lg: "0.5rem" }}
-            borderRadius={{ sm: "5px", lg: "7px" }}
+            width="50%"
+            height="5rem"
+            padding="1rem 0"
+            borderRadius="10px"
             color="white"
-            w={{ sm: "10rem", lg: "15rem" }}
-            h={{ lg: "3rem" }}
-            fontSize={{ sm: "16px", lg: "30px" }}
+            fontSize="30px"
           >
             Registrarse
           </Button>
