@@ -22,7 +22,15 @@ const LeftSidebar = ({}: Props) => {
     >
       <Box
       >
-        <Heading as="h1" size="lg" color="#793E93">
+        <Heading 
+        as="h1" 
+        size="lg" 
+        color="#793E93"
+        padding={{
+          sm:'0 0 0 1rem',
+          lg:'initial'
+        }}
+        >
           Comunidades
         </Heading>
         <Box
@@ -53,7 +61,22 @@ const LeftSidebar = ({}: Props) => {
           </List>
         </Box>
       </Box>
-      <ButtonAction textButton="Ver más" />
+      <Box
+      display={{
+        sm:'flex',
+        md:'block'
+      }}
+      justifyContent='center'
+      >
+        <Box
+        width={{
+          sm:'15rem',
+          md:'initial'
+        }}
+        >
+          <ButtonAction textButton="Ver más" />
+        </Box>
+      </Box>
     </Box>
   );
 };

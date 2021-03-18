@@ -66,7 +66,7 @@ function HeaderLogout() {
         justifyContent="space-evenly"
         pr={{
           sm:"initial",
-          md:"10rem"
+          lg:"10rem"
         }}
       >
         <Link href="/">
@@ -123,10 +123,11 @@ function HeaderLogout() {
           }}
           padding="10px"
           display='flex'
+          justifyContent='center'
           >
             <GrUserAdd 
             fontSize='1.5rem'
-            color='#fff'
+            color='#fffff'
             />
             <Text
             display={{
