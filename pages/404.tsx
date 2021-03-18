@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Box, Button, Heading, Img } from "@chakra-ui/react";
 
@@ -7,6 +8,9 @@ function NotFound(): JSX.Element {
   const bg = "#9349DD";
   return (
     <>
+      <Head>
+        <title>Not Found</title>
+      </Head>
       <Box
         minH="100vh"
         minW="100vw"
