@@ -27,6 +27,7 @@ function useAuth() {
   };
   const register = async () => {
     try {
+<<<<<<< HEAD
       const response = await fetch(`/api/users`, {
         method: "POST",
         headers: {
@@ -35,6 +36,19 @@ function useAuth() {
         body: JSON.stringify(values),
       });
       const data = await response.json();
+=======
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_PORT}/api/users`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
+
+>>>>>>> c323160 (feat(useauth): logic of signup passed to hooks)
       if (data.code === 201) {
         signIn("credentials", {
           callbackUrl: window.location.origin,
