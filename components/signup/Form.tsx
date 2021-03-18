@@ -15,9 +15,7 @@ import TheInput from "../share/TheInput";
 
 function Form(): JSX.Element {
   const {
-    values,
     handleSubmit,
-    handleChange,
     errors,
     inputTypeConfirmPassword,
     inputTypePassword,
@@ -26,7 +24,6 @@ function Form(): JSX.Element {
     registerSuccess,
     apiError,
   } = useAuth();
-  const { username, email, password, confirmPassword } = values;
   const signUpArray = [
     { name: "username", type: "text", left: false, right: false },
     { name: "email", type: "email", left: false, right: false },
@@ -61,15 +58,7 @@ function Form(): JSX.Element {
     rgba(195, 109, 66, 0.8) 77.54%,
     rgba(228, 160, 23, 0.8) 92.6%,
     rgba(241, 178, 6, 0.8) 99.98%)`;
-  /* 
-variant
-type
-id
-name
-placeholder
-value
-onChange
-*/
+
   return (
     <FormControl width="100%" marginTop="2rem">
       <form onSubmit={handleSubmit}>

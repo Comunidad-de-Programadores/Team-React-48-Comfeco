@@ -27,44 +27,35 @@ export default function TheInput({
   const fSize = "16px";
   const color = "#85898D";
 
-  const { IconPassword, IconConfirmPassword, values, handleChange } = useAuth();
-
-  const handleChildren = (name: string) => {
-    switch (name) {
-      case "password":
-        return IconPassword;
-      case "confirmPassword":
-        return IconConfirmPassword;
-      default:
-        return null;
-    }
-  };
+  const { values, handleChange } = useAuth();
 
   return (
-    <InputGroup bg={bg}>
-      <Input
-        w="100%"
-        variant="filled"
-        type={type}
-        id={id}
-        name={name}
-        value={values[name]}
-        placeholder={placeholder}
-        onChange={handleChange}
-        h={{ sm: "2rem", lg: "3rem" }}
-        p={{ sm: "10px", lg: "1rem" }}
-        borderRadius={{ sm: "5px", lg: "10px" }}
-        fontSize={fSize}
-        color={color}
-      />
-      {right && (
-        <InputRightElement
-          w={{ sm: "20px", lg: "1.5rem" }}
-          cursor="pointer"
-          children={icon}
+    <>
+      <InputGroup bg={bg}>
+        <Input
+          w="100%"
+          variant="filled"
+          type={type}
+          id={id}
+          name={name}
+          value={values[name]}
+          placeholder={placeholder}
+          onChange={handleChange}
+          h={{ sm: "2rem", lg: "3rem" }}
+          p={{ sm: "10px", lg: "1rem" }}
+          borderRadius={{ sm: "5px", lg: "10px" }}
+          fontSize={fSize}
+          color={color}
         />
-      )}
+        {right && (
+          <InputRightElement
+            w={{ sm: "20px", lg: "1.5rem" }}
+            cursor="pointer"
+            children={icon}
+          />
+        )}
+      </InputGroup>
       {errors[name] && <Text color="red">{errors[name]}</Text>}
-    </InputGroup>
+    </>
   );
 }
