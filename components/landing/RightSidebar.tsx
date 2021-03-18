@@ -127,6 +127,29 @@ const RightSidebar = ({}: Props) => {
             ))}
           </List>
         </Box>
+        <Heading
+          as="h4"
+          fontSize="1.5rem"
+          color="#793E93"
+          margin="0 0 1.5rem 0"
+          padding={{
+            sm: "0 1rem",
+            md: "initial",
+          }}
+        >
+          Area de conocimiento
+        </Heading>
+        <List>
+          {events.map((event: any) => (
+            <ListItem key={event.id}>
+              <EventCard
+                title={event.title}
+                hour={event.hour}
+                author={event.author}
+              />
+            </ListItem>
+          ))}
+        </List>
       </Box>
     </Box>
   );

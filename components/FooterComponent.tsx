@@ -179,12 +179,8 @@ export default function FooterComponent(): ReactElement {
             />
           </Link>
         </GridItem>
-        <GridItem>
-          <MenuTerminos />
-        </GridItem>
-        <GridItem>
-          <MenuSocial />
-        </GridItem>
+        <MenuTerminos />
+        <MenuSocial />
       </Grid>
       <Box bg="#fff">
         <Text fontSize="12px" textAlign="center">
