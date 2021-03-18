@@ -23,7 +23,7 @@ const politics = ({}: Props) => {
           margin="2rem 0 0 0"
         >
           <Text as="h1" fontSize="4xl" fontWeight="700" color="#666666">
-            Políticas de privacidad.
+            Políticas de privacidad
           </Text>
         </GridItem>
         <GridItem gridColumn="3 / 8" margin="1rem 0 0 0">
