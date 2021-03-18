@@ -1,10 +1,15 @@
-import Layout from "../components/Layout";
+import { useSession } from "next-auth/client";
+import React from "react";
 import Landing from "../components/landing";
+import Landing2 from "../components/landing/Landing2";
 
-const IndexPage = () => (
-  <Layout title="Home">
-    <Landing />
-  </Layout>
-);
+export default function index(): JSX.Element {
+  const [session, loading] = useSession();
 
-export default IndexPage;
+  return (
+    <>
+      {session ? <Landing /> : <Landing2 />}
+      {console.log(loading)}
+    </>
+  );
+}

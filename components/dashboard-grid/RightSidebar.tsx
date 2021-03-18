@@ -1,6 +1,6 @@
 import React from "react";
 import EventCardSm from "../dashboard/EventCardSm";
-import { Box, Button, Heading, Img, Text } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 function RightSidebar() {
   const color = "#793E93";

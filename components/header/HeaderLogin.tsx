@@ -1,14 +1,17 @@
 import {
   Avatar, Box,
-  Grid,
-  GridItem, Img,
-  Stack, Text
+  Grid, GridItem,
+  Img,
+  Menu, MenuButton, MenuItem, MenuList, Stack, Text
 } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
 import Link from "next/link";
 import React from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 
 function HeaderLogin() {
+  const [session, loading] = useSession();
+
   return (
     <Grid
       h="100%"
@@ -16,7 +19,7 @@ function HeaderLogin() {
       bg="transparent"
       maxW="100vw"
       gridTemplateColumns="20rem 1fr 20rem"
-      >
+    >
       <GridItem
         width='100vw'
         d="flex"
@@ -47,28 +50,41 @@ function HeaderLogin() {
           md:"5rem"
         }}
       >
-        <Link href="/">
-          <Text position="relative">Inicio</Text>
+        <Link href="/dashboard">
+          <Text cursor="pointer" position="relative">
+            Home
+          </Text>
         </Link>
-        <Link href="/signin">
-          <Text position="relative">Comunidades</Text>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Comunidades
+          </Text>
         </Link>
-        <Link href="/signin">
-          <Text position="relative">Talleres</Text>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Talleres
+          </Text>
         </Link>
-        <Link href="/signin">
-          <Text position="relative">Creadores de Contenido</Text>
+        <Link href="/#">
+          <Text cursor="pointer" position="relative">
+            Creadores de Contenido
+          </Text>
         </Link>
       </GridItem>
       <GridItem display="flex" pl="5rem" alignItems="center">
-        <Link href="/signup">
+        <Link href="#">
           <Box
             display="flex"
             p="5px"
             borderRadius="15px"
             justifyContent="space-evenly"
           >
-            <Avatar size="xs" src="https://bit.ly/broken-link" />
+            <Avatar
+              size="xs"
+              src={`${
+                session ? session.user.image : "https://bit.ly/broken-link"
+              }`}
+            />
             <Stack
               fontSize="12px"
               direction={["column", "row"]}
@@ -77,8 +93,19 @@ function HeaderLogin() {
               alignSelf="center"
               alignItems="center"
             >
-              <Text>Nekitory</Text>
-              <AiFillCaretDown size="12px" />
+              <Menu>
+                <MenuButton>
+                  <Text>
+                    {loading && "..."} {session && session.user.name}
+                  </Text>
+                  <AiFillCaretDown size="12px" />
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Mi Perfil</MenuItem>
+                  <MenuItem>Cerrar sesion</MenuItem>
+                  <MenuItem>Notificaciones</MenuItem>
+                </MenuList>
+              </Menu>
             </Stack>
           </Box>
         </Link>

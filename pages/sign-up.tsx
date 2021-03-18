@@ -1,24 +1,34 @@
-import React, { ReactElement, useState } from "react";
-import Layout from "../components/Layout";
-import { GrFacebook, GrGoogle } from "react-icons/gr";
 import {
   Box,
-  InputGroup,
-  Input,
+
+
+
+
+
+  Button, FormControl,
+
+  Image, Input, InputGroup,
+
   InputRightElement,
-  Text,
-  FormControl,
-  Button,
-  Image,
+  Text
 } from "@chakra-ui/react";
+import { signIn, useSession } from "next-auth/client";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { GrFacebook, GrGoogle } from "react-icons/gr";
+import Layout from "../components/Layout";
 import usePasswordToggle from "../hooks/usePasswordToggle";
 import useValidation from "../hooks/useValidation";
-import signupValidator from "../utils/validators/signupValidator";
 import { SignupErrors } from "../interfaces";
+import signupValidator from "../utils/validators/signupValidator";
 
-interface Props {}
+export default function SignUp(): JSX.Element {
+  const [session, loading] = useSession();
+  const router = useRouter();
 
-export default function SignUp({}: Props): ReactElement {
+  useEffect(() => {
+    !loading && session && router.push("/");
+  }, []);
   const {
     inputType: inputTypePassword,
     Icon: IconPassword,
@@ -29,7 +39,7 @@ export default function SignUp({}: Props): ReactElement {
   } = usePasswordToggle();
 
   const [apiError, setApiError] = useState(null);
-  const [registerSuccess, setregisterSuccess] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const initialState = {
     username: "",
@@ -51,13 +61,18 @@ export default function SignUp({}: Props): ReactElement {
       const data = await response.json();
 
       if (data.code === 201) {
-        setregisterSuccess(true);
+        signIn("credentials", {
+          callbackUrl: window.location.origin,
+          email: values.email,
+          password: values.password,
+        });
+        setRegisterSuccess(true);
         setApiError(null);
         return;
       }
 
       setApiError(data?.error);
-      setregisterSuccess(false);
+      setRegisterSuccess(false);
     } catch (error) {
       setApiError(error?.message);
     }
@@ -69,6 +84,31 @@ export default function SignUp({}: Props): ReactElement {
     register
   );
   const { username, email, password, confirmPassword } = values;
+  const color = "#5555555";
+  const bg = `linear-gradient(90deg,
+    rgba(82, 30, 135, 0.8) 0.01%,
+    rgba(91, 29, 136, 0.8) 14.55%,
+    rgba(117, 26, 138, 0.8) 38.82%,
+    rgba(138, 23, 140, 0.8) 54.92%,
+    rgba(142, 28, 134, 0.8) 56.27%,
+    rgba(195, 109, 66, 0.8) 77.54%,
+    rgba(228, 160, 23, 0.8) 92.6%,
+    rgba(241, 178, 6, 0.8) 99.98%)`;
+  const hover = {
+    background:
+      "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
+    color: "#fafafa",
+  };
+  const boxStyle = {
+    Position: "absolute",
+    top: "50%",
+    zIndex: 1,
+    borderTopWidth: "2px",
+    borderColor: "#E1E2E7",
+    width: "100%",
+  };
+  const bgText = "#F3F2F3";
+  const colorText = "#85898D";
 
   return (
     <Layout title="Registro">
@@ -82,7 +122,7 @@ export default function SignUp({}: Props): ReactElement {
           textAlign="center"
           alignItems="center"
         >
-          <Text fontSize="3rem" color="#555555">
+          <Text fontSize="3rem" color={color}>
             Bienvenido a bordo
           </Text>
           <FormControl width="100%" marginTop="2rem">
@@ -116,12 +156,7 @@ export default function SignUp({}: Props): ReactElement {
                     <Text color="red">{(errors as SignupErrors).username}</Text>
                   )}
                 </Box>
-                <Box
-                  // display="flex"
-                  margin="0.5rem 1rem"
-                  width="100%"
-                  position="relative"
-                >
+                <Box margin="0.5rem 1rem" width="100%" position="relative">
                   <Input
                     variant="filled"
                     type="text"
@@ -147,12 +182,7 @@ export default function SignUp({}: Props): ReactElement {
                 display="flex"
                 flexDirection="row"
               >
-                <Box
-                  // display="flex"
-                  margin="1rem 1rem"
-                  width="100%"
-                  position="relative"
-                >
+                <Box margin="1rem 1rem" width="100%" position="relative">
                   <Input
                     variant="filled"
                     type={inputTypePassword}
@@ -169,7 +199,6 @@ export default function SignUp({}: Props): ReactElement {
                   <InputRightElement
                     width="1.5rem"
                     position="absolute"
-                    // top="calc(50% - 20px)"
                     top="1.2rem"
                     left="calc(90% - 6px)"
                     cursor="pointer"
@@ -179,12 +208,7 @@ export default function SignUp({}: Props): ReactElement {
                     <Text color="red">{(errors as SignupErrors).password}</Text>
                   )}
                 </Box>
-                <Box
-                  // display="flex"
-                  margin="1rem 1rem"
-                  width="100%"
-                  position="relative"
-                >
+                <Box margin="1rem 1rem" width="100%" position="relative">
                   <Input
                     variant="filled"
                     type={inputTypeConfirmPassword}
@@ -201,7 +225,6 @@ export default function SignUp({}: Props): ReactElement {
                   <InputRightElement
                     width="1.5rem"
                     position="absolute"
-                    // top="calc(50% - 20px)"
                     top="1.2rem"
                     left="calc(90% - 6px)"
                     cursor="pointer"
@@ -221,20 +244,8 @@ export default function SignUp({}: Props): ReactElement {
               <Box textAlign="center" marginTop="1.5rem">
                 <Button
                   type="submit"
-                  background={`linear-gradient(90deg,
-                rgba(82, 30, 135, 0.8) 0.01%,
-                rgba(91, 29, 136, 0.8) 14.55%,
-                rgba(117, 26, 138, 0.8) 38.82%,
-                rgba(138, 23, 140, 0.8) 54.92%,
-                rgba(142, 28, 134, 0.8) 56.27%,
-                rgba(195, 109, 66, 0.8) 77.54%,
-                rgba(228, 160, 23, 0.8) 92.6%,
-                rgba(241, 178, 6, 0.8) 99.98%)`}
-                  _hover={{
-                    background:
-                      "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
-                    color: "#fafafa",
-                  }}
+                  background={bg}
+                  _hover={hover}
                   width="50%"
                   height="5rem"
                   padding="1rem 0"
@@ -249,16 +260,7 @@ export default function SignUp({}: Props): ReactElement {
           </FormControl>
           <Box width="50%">
             <Box position="relative" mt="2em" height="2rem">
-              <hr
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  zIndex: 1,
-                  borderTopWidth: "2px",
-                  borderColor: "#E1E2E7",
-                  width: "100%",
-                }}
-              />
+              <hr style={boxStyle} />
               <Text
                 fontSize="16px"
                 position="absolute"
@@ -266,8 +268,8 @@ export default function SignUp({}: Props): ReactElement {
                 padding="1rem"
                 right="calc(50% - 73px)"
                 zIndex="2"
-                backgroundColor="#F3F2F3"
-                color="#85898D"
+                backgroundColor={bgText}
+                color={colorText}
               >
                 O continua
               </Text>

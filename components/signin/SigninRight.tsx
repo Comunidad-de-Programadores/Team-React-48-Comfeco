@@ -43,9 +43,14 @@ export default function SigninRight({}: Props): ReactElement {
         },
         body: JSON.stringify(values),
       });
-
       const data = await response.json();
-
+      if (data.code === 200) {
+        signIn("credentials", {
+          callbackUrl: window.location.origin,
+          email: values.email,
+          password: values.password,
+        });
+      }
       if (data.code !== 200) {
         setApiError(data?.error);
         setloginSuccess(false);
@@ -149,12 +154,10 @@ export default function SigninRight({}: Props): ReactElement {
               height="4.5rem"
               borderRadius="1.5rem"
               p="1.5rem"
-              bg="linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8) 
-                        14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)"
+              bg="btn.400"
               fontSize="30px"
               _hover={{
-                background:
-                  "linear-gradient(90deg,rgba(82, 30, 135, 0.8) 0.01%,rgba(91, 29, 136, 0.8)14.55%,rgba(117, 26, 138, 0.8) 38.82%,rgba(138, 23, 140, 0.8) 54.92%,rgba(142, 28, 134, 0.8) 56.27%,rgba(195, 109, 66, 0.8) 77.54%,rgba(228, 160, 23, 0.8) 92.6%,rgba(241, 178, 6, 0.8) 99.98%)",
+                background: "btn.300",
                 color: "#fafafa",
               }}
               color="#fff"

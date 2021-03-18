@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Img, Text, Heading, Button, Link } from "@chakra-ui/react";
+import { Box, Img, Heading, Button } from "@chakra-ui/react";
 
 function EventCardSm(): JSX.Element {
   const bg = "#A486AE";

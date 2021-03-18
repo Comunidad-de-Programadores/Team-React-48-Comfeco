@@ -90,7 +90,7 @@ function HeaderLogout() {
             )}
           </Box>
         </Link>
-        <Link href="/signin">
+        <Link href="/sign-in">
           <Box position="relative">
             <Text
               cursor="pointer"

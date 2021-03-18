@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Box } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Banner from "../components/dashboard/Banner";
@@ -15,11 +14,6 @@ const AboutPage = () => (
       <Box bg="#fff">
         <Countdown />
       </Box>
-      <p style={{ backgroundColor: "blue" }}>
-        <Link href="/">
-          <a>Go home</a>
-        </Link>
-      </p>
     </div>
   </Layout>
 );

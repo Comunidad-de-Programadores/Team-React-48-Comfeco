@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import { Grid } from "@chakra-ui/react";
 import { useSession } from "next-auth/client";
 import Head from "next/head";
-
-import { Grid } from "@chakra-ui/react";
-import HeaderLogout from "./header/HeaderLogout";
-import HeaderLogin from "./header/HeaderLogin";
+import React, { ReactNode } from "react";
 import FooterComponent from "./FooterComponent";
+import HeaderLogin from "./header/HeaderLogin";
+import HeaderLogout from "./header/HeaderLogout";
+
 
 type Props = {
   children?: ReactNode;
@@ -25,7 +25,6 @@ const Layout = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
       <Grid
         bg={type ? "bg.200" : "bg.100"}
         backgroundSize="cover"
@@ -33,7 +32,6 @@ const Layout = ({
         templateRows="100px 1fr 170px"
       >
         {session ? <HeaderLogin /> : <HeaderLogout />}
-
         {children}
         <FooterComponent />
       </Grid>
