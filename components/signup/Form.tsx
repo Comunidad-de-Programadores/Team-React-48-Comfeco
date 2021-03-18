@@ -200,6 +200,7 @@ function Form(): JSX.Element {
 
         {apiError && <Text color={alert}>{apiError}</Text>}
         {registerSuccess && <Text color="green">Registro exitoso!!</Text>}
+
         <Box textAlign="center" mt={{ lg: "1.5rem" }}>
           <Button
             mt={{ sm: "1rem" }}
