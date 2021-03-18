@@ -87,6 +87,7 @@ function HeaderLogout() {
         </Link>
         <Link href="/sign-up">
           <Text
+            cursor="pointer"
             color={color}
             bg="gradiant.10"
             textAlign="center"

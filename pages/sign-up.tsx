@@ -18,9 +18,7 @@ import useValidation from "../hooks/useValidation";
 import signupValidator from "../utils/validators/signupValidator";
 import { SignupErrors } from "../interfaces";
 
-interface Props {}
-
-export default function SignUp({}: Props): ReactElement {
+export default function SignUp(): JSX.Element {
   const [session, loading] = useSession();
   const router = useRouter();
 
@@ -37,7 +35,7 @@ export default function SignUp({}: Props): ReactElement {
   } = usePasswordToggle();
 
   const [apiError, setApiError] = useState(null);
-  const [registerSuccess, setregisterSuccess] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const initialState = {
     username: "",
@@ -48,7 +46,7 @@ export default function SignUp({}: Props): ReactElement {
 
   const register = async () => {
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,21 +54,19 @@ export default function SignUp({}: Props): ReactElement {
         body: JSON.stringify(values),
       });
 
-      const data = await response.json();
-
       if (data.code === 201) {
         signIn("credentials", {
           callbackUrl: window.location.origin,
           email: values.email,
           password: values.password,
         });
-        setregisterSuccess(true);
+        setRegisterSuccess(true);
         setApiError(null);
         return;
       }
 
       setApiError(data?.error);
-      setregisterSuccess(false);
+      setRegisterSuccess(false);
     } catch (error) {
       setApiError(error?.message);
     }
@@ -82,6 +78,7 @@ export default function SignUp({}: Props): ReactElement {
     register
   );
   const { username, email, password, confirmPassword } = values;
+  const color = "#5555555";
 
   return (
     <Layout title="Registro">
@@ -95,7 +92,7 @@ export default function SignUp({}: Props): ReactElement {
           textAlign="center"
           alignItems="center"
         >
-          <Text fontSize="3rem" color="#555555">
+          <Text fontSize="3rem" color={color}>
             Bienvenido a bordo
           </Text>
           <FormControl width="100%" marginTop="2rem">
