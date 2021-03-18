@@ -11,14 +11,13 @@ function Otions(): JSX.Element {
     borderColor: "#E1E2E7",
     width: "100%",
   };
-  const colorText = "#85898D";
+  const colorText = "white";
   return (
-    <Box w={{ sm: "100%", lg: "50%" }} bg="red.300">
+    <Box w={{ sm: "100%", lg: "50%" }}>
       <Box w="100%" d="flex" flexDir="column" alignItems="center">
         <Divider w={{ sm: "80%" }} my={{ sm: "10px" }} />
         <Text
           w={{ sm: "10rem" }}
-          bg="yellow"
           textAlign="center"
           justifySelf="center"
           fontSize={{ sm: "14px", md: "14px", lg: "16px" }}
@@ -29,7 +28,6 @@ function Otions(): JSX.Element {
         </Text>
       </Box>
       <Box
-        bg="brown"
         py={{ sm: "10px" }}
         display="flex"
         justifyContent="space-evenly"
