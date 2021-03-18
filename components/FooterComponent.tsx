@@ -182,6 +182,9 @@ export default function FooterComponent(): ReactElement {
         w="100%"
         h="100%"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 443d606 (fix: header and footer fixed to responsive)
         rowStart={{
           sm:3,
           md:1
@@ -192,6 +195,7 @@ export default function FooterComponent(): ReactElement {
         }}
         margin={{
           sm:"1rem 0",
+<<<<<<< HEAD
           md:"initial",
         }}
         >
@@ -213,14 +217,25 @@ export default function FooterComponent(): ReactElement {
           <Link href="#">
             <Image w="70%" src="/images/logo1.png" alt="logo-conf" />
 >>>>>>> 1a509e3 (feat: responsive homre)
+=======
+          md:"initial",
+        }}
+        >
+          <Link 
+          href="#"
+          display='flex'
+          justifyContent='center'
+          >
+            <Image 
+            w={{
+              sm:"10rem",
+              lg:"70%"
+              }} src="/images/logo1.png" alt="logo-conf" />
+>>>>>>> 443d606 (fix: header and footer fixed to responsive)
           </Link>
         </GridItem>
-        <GridItem>
-          <MenuTerminos />
-        </GridItem>
-        <GridItem>
-          <MenuSocial />
-        </GridItem>
+        <MenuTerminos />
+        <MenuSocial />
       </Grid>
       <Box bg="#fff">
         <Text fontSize="12px" textAlign="center">

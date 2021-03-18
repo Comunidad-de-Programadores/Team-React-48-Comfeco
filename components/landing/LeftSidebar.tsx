@@ -107,7 +107,15 @@ const LeftSidebar = ({}: Props) => {
     >
       <Box
       >
-        <Heading as="h1" size="lg" color="#793E93">
+        <Heading 
+        as="h1" 
+        size="lg" 
+        color="#793E93"
+        padding={{
+          sm:'0 0 0 1rem',
+          lg:'initial'
+        }}
+        >
           Comunidades
         </Heading>
         <Box
@@ -139,6 +147,25 @@ const LeftSidebar = ({}: Props) => {
         </Box>
 >>>>>>> 1a509e3 (feat: responsive homre)
       </Box>
+<<<<<<< HEAD
+=======
+      <Box
+      display={{
+        sm:'flex',
+        md:'block'
+      }}
+      justifyContent='center'
+      >
+        <Box
+        width={{
+          sm:'15rem',
+          md:'initial'
+        }}
+        >
+          <ButtonAction textButton="Ver más" />
+        </Box>
+      </Box>
+>>>>>>> 443d606 (fix: header and footer fixed to responsive)
     </Box>
   );
 };

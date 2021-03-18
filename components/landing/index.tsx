@@ -80,18 +80,50 @@ export default function LandingUser({}: Props): ReactElement {
       sm:"1fr",
       md:"repeat(9, 1fr)"
     }}
+    rowGap={{
+      sm:"3rem",
+      md:'initial'
+    }}
+    margin={{sm:'0 0 2rem', md:'initial'}}
     >
       <GridItem 
       colSpan={{
         sm:1,
         md:2,
-        }}>
+      }}
+      rowStart={{
+        sm: 2,
+        md: 1
+      }}
+      rowEnd ={{
+        sm: 3,
+        md: 1
+      }}
+      margin={{
+        sm:'0 0 3rem',
+        md:'initial'
+      }}
+      >
         <LeftSidebar />
       </GridItem>
-      <GridItem colSpan={{
+      <GridItem 
+      colSpan={{
         sm:1,
         md:5,
-        }}>
+      }}
+      rowStart={{
+        sm: 1,
+        md: 1
+      }}
+      rowEnd ={{
+        sm: 2,
+        md: 1
+      }}
+      padding={{
+        sm: '0 1rem',
+        md : 'initial',
+      }}
+      >
         <Countdown />
       </GridItem>
       <GridItem colSpan={{
