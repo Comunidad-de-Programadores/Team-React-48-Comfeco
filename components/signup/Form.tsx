@@ -11,7 +11,6 @@ import {
 
 import useAuth from "../../hooks/useAuth";
 import { SignupErrors } from "../../interfaces";
-import TheInput from "../share/TheInput";
 
 function Form(): JSX.Element {
   const {
@@ -23,26 +22,11 @@ function Form(): JSX.Element {
     IconPassword,
     registerSuccess,
     apiError,
+    handleChange,
+    values,
   } = useAuth();
-  const signUpArray = [
-    { name: "username", type: "text", left: false, right: false },
-    { name: "email", type: "email", left: false, right: false },
-    {
-      name: "password",
-      type: inputTypePassword,
-      left: false,
-      right: true,
-      icon: IconPassword,
-    },
-    {
-      name: "confirmPassword",
-      type: inputTypeConfirmPassword,
-      left: false,
-      right: true,
-      icon: IconConfirmPassword,
-    },
-  ];
-  console.log(inputTypeConfirmPassword);
+
+  const { username, email, password, confirmPassword } = values;
 
   const hover = {
     background:
@@ -62,25 +46,114 @@ function Form(): JSX.Element {
   return (
     <FormControl width="100%" marginTop="2rem">
       <form onSubmit={handleSubmit}>
-        <Box>
-          {signUpArray &&
-            signUpArray.map((input) => (
-              <TheInput
-                key={input.name}
-                placeholder={input.name}
-                type={input.type}
-                id={input.name}
-                name={input.name}
-                right={input.right}
-                errors={errors}
-                icon={input.icon}
-              />
-            ))}
-        </Box>
+        <InputGroup
+          width="80%"
+          margin="0 auto"
+          display="flex"
+          flexDirection="row"
+        >
+          <Box margin="0.5rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type="text"
+              id="username"
+              placeholder="Nombre de usuario"
+              name="username"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={username}
+              onChange={handleChange}
+            />
+            {(errors as SignupErrors).username && (
+              <Text color="red">{(errors as SignupErrors).username}</Text>
+            )}
+          </Box>
+          <Box margin="0.5rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type="text"
+              id="email"
+              placeholder="Correo eletronico"
+              name="email"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={email}
+              onChange={handleChange}
+            />
+            {(errors as SignupErrors).email && (
+              <Text color="red">{(errors as SignupErrors).email}</Text>
+            )}
+          </Box>
+        </InputGroup>
 
+        <InputGroup
+          width="80%"
+          margin="0 auto"
+          display="flex"
+          flexDirection="row"
+        >
+          <Box margin="1rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type={inputTypePassword}
+              id="password"
+              placeholder="Contraseña"
+              name="password"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              value={password}
+              onChange={handleChange}
+            />
+            <InputRightElement
+              width="1.5rem"
+              position="absolute"
+              top="1.2rem"
+              left="calc(90% - 6px)"
+              cursor="pointer"
+              children={IconPassword}
+            />
+            {(errors as SignupErrors).password && (
+              <Text color="red">{(errors as SignupErrors).password}</Text>
+            )}
+          </Box>
+
+          <Box margin="1rem 1rem" width="100%" position="relative">
+            <Input
+              variant="filled"
+              type={inputTypeConfirmPassword}
+              id="confirmPassword"
+              placeholder="Confirmar contraseña"
+              name="confirmPassword"
+              width="100%"
+              padding="1rem"
+              borderRadius="10px"
+              height="5rem"
+              values={confirmPassword}
+              onChange={handleChange}
+            />
+            <InputRightElement
+              width="1.5rem"
+              position="absolute"
+              top="1.2rem"
+              left="calc(90% - 6px)"
+              cursor="pointer"
+              children={IconConfirmPassword}
+            />
+            {(errors as SignupErrors).confirmPassword && (
+              <Text color="red">
+                {(errors as SignupErrors).confirmPassword}
+              </Text>
+            )}
+          </Box>
+        </InputGroup>
         {apiError && <Text color="red">{apiError}</Text>}
         {registerSuccess && <Text color="green">Registro exitoso!!</Text>}
-
         <Box textAlign="center" mt={{ lg: "1.5rem" }}>
           <Button
             type="submit"
