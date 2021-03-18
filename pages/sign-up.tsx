@@ -17,15 +17,16 @@ export default function SignUp(): JSX.Element {
 
   return (
     <Layout title="Registro">
-      <Box display="flex">
+      <Box display="flex" maxW="100vw">
         <Box
           display="flex"
           height="100vh"
           flexDirection="column"
-          width="55%"
+          w={{ sm: "100%", md: "100%", lg: "55%" }}
           paddingTop="6em"
           textAlign="center"
           alignItems="center"
+          bg="blue.400"
         >
           <Text fontSize="3rem" color={color}>
             Bienvenido a bordo
@@ -34,7 +35,13 @@ export default function SignUp(): JSX.Element {
           <Form />
           <Options />
         </Box>
-        <Box height="100vh" width="45%" marginTop="5rem">
+        <Box
+          display={{ sm: "none", md: "block", lg: "block" }}
+          bg="gray"
+          height="100vh"
+          w={{ lg: "45%" }}
+          marginTop="5rem"
+        >
           <Image
             src="/images/registro.png"
             alt="Sign up"
