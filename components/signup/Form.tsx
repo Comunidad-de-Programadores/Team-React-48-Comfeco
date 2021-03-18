@@ -1,6 +1,4 @@
 import React from "react";
-import useAuth from "../../hooks/useAuth";
-import { SignupErrors } from "../../interfaces";
 import {
   Box,
   InputGroup,
@@ -10,6 +8,10 @@ import {
   FormControl,
   Button,
 } from "@chakra-ui/react";
+
+import useAuth from "../../hooks/useAuth";
+import { SignupErrors } from "../../interfaces";
+import TheInput from "../share/TheInput";
 
 function Form(): JSX.Element {
   const {
@@ -25,6 +27,25 @@ function Form(): JSX.Element {
     apiError,
   } = useAuth();
   const { username, email, password, confirmPassword } = values;
+  const signUpArray = [
+    { name: "username", type: "text", left: false, right: false },
+    { name: "email", type: "email", left: false, right: false },
+    {
+      name: "password",
+      type: inputTypePassword,
+      left: false,
+      right: true,
+      icon: IconPassword,
+    },
+    {
+      name: "confirmPassword",
+      type: inputTypeConfirmPassword,
+      left: false,
+      right: true,
+      icon: IconConfirmPassword,
+    },
+  ];
+  console.log(inputTypeConfirmPassword);
 
   const hover = {
     background:
@@ -40,7 +61,15 @@ function Form(): JSX.Element {
     rgba(195, 109, 66, 0.8) 77.54%,
     rgba(228, 160, 23, 0.8) 92.6%,
     rgba(241, 178, 6, 0.8) 99.98%)`;
-
+  /* 
+variant
+type
+id
+name
+placeholder
+value
+onChange
+*/
   return (
     <FormControl width="100%" marginTop="2rem">
       <form onSubmit={handleSubmit}>
@@ -120,6 +149,19 @@ function Form(): JSX.Element {
               <Text color="red">{(errors as SignupErrors).password}</Text>
             )}
           </Box>
+          {signUpArray &&
+            signUpArray.map((input) => (
+              <TheInput
+                key={input.name}
+                placeholder={input.name}
+                type={input.type}
+                id={input.name}
+                name={input.name}
+                right={input.right}
+                errors={errors}
+                icon={input.icon}
+              />
+            ))}
           <Box margin="1rem 1rem" width="100%" position="relative">
             <Input
               variant="filled"
@@ -151,17 +193,17 @@ function Form(): JSX.Element {
         </InputGroup>
         {apiError && <Text color="red">{apiError}</Text>}
         {registerSuccess && <Text color="green">Registro exitoso!!</Text>}
-        <Box textAlign="center" marginTop="1.5rem">
+        <Box textAlign="center" mt={{ lg: "1.5rem" }}>
           <Button
             type="submit"
             background={bg}
             _hover={hover}
-            width="50%"
-            height="5rem"
-            padding="1rem 0"
-            borderRadius="10px"
+            py={{ sm: "10px", lg: "1rem" }}
+            px={{ sm: "5px", lg: "0.5rem" }}
+            borderRadius={{ sm: "5px", lg: "10px" }}
             color="white"
-            fontSize="30px"
+            w={{ sm: "10rem" }}
+            fontSize={{ sm: "16px", lg: "30px" }}
           >
             Registrarse
           </Button>

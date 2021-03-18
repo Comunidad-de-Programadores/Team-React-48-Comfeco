@@ -17,7 +17,7 @@ export default function SignUp(): JSX.Element {
 
   return (
     <Layout title="Registro">
-      <Box display="flex" maxW="100vw">
+      <Box display="flex" maxH="100%">
         <Box
           display="flex"
           height="100vh"
