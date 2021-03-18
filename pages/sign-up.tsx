@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { useSession, signIn } from "next-auth/client";
+import React, { useEffect } from "react";
 import { GrFacebook, GrGoogle } from "react-icons/gr";
-import Layout from "../components/Layout";
 import {
   Box,
   InputGroup,
@@ -13,75 +10,32 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import usePasswordToggle from "../hooks/usePasswordToggle";
-import useValidation from "../hooks/useValidation";
-import signupValidator from "../utils/validators/signupValidator";
+
+import useAuth from "../hooks/useAuth";
+import Layout from "../components/Layout";
 import { SignupErrors } from "../interfaces";
 
 export default function SignUp(): JSX.Element {
-  const [session, loading] = useSession();
-  const router = useRouter();
-
+  //import useAuth with all variables
+  const {
+    loading,
+    session,
+    router,
+    values,
+    handleSubmit,
+    handleChange,
+    errors,
+    inputTypeConfirmPassword,
+    inputTypePassword,
+    IconConfirmPassword,
+    IconPassword,
+    registerSuccess,
+    apiError,
+  } = useAuth();
   useEffect(() => {
     !loading && session && router.push("/");
   }, []);
-  const {
-    inputType: inputTypePassword,
-    Icon: IconPassword,
-  } = usePasswordToggle();
-  const {
-    inputType: inputTypeConfirmPassword,
-    Icon: IconConfirmPassword,
-  } = usePasswordToggle();
 
-  const [apiError, setApiError] = useState(null);
-  const [registerSuccess, setRegisterSuccess] = useState(false);
-
-  const initialState = {
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  };
-
-  const register = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_PORT}/api/users`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        }
-      );
-
-      const data = await response.json();
-
-      if (data.code === 201) {
-        signIn("credentials", {
-          callbackUrl: window.location.origin,
-          email: values.email,
-          password: values.password,
-        });
-        setRegisterSuccess(true);
-        setApiError(null);
-        return;
-      }
-
-      setApiError(data?.error);
-      setRegisterSuccess(false);
-    } catch (error) {
-      setApiError(error?.message);
-    }
-  };
-
-  const { values, errors, handleChange, handleSubmit } = useValidation(
-    initialState,
-    signupValidator,
-    register
-  );
   const { username, email, password, confirmPassword } = values;
   const color = "#5555555";
   const bg = `linear-gradient(90deg,
