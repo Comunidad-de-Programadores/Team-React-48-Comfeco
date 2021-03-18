@@ -1,9 +1,10 @@
-import React, { ReactElement } from "react";
-import Lading from "../components/landing";
-import Landing2 from "../components/landing/Landing2";
+import React from "react";
 import { useSession } from "next-auth/client";
 
-export default function index({}: Props): ReactElement {
+import Lading from "../components/landing";
+import Landing2 from "../components/landing/Landing2";
+
+export default function index(): JSX.Element {
   const [session, loading] = useSession();
 
   return (
