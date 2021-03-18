@@ -122,7 +122,6 @@ function HeaderLogin() {
     </>
   );
 
-<<<<<<< HEAD
   const MobileNav = () => (
     <Box
       display="flex"
@@ -158,57 +157,6 @@ function HeaderLogin() {
               onClick={() => signOut()}
               fontWeight="600"
               fontSize="25px"
-=======
-      <GridItem
-        w="100%"
-        display="flex"
-        alignItems="center"
-        justifyContent="space-evenly"
-        px="5rem"
-      >
-        <Link href="/dashboard">
-          <Text cursor="pointer" position="relative">
-            Home
-          </Text>
-        </Link>
-        <Link href="/#">
-          <Text cursor="pointer" position="relative">
-            Comunidades
-          </Text>
-        </Link>
-        <Link href="/#">
-          <Text cursor="pointer" position="relative">
-            Talleres
-          </Text>
-        </Link>
-        <Link href="/#">
-          <Text cursor="pointer" position="relative">
-            Creadores de Contenido
-          </Text>
-        </Link>
-      </GridItem>
-      <GridItem display="flex" pl="5rem" alignItems="center">
-        <Link href="#">
-          <Box
-            display="flex"
-            p="5px"
-            borderRadius="15px"
-            justifyContent="space-evenly"
-          >
-            <Avatar
-              size="xs"
-              src={`${
-                session ? session.user.image : "https://bit.ly/broken-link"
-              }`}
-            />
-            <Stack
-              fontSize="12px"
-              direction={["column", "row"]}
-              spacing="5px"
-              ml="5px"
-              alignSelf="center"
-              alignItems="center"
->>>>>>> 3dbe417 (refactor(headerlogin): header fixed)
             >
               Cerrar sesion
               <Divider my="0.5em" borderColor="text.500" />
