@@ -25,6 +25,25 @@ function Form(): JSX.Element {
     apiError,
   } = useAuth();
   const { username, email, password, confirmPassword } = values;
+  const signUpArray = [
+    { name: "username", type: "text", left: false, right: false },
+    { name: "email", type: "email", left: false, right: false },
+    {
+      name: "password",
+      type: inputTypePassword,
+      left: false,
+      right: true,
+      icon: IconPassword,
+    },
+    {
+      name: "confirmPassword",
+      type: inputTypeConfirmPassword,
+      left: false,
+      right: true,
+      icon: IconConfirmPassword,
+    },
+  ];
+  console.log(inputTypeConfirmPassword);
 
   const hover = {
     background:
