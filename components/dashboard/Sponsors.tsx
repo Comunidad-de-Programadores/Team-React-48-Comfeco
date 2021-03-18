@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Box, Heading, Text, Flex, HStack, Image } from "@chakra-ui/react";
 import Button from "../landing/ButtonAction";
-import Input from "../share/Input";
+import Input from "../share/TheInput";
 
 interface Props {}
 
