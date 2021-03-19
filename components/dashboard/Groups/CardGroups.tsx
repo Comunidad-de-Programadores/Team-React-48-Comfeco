@@ -7,7 +7,7 @@ interface Props {}
 export default function CardGroups({}: Props): ReactElement {
   return (
     <Box
-      maxWidth="218px"
+      maxWidth={{ base: "100%", lg: "218px" }}
       bg="#fff"
       p="1rem"
       my="0.8rem"
