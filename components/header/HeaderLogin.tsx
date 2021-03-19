@@ -14,7 +14,7 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
-import { useSession } from "next-auth/client";
+import { useSession, signOut } from "next-auth/client";
 
 function HeaderLogin() {
   const [session, loading] = useSession();
@@ -103,7 +103,7 @@ function HeaderLogin() {
                 </MenuButton>
                 <MenuList>
                   <MenuItem>Mi Perfil</MenuItem>
-                  <MenuItem>Cerrar sesion</MenuItem>
+                  <MenuItem onClick={() => signOut()}>Cerrar sesion</MenuItem>
                   <MenuItem>Notificaciones</MenuItem>
                 </MenuList>
               </Menu>
