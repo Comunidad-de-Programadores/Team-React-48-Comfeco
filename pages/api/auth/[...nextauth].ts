@@ -50,7 +50,7 @@ const providers = [
       // Add logic here to look up the user from the credentials supplied
       try {
         const response = await axios.post(
-          "api/login/",
+          "/api/login/",
           {
             password: credentials.password,
             email: credentials.email,
