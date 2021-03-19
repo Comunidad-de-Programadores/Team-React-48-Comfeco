@@ -74,39 +74,50 @@ export default function SigninRight({}: Props): ReactElement {
   const handleClick = () => setShow(!show);
 
   return (
-    <Box minHeight="100vh" display="flex" flexDirection="column">
-      <Box width="70%">
+    <Box w={{ sm: "100%", md: "45%" }} flexDirection="column">
+      <Box width="100%" py={{ sm: "1rem", md: "1rem" }} px={{ md: "2rem" }}>
         <form onSubmit={handleSubmit}>
-          <Box mt="4em">
+          <Box d="flex" alignItems="center" flexDir="column">
             <Input
+              w={{ sm: "70%", md: "100%" }}
               variant="filled"
-              backgroundColor="E9EFF6"
-              fontSize="24px"
-              height="3.5em"
+              bg="E9EFF6"
+              fontSize={{ sm: "16px", md: "18px" }}
+              h={{ sm: "3rem", md: "3.5rem" }}
+              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
               placeholder="Correo electronico"
               name="email"
               values={email}
               onChange={handleChange}
             />
             {(errors as LoginErrors).email && (
-              <Text color="red">{(errors as LoginErrors).email}</Text>
+              <Text mt="3px" color="red">
+                {(errors as LoginErrors).email}
+              </Text>
             )}
-            <InputGroup>
+            <InputGroup
+              w={{ sm: "70%", md: "100%" }}
+              d="flex"
+              alignItems="center"
+              flexDir="column"
+            >
               <Input
+                w="100%"
                 variant="filled"
-                backgroundColor="E9EFF6"
-                fontSize="24px"
-                height="3.5em"
+                bg="E9EFF6"
+                fontSize={{ sm: "16px", md: "18px" }}
+                h={{ sm: "3rem", md: "3.5rem" }}
                 mt="1em"
                 placeholder="Password"
                 type={show ? "text" : "password"}
                 name="password"
                 value={password}
                 onChange={handleChange}
+                filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
               />
               <InputRightElement
-                width="3.5em"
-                top="50%"
+                w="3.5em"
+                top={{ sm: "20px", md: "1.5rem" }}
                 pr="1rem"
                 color="#85898D"
                 onClick={handleClick}
@@ -120,11 +131,21 @@ export default function SigninRight({}: Props): ReactElement {
               />
             </InputGroup>
             {(errors as LoginErrors).password && (
-              <Text color="red">{(errors as LoginErrors).password}</Text>
+              <Text mt={{ sm: "2px" }} color="red">
+                {(errors as LoginErrors).password}
+              </Text>
             )}
           </Box>
-          <Box display="flex" justifyContent="space-between" mt="2em">
+          <Box
+            w="100%"
+            d="flex"
+            justifyContent="space-evenly"
+            alignItems="center"
+            mt="2em"
+          >
             <Text
+              w={{ sm: "10rem" }}
+              fontSize={{ sm: "14px", md: "16px" }}
               onClick={() => router.push("/recover-password")}
               color="#85898D"
               _hover={{
@@ -134,9 +155,19 @@ export default function SigninRight({}: Props): ReactElement {
             >
               ¿Olvidaste tu contraseña?
             </Text>
-            <Checkbox color="#85898D">Mantenerme conectado</Checkbox>
+            <Box w={{ sm: "10rem" }}>
+              <Checkbox
+                fontSize={{ sm: "14px", md: "16px" }}
+                textAlign="center"
+                color="#85898D"
+              >
+                <Text fontSize={{ sm: "14px", md: "16px" }}>
+                  Mantenerme conectado
+                </Text>
+              </Checkbox>
+            </Box>
           </Box>
-          <Box mt="2em">
+          <Box d="flex" justifyContent="center" mt="1.5em">
             {apiError && (
               <Text textAlign="center" color="red">
                 {apiError}
@@ -150,12 +181,13 @@ export default function SigninRight({}: Props): ReactElement {
             )}
 
             <Button
-              width="100%"
-              height="4.5rem"
-              borderRadius="1.5rem"
-              p="1.5rem"
+              w="15rem"
+              height="3.5rem"
+              borderRadius="10px"
+              p={{ sm: "10px", md: "1.5rem" }}
               bg="btn.400"
-              fontSize="30px"
+              fontWeight="bold"
+              fontSize={{ sm: "18px", md: "20px" }}
               _hover={{
                 background: "btn.300",
                 color: "#fafafa",
@@ -166,57 +198,39 @@ export default function SigninRight({}: Props): ReactElement {
               Ingresar
             </Button>
           </Box>
-          <Box position="relative" mt="2em" height="2rem">
-            <hr
-              style={{
-                position: "absolute",
-                top: "50%",
-                zIndex: 1,
-                borderTopWidth: "2px",
-                borderColor: "#E1E2E7",
-                width: "100%",
-              }}
-            />
+          <Box mt="1.5em">
             <Text
-              fontSize="16px"
-              position="absolute"
-              top="calc(50% - 28px)"
-              padding="1rem"
-              right="calc(50% - 73px)"
-              zIndex="2"
-              backgroundColor="#F3F2F3"
+              fontSize={{ sm: "14px", md: "16px" }}
+              padding={{ sm: "10px" }}
+              textAlign="center"
               color="#85898D"
+              justifySelf="center"
             >
-              O continua
+              O continua con:
             </Text>
           </Box>
-          <Box display="flex" justifyContent="space-around" mt="2rem">
+          <Box d="flex" justifyContent="space-evenly" mt="1.5rem">
             <Box
-              width="100px"
-              height="80px"
-              backgroundColor="white"
+              w={{ sm: "50px", lg: "80px" }}
+              h={{ sm: "50px", lg: "80px" }}
+              p={{ sm: "10px", lg: "1.5rem" }}
+              bg="white"
               cursor="pointer"
-              borderRadius="1.5em"
-              padding="1.5em"
-              display="flex"
+              borderRadius={{ sm: "5px", lg: "7px" }}
+              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
               onClick={() => signIn("google")}
-              justifyContent="center"
-              alignItems="center"
             >
-              <GrGoogle size="medium" />
+              <GrGoogle size="small" />
             </Box>
-            <Text>con</Text>
             <Box
-              width="100px"
-              height="80px"
-              padding="1.5em"
-              backgroundColor="white"
-              borderRadius="1.5em"
+              w={{ sm: "50px", lg: "80px" }}
+              h={{ sm: "50px", lg: "80px" }}
+              p={{ sm: "10px", lg: "1.5rem" }}
+              bg="white"
               cursor="pointer"
-              display="flex"
+              borderRadius={{ sm: "5px", lg: "7px" }}
+              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
               onClick={() => signIn("facebook")}
-              justifyContent="center"
-              alignItems="center"
             >
               <GrFacebook size="small" />
             </Box>

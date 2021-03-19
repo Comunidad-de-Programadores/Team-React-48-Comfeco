@@ -20,16 +20,11 @@ export default function SignIn({}: Props): ReactElement {
       <Box
         d="flex"
         justifyContent="space-between"
-        p="2m"
         alignItems="center"
-        px="4em"
+        padding="2rem"
       >
-        <Box w="65%">
-          <SignInLeft />
-        </Box>
-        <Box w="35%">
-          <SigninRight />
-        </Box>
+        <SignInLeft />
+        <SigninRight />
       </Box>
     </Layout>
   );
