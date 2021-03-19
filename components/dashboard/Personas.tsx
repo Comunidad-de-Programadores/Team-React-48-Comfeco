@@ -1,5 +1,5 @@
+import { Box, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
-import { Image, Box, Text, HStack, Heading } from "@chakra-ui/react";
 import { IoEllipse } from "react-icons/io5";
 
 interface Props {}
@@ -10,7 +10,10 @@ type CardImageType = {
 
 export default function Personas({}: Props): ReactElement {
   const CardImage = (p: CardImageType) => (
-    <Box textAlign="center">
+    <Box 
+    textAlign="center"
+    margin={{sm:'0 1rem 1.5rem', lg:'initial'}}
+    >
       <Image
         src={p.src}
         w="200px"
@@ -22,15 +25,39 @@ export default function Personas({}: Props): ReactElement {
   );
 
   return (
-    <Box bg="#fafafa" p="2em">
+    <Box
+    bg="#fafafa"
+    p="2em">
       <Heading as="h2" textAlign="center" mb="1em">
         Ellos ya creen en nuestra iniciativa:
       </Heading>
-      <HStack spacing="30px" justifyContent="center">
-        <CardImage src="/images/diego.png" descrip="Diego Plascensia" />
-        <CardImage src="/images/diego.png" descrip="Diego Plascensia" />
-        <CardImage src="/images/diego.png" descrip="Diego Plascensia" />
-        <CardImage src="/images/diego.png" descrip="Diego Plascensia" />
+      <HStack 
+      spacing={{
+        sm:"0",
+        md:"30px"
+      }} 
+      justifyContent="center"
+      flexWrap={{
+        sm:"wrap",
+        md:"initial"
+      }}
+      >
+        <CardImage 
+        src="/images/diego.png" 
+        descrip="Diego Plascensia"
+        />
+        <CardImage 
+        src="/images/diego.png" 
+        descrip="Diego Plascensia"
+        />
+        <CardImage 
+        src="/images/diego.png" 
+        descrip="Diego Plascensia"
+        />
+        <CardImage 
+        src="/images/diego.png" 
+        descrip="Diego Plascensia"
+        />
       </HStack>
       <HStack spacing="10px" justifyContent="center">
         <IoEllipse color="#c4c4c4" />

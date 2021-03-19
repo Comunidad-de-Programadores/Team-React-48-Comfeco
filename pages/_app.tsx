@@ -1,18 +1,22 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import Head from "next/head";
-import type { AppProps } from "next/app";
-import { extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { Provider } from "next-auth/client";
+<<<<<<< HEAD
 import { Button } from "../utils/Components";
 
+=======
+import type { AppProps } from "next/app";
+import Head from "next/head";
+>>>>>>> 39abcb7 (fix: external home fixed to responsive)
 import "../utils/style.css";
+
 // 2. Update the breakpoints as key-value pairs
 const breakpoints = createBreakpoints({
   sm: "320px",
   md: "768px",
   lg: "960px",
   xl: "1200px",
+  xxl: "1400px"
 });
 
 const colors = {
