@@ -1,7 +1,7 @@
+import { Box, Heading, List, ListItem } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Heading, Box, List, ListItem } from "@chakra-ui/react";
-import CardHorizontal from "./CardHorizontal";
 import ButtonAction from "./ButtonAction";
+import CardHorizontal from "./CardHorizontal";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
@@ -63,18 +63,11 @@ const LeftSidebar = ({}: Props) => {
               md: "block",
             }}
           >
-            <ListItem>
-              <CardHorizontal text="Comunidad de Programadores" />
-            </ListItem>
-            <ListItem>
-              <CardHorizontal text="Comunidad de Programadores" />
-            </ListItem>
-            <ListItem>
-              <CardHorizontal text="Comunidad de Programadores" />
-            </ListItem>
-            <ListItem>
-              <CardHorizontal text="Comunidad de Programadores" />
-            </ListItem>
+            {communities.map((community: any) => (
+              <ListItem key={community.id}>
+                <CardHorizontal text={community.title} />
+              </ListItem>
+            ))}
           </List>
         </Box>
       </Box>

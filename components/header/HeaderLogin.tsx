@@ -3,18 +3,18 @@ import {
   Box,
   Grid,
   GridItem,
-  Text,
-  Stack,
+  Img,
   Menu,
   MenuButton,
-  Img,
-  MenuList,
   MenuItem,
+  MenuList,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
+import { useSession, signOut } from "next-auth/client";
 import Link from "next/link";
 import React from "react";
 import { AiFillCaretDown } from "react-icons/ai";
-import { useSession, signOut } from "next-auth/client";
 
 function HeaderLogin() {
   const [session, loading] = useSession();

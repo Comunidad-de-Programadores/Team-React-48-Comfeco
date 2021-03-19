@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { Box, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-import EventCard from "./EventCard";
 import ButtonAction from "./ButtonAction";
+import EventCard from "./EventCard";
 
 interface Props {}
 
@@ -113,26 +113,19 @@ const RightSidebar = ({}: Props) => {
               md: "block",
             }}
           >
-            <ListItem
-              minWidth={{ sm: "20rem", md: "initial" }}
-              padding={{ sm: "0 1rem", md: "initial" }}
-            >
-              <EventCard
-                title="State Of JavaScript"
-                hour="20:30 PM"
-                author="TechCode"
-              />
-            </ListItem>
-            <ListItem
-              minWidth={{ sm: "20rem", md: "initial" }}
-              padding={{ sm: "0 1rem", md: "initial" }}
-            >
-              <EventCard
-                title="State Of JavaScript"
-                hour="20:30 PM"
-                author="TechCode"
-              />
-            </ListItem>
+            {events.map((event: any) => (
+              <ListItem
+                key={event.id}
+                minWidth={{ sm: "20rem", md: "initial" }}
+                padding={{ sm: "0 1rem", md: "initial" }}
+              >
+                <EventCard
+                  title={event.title}
+                  hour={event.hour}
+                  author={event.author}
+                />
+              </ListItem>
+            ))}
           </List>
         </Box>
       </Box>

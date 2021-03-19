@@ -1,7 +1,7 @@
 import React from "react";
 import { useSession } from "next-auth/client";
 
-import Lading from "../components/landing";
+import Landing from "../components/landing";
 import Landing2 from "../components/landing/Landing2";
 
 export default function index(): JSX.Element {
@@ -9,7 +9,7 @@ export default function index(): JSX.Element {
 
   return (
     <>
-      {session ? <Lading /> : <Landing2 />}
+      {session ? <Landing /> : <Landing2 />}
       {console.log(loading)}
     </>
   );
