@@ -5,7 +5,7 @@ import { Box, Heading, HStack } from "@chakra-ui/react";
 function Events(): JSX.Element {
   const color = "#793E93";
   return (
-    <Box d="grid" gridTemplateRows="5rem 5rem 1fr">
+    <Box d="grid" gridTemplateRows="5rem  1fr" w="100vw">
       <Heading
         color={color}
         as="h2"
