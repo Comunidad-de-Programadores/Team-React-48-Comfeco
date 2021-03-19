@@ -37,7 +37,13 @@ export default function Groups({}: Props): ReactElement {
     </Box>
   );
   return (
-    <Box d="flex" my="2rem" justifyContent="space-between" px="1rem">
+    <Box
+      d="flex"
+      flexDirection={{ base: "column", lg: "row" }}
+      my="2rem"
+      justifyContent="space-between"
+      px="1rem"
+    >
       <Box minWidth="300px">
         <HStack fontSize="1.3rem" justifyContent="space-between" px="1rem">
           <Text color="text.100" fontWeight="700">
@@ -75,10 +81,14 @@ export default function Groups({}: Props): ReactElement {
           <ButtonAction label="Ir al Chat" type="solid" />
         </Flex>
       </Box>
-      <Box px="3rem" w="100%">
-        <HStack spacing="2rem">
+      <Box
+        px={{ base: "1rem", lg: "3rem" }}
+        mt={{ base: "2rem", lg: 0 }}
+        w="100%"
+      >
+        <HStack spacing={{ base: "1rem", lg: "2rem" }}>
           <Select
-            w="30%"
+            w={{ base: "100%", lg: "30%" }}
             bg="text.400"
             variant="filled"
             placeholder="Filled"
@@ -90,11 +100,7 @@ export default function Groups({}: Props): ReactElement {
             filter="drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25))"
           />
         </HStack>
-        <Flex my="2rem" flexWrap="wrap">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <Flex justifyContent="center" my="2rem" flexWrap="wrap">
           <Card />
           <Card />
           <Card />

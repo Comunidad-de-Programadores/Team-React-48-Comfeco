@@ -1,11 +1,16 @@
 import React from "react";
 import { Box, Text, Button, Heading } from "@chakra-ui/react";
-import Nav from "./Nav";
 function MiddleSection() {
   return (
     <Box justifyContent="center" py="1rem" px="2rem">
       <Box mt="1rem">
-        <Heading as="h3" size="md" color="#8A0E98">
+        <Heading
+          fontSize="22px"
+          textAlign={{ base: "center", lg: "left" }}
+          as="h3"
+          size="md"
+          color="#8A0E98"
+        >
           Actividades recientes:
         </Heading>
         <Box

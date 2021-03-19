@@ -52,11 +52,17 @@ function LeftSidebar({ click }: props) {
         <Box
           borderRadius="15px"
           bg="#ffff"
-          p="10px"
+          p="1.2rem"
           mb="1rem"
           filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
         >
-          <Heading as="h3" size="sm" mb="1rem">
+          <Heading
+            as="h3"
+            size="sm"
+            mb="1rem"
+            fontSize="22px"
+            textAlign={{ base: "center", lg: "left" }}
+          >
             Acerca de mi
           </Heading>
           <Text fontSize="14px">
@@ -70,18 +76,37 @@ function LeftSidebar({ click }: props) {
           Editar perfil
         </Button>
       </Box>
-      <Box>
-        <Heading color="#793E93" as="h3" size="sm" mb="1rem">
+      <Box my="1rem">
+        <Heading
+          color="#793E93"
+          as="h3"
+          size="sm"
+          mb="1rem"
+          fontSize="22px"
+          textAlign={{ base: "center", lg: "left" }}
+        >
           Insignia
         </Heading>
-        <Box d="flex" justifyContent="space-evenly" alignItems="center">
+        <Box
+          d="flex"
+          my="1rem"
+          justifyContent="space-evenly"
+          alignItems="center"
+        >
           <Img boxSize="2rem" src="/svg/premium-quality.svg" />
           <Img boxSize="2rem" src="/svg/premium-quality.svg" />
           <Img boxSize="2rem" src="/svg/premium-quality.svg" />
         </Box>
       </Box>
-      <Box>
-        <Heading color="#793E93" as="h3" size="sm" mb="1rem">
+      <Box my="1rem">
+        <Heading
+          color="#793E93"
+          as="h3"
+          size="sm"
+          mb="1rem"
+          fontSize="22px"
+          textAlign={{ base: "center", lg: "left" }}
+        >
           Social Media
         </Heading>
         <Box d="flex" justifyContent="space-evenly" alignItems="center"></Box>

@@ -10,16 +10,64 @@ import Events from "../dashboard/Events";
 import Nav from "./Nav";
 
 function LadingDashboard() {
-  const [view, setView] = useState("profile");
+  const [view, setView] = useState("groups");
   const ProfileView = () => (
-    <Grid templateColumns="repeat(9, 1fr)">
-      <GridItem colSpan={2}>
+    <Grid
+      templateColumns={{
+        sm: "1fr",
+        md: "repeat(9, 1fr)",
+      }}
+      rowGap={{
+        sm: "3rem",
+        md: "initial",
+      }}
+    >
+      <GridItem
+        colSpan={{
+          sm: 1,
+          md: 2,
+        }}
+        rowStart={{
+          sm: 2,
+          md: 1,
+        }}
+        rowEnd={{
+          sm: 3,
+          md: 1,
+        }}
+        margin={{
+          sm: "0 0 3rem",
+          md: "initial",
+        }}
+      >
         <LeftSidebar click={setView} />
       </GridItem>
-      <GridItem colSpan={5}>
+      <GridItem
+        colSpan={{
+          sm: 1,
+          md: 5,
+        }}
+        rowStart={{
+          sm: 1,
+          md: 1,
+        }}
+        rowEnd={{
+          sm: 2,
+          md: 1,
+        }}
+        padding={{
+          sm: "0 1rem",
+          md: "initial",
+        }}
+      >
         <MiddleSection />
       </GridItem>
-      <GridItem colSpan={2}>
+      <GridItem
+        colSpan={{
+          sm: 1,
+          md: 2,
+        }}
+      >
         <RightSidebar />
       </GridItem>
     </Grid>
