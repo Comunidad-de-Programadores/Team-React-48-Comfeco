@@ -37,7 +37,7 @@ export default function Groups({}: Props): ReactElement {
     </Box>
   );
   return (
-    <Box d="flex" justifyContent="space-between" px="1rem">
+    <Box d="flex" my="2rem" justifyContent="space-between" px="1rem">
       <Box minWidth="300px">
         <HStack fontSize="1.3rem" justifyContent="space-between" px="1rem">
           <Text color="text.100" fontWeight="700">
