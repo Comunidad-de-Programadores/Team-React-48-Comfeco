@@ -15,7 +15,12 @@ function Nav({ click }: props): JSX.Element {
   const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
 
   const NavItemD = ({ label, icon, tab }: NavItemDT) => (
-    <Box display="flex" alignItems="center" onClick={() => click(tab)}>
+    <Box
+      display="flex"
+      alignItems="center"
+      onClick={() => click(tab)}
+      cursor="pointer"
+    >
       <Img boxSize="1.2rem" src={icon} />
       <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
         {label}
