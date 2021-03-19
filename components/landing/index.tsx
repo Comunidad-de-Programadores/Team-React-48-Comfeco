@@ -4,7 +4,6 @@ import Countdown from "./Countdown";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import Layout from "../Layout";
-
 interface Props {}
 
 export default function LandingUser({}: Props): ReactElement {
