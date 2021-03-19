@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Heading, Image } from "@chakra-ui/react";
 
 import useAuth from "../hooks/useAuth";
 import Layout from "../components/Layout";
@@ -17,35 +17,36 @@ export default function SignUp(): JSX.Element {
 
   return (
     <Layout title="Registro">
-      <Box display="flex" maxH="100%">
+      <Box display="flex" maxH="100%" p={{ sm: "1rem", lg: "2rem" }}>
         <Box
           display="flex"
-          height="100vh"
           flexDirection="column"
-          w={{ sm: "100%", md: "100%", lg: "55%" }}
-          paddingTop="6em"
+          w={{ sm: "100%", md: "55%", lg: "55%" }}
+          // pt={{ sm: "6rem", lg: "6rem" }}
+          px={{ sm: "1rem" }}
           textAlign="center"
           alignItems="center"
-          bg="blue.400"
         >
-          <Text fontSize="3rem" color={color}>
+          <Heading
+            color="text.500"
+            as="h2"
+            fontSize={{ sm: "26px", lg: "2.5rem" }}
+          >
             Bienvenido a bordo
-          </Text>
+          </Heading>
 
           <Form />
           <Options />
         </Box>
         <Box
-          display={{ sm: "none", md: "block", lg: "block" }}
-          bg="gray"
-          height="100vh"
-          w={{ lg: "45%" }}
-          marginTop="5rem"
+          display={{ sm: "none", md: "flex", lg: "flex" }}
+          w={{ md: "45%", lg: "45%" }}
+          h="100%"
+          alignItems="center"
         >
           <Image
             src="/images/registro.png"
             alt="Sign up"
-            width={"90%"}
             transform="scaleX(-1)"
           />
         </Box>
