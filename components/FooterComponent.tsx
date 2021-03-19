@@ -133,7 +133,7 @@ export default function FooterComponent(): ReactElement {
   return (
     <Box
       w="100%"
-      h="170px"
+      h={{ lg: "170px" }}
       pt="1rem"
       bg="#fff"
       display="flex"
