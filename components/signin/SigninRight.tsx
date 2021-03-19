@@ -36,13 +36,20 @@ export default function SigninRight({}: Props): ReactElement {
 
   const loginUser = async () => {
     try {
-      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        `${
+          process.env.NEXTAUTH_URL
+            ? process.env.NEXTAUTH_URL
+            : "http://localhost:3000"
+        }/api/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
       const data = await response.json();
       if (data.code === 200) {
         signIn("credentials", {
