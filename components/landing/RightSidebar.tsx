@@ -32,38 +32,39 @@ const RightSidebar = ({}: Props) => {
 
   return (
     <Box
-    padding={{
-      sm:"initial",
-      lg:"3rem"
-    }}>
+      padding={{
+        sm: "initial",
+        lg: "3rem",
+      }}
+    >
       <Box
-      overflow={{
-        sm:'hidden',
-        md:'initial'
-      }}
-      width={{
-        sm:'100vw',
-        md:'initial'
-      }}
+        overflow={{
+          sm: "hidden",
+          md: "initial",
+        }}
+        width={{
+          sm: "100vw",
+          md: "initial",
+        }}
       >
-        <Heading 
-        as="h1" 
-        size="lg" 
-        color="#793E93" 
-        margin="0 0 1rem 0"
-        padding={{sm:'0 0 0 1rem', md:'initial'}}
+        <Heading
+          as="h1"
+          size="lg"
+          color="#793E93"
+          margin="0 0 1rem 0"
+          padding={{ sm: "0 0 0 1rem", md: "initial" }}
         >
           Talleres
         </Heading>
         <Box margin="0 0 2rem 0">
           <Box
-          display="flex"
-          justifyContent="space-between"
-          margin="0 0 2rem 0"
-          padding={{
-            sm:'0 1rem',
-            md:'initial'
-          }}
+            display="flex"
+            justifyContent="space-between"
+            margin="0 0 2rem 0"
+            padding={{
+              sm: "0 1rem",
+              md: "initial",
+            }}
           >
             <Text fontSize="1.1rem" color="#555555">
               {da} {mo}, {ye}
@@ -72,62 +73,49 @@ const RightSidebar = ({}: Props) => {
             <FaCalendarAlt color="#555555" fontSize="2rem" />
           </Box>
           <Box
-          display={{
-            sm:'flex',
-            md:'block'
-          }}
-          justifyContent='center'
+            display={{
+              sm: "flex",
+              md: "block",
+            }}
+            justifyContent="center"
           >
             <Box
-            width={{
-              sm:'15rem',
-              md:'initial'
-            }}
+              width={{
+                sm: "15rem",
+                md: "initial",
+              }}
             >
               <ButtonAction textButton="Filtro" />
             </Box>
           </Box>
         </Box>
         <Heading
-        as="h4"
-        fontSize="1.5rem"
-        color="#793E93"
-        margin="0 0 1.5rem 0"
-        padding={{
-          sm:'0 1rem',
-          md:'initial'
-        }}
+          as="h4"
+          fontSize="1.5rem"
+          color="#793E93"
+          margin="0 0 1.5rem 0"
+          padding={{
+            sm: "0 1rem",
+            md: "initial",
+          }}
         >
           Area de conocimiento
         </Heading>
-<<<<<<< HEAD
-        <List>
-          {events.map((event: any) => (
-            <ListItem key={event.id}>
-              <EventCard
-                title={event.title}
-                hour={event.hour}
-                author={event.author}
-              />
-            </ListItem>
-          ))}
-        </List>
-=======
         <Box
-        overflowX={{
-          sm:"scroll",
-          md:"initial"
-        }}
+          overflowX={{
+            sm: "scroll",
+            md: "initial",
+          }}
         >
           <List
-          display={{
-            sm:'flex',
-            md:'block'
-          }}
+            display={{
+              sm: "flex",
+              md: "block",
+            }}
           >
             <ListItem
-            minWidth={{sm:'20rem', md:'initial',}}
-            padding={{sm:'0 1rem', md:'initial'}}
+              minWidth={{ sm: "20rem", md: "initial" }}
+              padding={{ sm: "0 1rem", md: "initial" }}
             >
               <EventCard
                 title="State Of JavaScript"
@@ -136,8 +124,8 @@ const RightSidebar = ({}: Props) => {
               />
             </ListItem>
             <ListItem
-            minWidth={{sm:'20rem', md:'initial',}}
-            padding={{sm:'0 1rem', md:'initial'}}
+              minWidth={{ sm: "20rem", md: "initial" }}
+              padding={{ sm: "0 1rem", md: "initial" }}
             >
               <EventCard
                 title="State Of JavaScript"
@@ -147,7 +135,6 @@ const RightSidebar = ({}: Props) => {
             </ListItem>
           </List>
         </Box>
->>>>>>> 443d606 (fix: header and footer fixed to responsive)
       </Box>
     </Box>
   );

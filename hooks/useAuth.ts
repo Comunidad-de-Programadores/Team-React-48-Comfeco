@@ -27,17 +27,14 @@ function useAuth() {
   };
   const register = async () => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_PORT}/api/users`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        }
-      );
-
+      const response = await fetch(`/api/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      const data = await response.json();
       if (data.code === 201) {
         signIn("credentials", {
           callbackUrl: window.location.origin,

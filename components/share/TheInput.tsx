@@ -55,7 +55,7 @@ export default function TheInput({
           />
         )}
       </InputGroup>
-      {errors[name] && <Text color="red">{errors[name]}</Text>}
+      {errors && errors[name] && <Text color="red">{errors[name]}</Text>}
     </>
   );
 }
