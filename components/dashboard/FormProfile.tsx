@@ -1,43 +1,66 @@
 import React, { ReactElement } from "react";
-import { Box, Image, Textarea, HStack, VStack } from "@chakra-ui/react";
-import Input from "../share/TheInput";
+import { Box, Image, Textarea, Stack, VStack, Input } from "@chakra-ui/react";
+import TheInput from "../share/TheInput";
 import ButtonAction from "../landing/ButtonAction";
 
 interface Props {}
+//      <FileBase
+//      type="file"
+//      multiple={false}
+//      onDone = {({base64}:{base64:string}) => setPostData({...postData, selectedFile: base64})}
+//  />
 
 export default function FormProfile({}: Props): ReactElement {
   return (
     <Box
-      bg="#fff"
-      m="0 auto"
-      p="2em"
-      px="5em"
+      d="flex"
+      flexDirection="column"
+      my={{ sm: "2rem", lg: "2rem" }}
+      mx={{ lg: "5rem" }}
+      p={{ sm: "1rem" }}
       borderRadius="1em"
-      w="60%"
-      my="2rem"
+      maxW={{ sm: "100vw" }}
+      justifyContent="center"
+      alignItems="center"
     >
-      <HStack spacing="1rem" alignItems="center">
-        <VStack spacing="1rem">
-          <Image src="/images/avatar.png" w="150px" />
-          <Input placeholder="Nick" />
-          <Textarea bg="#E9EFF6" placeholder="Description" my="1em" />
-          <ButtonAction textButton="Guardar" />
+      <Stack
+        direction={{ sm: "column", md: "row", lg: "row" }}
+        w={{ lg: "80%" }}
+        alignItems="center"
+        justifyContent="space-evenly"
+        bg="#ffff"
+        px={{ sm: "1rem" }}
+        py={{ sm: "1rem" }}
+        mb="1rem"
+        filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+        borderRadius="7px"
+      >
+        <VStack
+          spacing={{ sm: "1.5rem", md: "1.5rem" }}
+          mb={{ sm: "1.5rem", md: "0" }}
+        >
+          <Image src="/images/avatar.png" boxSize="150px" />
+          <Input borderRadius="5px" type="file" placeholder="Cambiar Foto" />
+
+          <TheInput placeholder="Nick" />
+          <Textarea bg="#E9EFF6" placeholder="Description" />
+        </VStack>
+        <VStack spacing="1.5rem" mb={{ sm: "1.5rem", md: "0" }}>
+          <TheInput placeholder="Correo Electronico" />
+          <TheInput placeholder="Genero" />
+          <TheInput placeholder="Pais" />
+          <TheInput placeholder="Twitter" />
+          <TheInput placeholder="Linkedin" />
         </VStack>
         <VStack spacing="1.5rem">
-          <Input placeholder="Correo Electronico" />
-          <Input placeholder="Genero" />
-          <Input placeholder="Pais" />
-          <Input placeholder="Twitter" />
-          <Input placeholder="Linkedin" />
+          <TheInput placeholder="Fecha de nacimiento" />
+          <TheInput placeholder="Contraseña" />
+          <TheInput placeholder="Repetir Contraseña" />
+          <TheInput placeholder="Facebook" />
+          <TheInput placeholder="Github" />
         </VStack>
-        <VStack spacing="1.5rem">
-          <Input placeholder="Fecha de nacimiento" />
-          <Input placeholder="Contraseña" />
-          <Input placeholder="Repetir Contraseña" />
-          <Input placeholder="Facebook" />
-          <Input placeholder="Github" />
-        </VStack>
-      </HStack>
+      </Stack>
+      <ButtonAction textButton="Guardar" />
     </Box>
   );
 }

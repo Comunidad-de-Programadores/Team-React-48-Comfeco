@@ -31,7 +31,7 @@ export default function TheInput({
 
   return (
     <>
-      <InputGroup bg={bg}>
+      <InputGroup borderRadius={{ sm: "5px", lg: "10px" }} bg={bg}>
         <Input
           w="100%"
           variant="filled"
@@ -43,7 +43,6 @@ export default function TheInput({
           onChange={handleChange}
           h={{ sm: "2rem", lg: "3rem" }}
           p={{ sm: "10px", lg: "1rem" }}
-          borderRadius={{ sm: "5px", lg: "10px" }}
           fontSize={fSize}
           color={color}
         />

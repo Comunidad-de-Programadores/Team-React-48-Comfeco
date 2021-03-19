@@ -11,10 +11,10 @@ const ButtonAction = (props: Props) => {
       as="button"
       transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
       backgroundColor="#A486AE"
-      borderRadius="15px"
+      borderRadius={{ sm: "5px", lg: "7px" }}
       padding=".2rem "
       color="white"
-      width="100%"
+      width="10rem"
       fontSize="1.5rem"
       height="48px"
       _hover={{ bg: "#78428a" }}
