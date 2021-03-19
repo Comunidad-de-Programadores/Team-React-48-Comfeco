@@ -27,12 +27,7 @@ const Layout = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Grid
-        bg={type ? "bg.200" : "bg.100"}
-        backgroundSize="cover"
-        w="100%"
-        templateRows="100px 1fr 170px"
-      >
+      <Grid bg={type ? "bg.200" : "bg.100"} backgroundSize="cover" w="100%">
         {session ? <HeaderLogin /> : <HeaderLogout />}
         {children}
         <FooterComponent />

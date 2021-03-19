@@ -43,7 +43,6 @@ const RightSidebar = ({}: Props) => {
           md: "initial",
         }}
         width={{
-          sm: "100vw",
           md: "initial",
         }}
       >
