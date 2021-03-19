@@ -25,7 +25,7 @@ export default function signupValidator(values: Signup): SignupErrors {
   if (!values.password) {
     errors.password = "Contraseña requerida";
   } else if (values.password.length < 6) {
-    errors.password = "Contraseña debe ser al menos de 6 carácteres";
+    errors.password = "La contraseña debe tener como minimo 6 carácteres";
   }
 
   if (values.confirmPassword !== values.password) {

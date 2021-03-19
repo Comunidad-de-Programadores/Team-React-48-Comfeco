@@ -5,30 +5,30 @@
 // import { User } from 'path/to/interfaces';
 
 export type User = {
-  id: number
-  name: string
-}
+  id: number;
+  name: string;
+};
 
 export type LoginErrors = {
-  email: string | null
-  password: string | null
-}
+  email: string | null;
+  password: string | null;
+};
 
 export type Login = {
-  email: string
-  password: string
-}
+  email: string;
+  password: string;
+};
 
 export type SignupErrors = {
-  username: string | null,
-  email: string | null,
-  password: string | null,
-  confirmPassword: string | null
-}
+  username?: string | null;
+  email?: string | null;
+  password?: string | null;
+  confirmPassword?: string | null;
+};
 
 export type Signup = {
-  username: string,
-  email: string,
-  password: string,
-  confirmPassword: string
-}
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};

@@ -1,7 +1,7 @@
+import { Box, Heading, List, ListItem } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Heading, Box, List, ListItem } from "@chakra-ui/react";
-import CardHorizontal from "./CardHorizontal";
 import ButtonAction from "./ButtonAction";
+import CardHorizontal from "./CardHorizontal";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
@@ -24,32 +24,69 @@ const LeftSidebar = ({}: Props) => {
   };
 
   return (
-    <Box padding="3rem">
+    <Box
+      padding={{
+        sm: "initial",
+        md: "3rem",
+      }}
+      overflow={{
+        sm: "hidden",
+        md: "initial",
+      }}
+      maxWidth={{
+        sm: "100vw",
+        md: "initial",
+      }}
+    >
       <Box>
-        <Heading as="h1" size="lg" color="#793E93">
+        <Heading
+          as="h1"
+          size="lg"
+          color="#793E93"
+          padding={{
+            sm: "0 0 0 1rem",
+            lg: "initial",
+          }}
+        >
           Comunidades
         </Heading>
-        <List pt="1rem">
-          {communities.map((community: any) => (
-            <ListItem key={community.id}>
-              <CardHorizontal text={community.title} />
-            </ListItem>
-          ))}
-          {/* <ListItem>
-            <CardHorizontal text="Comunidad de Programadores" />
-          </ListItem>
-          <ListItem>
-            <CardHorizontal text="Comunidad de Programadores" />
-          </ListItem>
-          <ListItem>
-            <CardHorizontal text="Comunidad de Programadores" />
-          </ListItem>
-          <ListItem>
-            <CardHorizontal text="Comunidad de Programadores" />
-          </ListItem> */}
-        </List>
+        <Box
+          overflowX={{
+            sm: "scroll",
+            md: "initial",
+          }}
+        >
+          <List
+            pt="1rem"
+            display={{
+              sm: "flex",
+              md: "block",
+            }}
+          >
+            {communities.map((community: any) => (
+              <ListItem key={community.id}>
+                <CardHorizontal text={community.title} />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </Box>
-      <ButtonAction textButton="Ver más" />
+      <Box
+        display={{
+          sm: "flex",
+          md: "block",
+        }}
+        justifyContent="center"
+      >
+        <Box
+          width={{
+            sm: "15rem",
+            md: "initial",
+          }}
+        >
+          <ButtonAction textButton="Ver más" />
+        </Box>
+      </Box>
     </Box>
   );
 };
