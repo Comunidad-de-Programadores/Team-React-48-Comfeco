@@ -60,10 +60,9 @@ export default function FooterComponent(): ReactElement {
       <Box
         w="100%"
         display={{
-          sm: "grid",
+          sm: "flex",
           md: "flex",
         }}
-        gridTemplateColumns="repeat(2, 1fr)"
         justifyContent="space-evenly"
         margin={{
           sm: "1rem 0",

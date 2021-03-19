@@ -9,15 +9,15 @@ export default function signupValidator(values: Signup): SignupErrors {
   };
 
   if (!values.username) {
-    errors.username = "username is required";
+    errors.username = "Usuario es requerido";
   }
 
   if (values.username.length < 3 && values.username.length > 10) {
-    errors.username = "username should be between 3 to 10 characters";
+    errors.username = "Username debe tener de 3 a 10 caracteres";
   }
 
   if (!values.email) {
-    errors.email = "Email is required";
+    errors.email = "Email es requerido";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
     errors.email = "Email no válido";
   }

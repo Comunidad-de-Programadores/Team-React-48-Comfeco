@@ -21,7 +21,7 @@ function HeaderLogout() {
   };
 
   return (
-    <Box bg="transparent" h="100%" w="100%" display="flex">
+    <Box bg={color} h="100%" w="100%" display="flex">
       <Box
         d="flex"
         w="100%"

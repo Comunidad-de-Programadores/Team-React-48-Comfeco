@@ -26,7 +26,6 @@ export default function SignUp(): JSX.Element {
           px={{ sm: "1rem" }}
           textAlign="center"
           alignItems="center"
-          bg="blue.400"
         >
           <Heading
             color="text.500"
