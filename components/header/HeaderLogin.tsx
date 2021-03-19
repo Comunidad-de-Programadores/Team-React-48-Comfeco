@@ -115,7 +115,6 @@ function HeaderLogin() {
           <MenuList>
             <MenuItem>Mi Perfil</MenuItem>
             <MenuItem onClick={() => signOut()}>Cerrar sesion</MenuItem>
-            <MenuItem>Notificaciones</MenuItem>
           </MenuList>
         </Menu>
         <IoMdNotifications />
@@ -154,6 +153,14 @@ function HeaderLogin() {
             <NavItemM link="#" label="Comunidades" />
             <NavItemM link="#" label="Talleres" />
             <NavItemM link="#" label="Creadores de Contenido" />
+            <ListItem
+              onClick={() => signOut()}
+              fontWeight="600"
+              fontSize="25px"
+            >
+              Cerrar sesion
+              <Divider my="0.5em" borderColor="text.500" />
+            </ListItem>
           </List>
         </Box>
       </Slide>
