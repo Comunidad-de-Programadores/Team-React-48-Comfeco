@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../dashboard-grid/Nav";
 import EventCard from "./EventCard";
 import { Box, Heading, HStack } from "@chakra-ui/react";
 
