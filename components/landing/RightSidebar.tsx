@@ -22,9 +22,9 @@ const RightSidebar = ({}: Props) => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/workshops");
+      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/workshops`);
       const events = await response.json();
-      setevents(events.data); 
+      setevents(events.data);
     } catch (error) {
       console.log("error fetching events", error);
     }
@@ -59,14 +59,15 @@ const RightSidebar = ({}: Props) => {
           Area de conocimiento
         </Heading>
         <List>
-          { events.map((event: any) => 
-          <ListItem key={event.id}>
-            <EventCard
-              title={event.title}
-              hour={event.hour}
-              author={event.author}
-            />
-          </ListItem>)}
+          {events.map((event: any) => (
+            <ListItem key={event.id}>
+              <EventCard
+                title={event.title}
+                hour={event.hour}
+                author={event.author}
+              />
+            </ListItem>
+          ))}
         </List>
       </Box>
     </Box>

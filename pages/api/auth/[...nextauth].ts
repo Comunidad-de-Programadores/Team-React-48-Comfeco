@@ -50,7 +50,7 @@ const providers = [
       // Add logic here to look up the user from the credentials supplied
       try {
         const response = await axios.post(
-          "/api/login/",
+          `${process.env.NEXTAUTH_URL}/api/login/`,
           {
             password: credentials.password,
             email: credentials.email,
@@ -77,7 +77,7 @@ const providers = [
 ];
 
 const callbacks = {
-  async jwt(token: any, user: any, account: any, profile: any, isNewUser: any) {
+  async jwt(token, user, account, profile, isNewUser) {
     // if (user) {
     //   token.accessToken = user.data.token;
     // }
@@ -85,7 +85,7 @@ const callbacks = {
     return token;
   },
 
-  async session(session: any, token: any) {
+  async session(session, token) {
     session.accessToken = token.accessToken;
     return session;
   },

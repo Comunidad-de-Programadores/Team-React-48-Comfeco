@@ -46,7 +46,7 @@ export default function SignUp(): JSX.Element {
 
   const register = async () => {
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

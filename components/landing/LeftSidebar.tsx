@@ -5,7 +5,6 @@ import ButtonAction from "./ButtonAction";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
-
   const [communities, setcommunities] = useState([]);
 
   console.log("communities", communities);
@@ -16,14 +15,16 @@ const LeftSidebar = ({}: Props) => {
 
   const fetchCommunities = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/community/");
+      const response = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/community/`
+      );
       const communities = await response.json();
       setcommunities(communities.data);
     } catch (error) {
       console.log("Error Fetching communities", error);
     }
   };
-  
+
   return (
     <Box padding="3rem">
       <Box>
@@ -31,10 +32,11 @@ const LeftSidebar = ({}: Props) => {
           Comunidades
         </Heading>
         <List pt="1rem">
-          { communities.map((community: any) => 
-              <ListItem key={community.id}>
-                <CardHorizontal text={community.title} />
-              </ListItem>)}
+          {communities.map((community: any) => (
+            <ListItem key={community.id}>
+              <CardHorizontal text={community.title} />
+            </ListItem>
+          ))}
           {/* <ListItem>
             <CardHorizontal text="Comunidad de Programadores" />
           </ListItem>
