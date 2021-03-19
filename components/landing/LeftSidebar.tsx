@@ -34,7 +34,6 @@ const LeftSidebar = ({}: Props) => {
         md: "initial",
       }}
       maxWidth={{
-        sm: "100vw",
         md: "initial",
       }}
     >
