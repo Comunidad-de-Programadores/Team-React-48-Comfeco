@@ -1,46 +1,65 @@
 import React from "react";
-import { Box, Text, Img, Divider } from "@chakra-ui/react";
+import { Box, Text, Img, HStack, Flex } from "@chakra-ui/react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
-function Nav(): JSX.Element {
+interface props {
+  click?: any;
+}
+
+function Nav({ click }: props): JSX.Element {
   return (
-    <Box>
-      <Box
-        display="flex"
-        minW="650px"
-        borderRadius="10px"
-        alignSelf="center"
-        justifySelf="center"
-        h="2.5rem"
-        justifyContent="space-evenly"
+    <Box
+      d="flex"
+      justifyContent="space-between"
+      m="0 auto"
+      w="80%"
+      px="2rem"
+      mt="1em"
+    >
+      <Flex
+        color="text.500"
+        mr="2rem"
+        cursor="pointer"
+        fontSize="22px"
         alignItems="center"
+        fontWeight="500"
+        onClick={() => click("profile")}
+      >
+        <AiOutlineArrowLeft />
+        <Text>Back</Text>
+      </Flex>
+      <HStack
+        justifyContent="center"
+        spacing="2.5rem"
+        borderRadius="10px"
         filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
       >
-        <Box display="flex">
-          <Img boxSize="18px" src="/svg/man.svg" />
-          <Text color="text.500" ml="10px">
+        <Box display="flex" onClick={() => click("profile")}>
+          <Img boxSize="1.2rem" src="/svg/man.svg" />
+          <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
             Perfil
           </Text>
         </Box>
-        <Box display="flex">
-          <Img boxSize="18px" src="/svg/medal.svg" />
-          <Text color="text.500" ml="10px">
+        <Box display="flex" onClick={() => click("badged")}>
+          <Img boxSize="1.2rem" src="/svg/medal.svg" />
+          <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
             Insignias
           </Text>
         </Box>
-        <Box display="flex">
-          <Img boxSize="18px" src="/svg/team.svg" />
-          <Text color="text.500" ml="10px">
+        <Box display="flex" onClick={() => click("groups")}>
+          <Img boxSize="1.2rem" src="/svg/team.svg" />
+          <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
             Grupos
           </Text>
         </Box>
-        <Box display="flex">
-          <Img boxSize="18px" src="/svg/calendar.svg" />
-          <Text color="#8A0E98" ml="10px">
+        <Box display="flex" onClick={() => click("events")}>
+          <Img boxSize="1.2rem" src="/svg/calendar.svg" />
+          <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
             Eventos
           </Text>
         </Box>
-      </Box>
-      <Divider borderWidth="1px" borderColor="text.300" w="550px" m="0 auto" />
+      </HStack>
+      <div />
     </Box>
   );
 }

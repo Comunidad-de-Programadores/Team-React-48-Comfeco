@@ -38,13 +38,29 @@ function HeaderLogin() {
         }}
       >
         <Img
-          boxSize="3rem"
-          src={{
-            sm: "/images/logo1.png",
-            md: "/images/isotipo.png",
+          display={{
+            sm: "block",
+            md: "none",
+          }}
+          src="/images/isotipo.png"
+        />
+        <Img
+          src="/images/logo1.png"
+          w="250px"
+          display={{
+            sm: "none",
+            md: "block",
           }}
         />
-        {/* <Text color="#555555" fontWeight="bold" fontSize="20px">
+        {/* <Text
+          color="#555555"
+          fontWeight="bold"
+          fontSize="20px"
+          display={{
+            sm: "none",
+            md: "block",
+          }}
+        >
           C#MFECO
         </Text> */}
       </GridItem>

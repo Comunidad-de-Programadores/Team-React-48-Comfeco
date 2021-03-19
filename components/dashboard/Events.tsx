@@ -7,7 +7,6 @@ function Events(): JSX.Element {
   const color = "#793E93";
   return (
     <Box d="grid" gridTemplateRows="5rem 5rem 1fr">
-      <Nav />
       <Heading
         color={color}
         as="h2"

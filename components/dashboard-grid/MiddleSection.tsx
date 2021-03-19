@@ -3,8 +3,7 @@ import { Box, Text, Button, Heading } from "@chakra-ui/react";
 import Nav from "./Nav";
 function MiddleSection() {
   return (
-    <Box h="27rem" justifyContent="center" p="1rem 2rem">
-      <Nav />
+    <Box justifyContent="center" py="1rem" px="2rem">
       <Box mt="1rem">
         <Heading as="h3" size="md" color="#8A0E98">
           Actividades recientes:
@@ -14,6 +13,7 @@ function MiddleSection() {
           mt="1rem"
           bg="#ffff"
           borderRadius="15px"
+          p="1rem"
         >
           <Box p="10px">
             <Heading color="#A976AD" fontWeight="light" as="h4" size="sm">
@@ -21,16 +21,13 @@ function MiddleSection() {
             </Heading>
             <Box
               display="flex"
-              pr="2.5rem"
               justifyContent="space-between"
               alignItems="center"
             >
-              <Text fontSize="14px">
+              <Text fontSize="16px">
                 Te has Unido al evento Community Fest and Code
               </Text>
-              <Button bg="#A976AD" color="#ffff" size="xs">
-                ver evento
-              </Button>
+              <Button variant="normal">ver evento</Button>
             </Box>
           </Box>
         </Box>

@@ -2,7 +2,10 @@ import React from "react";
 import { Box, Button, Heading, Img, Text } from "@chakra-ui/react";
 import { useSession } from "next-auth/client";
 
-function LeftSidebar() {
+interface props {
+  click?: any;
+}
+function LeftSidebar({ click }: props) {
   const userImg =
     "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fposterposse.com%2Fwp-content%2Fuploads%2F2015%2F03%2Ff6cf32bad97eff4e0388a3939c90f628.jpg&f=1&nofb=1";
   const [session, loading] = useSession();
@@ -11,7 +14,6 @@ function LeftSidebar() {
     <Box
       d="grid"
       gridTemplateRows=" 16rem 17rem 6rem 6rem"
-      gridRowGap="20px"
       bg="transparent"
       w="100%"
       h="100%"
@@ -44,7 +46,7 @@ function LeftSidebar() {
       <Box
         d="flex"
         flexDirection="column"
-        justifyContent="center"
+        justifyContent="flex-start"
         alignItems="center"
       >
         <Box
@@ -64,7 +66,7 @@ function LeftSidebar() {
             placeat magni?
           </Text>
         </Box>
-        <Button color="#ffff" bg="#A486AE" size="sm">
+        <Button variant="normal" onClick={() => click("form-profile")}>
           Editar perfil
         </Button>
       </Box>

@@ -7,7 +7,15 @@ interface Props {}
 
 export default function FormProfile({}: Props): ReactElement {
   return (
-    <Box bg="#fff" m="0 auto" p="2em" px="5em" borderRadius="1em">
+    <Box
+      bg="#fff"
+      m="0 auto"
+      p="2em"
+      px="5em"
+      borderRadius="1em"
+      w="60%"
+      my="2rem"
+    >
       <HStack spacing="1rem" alignItems="center">
         <VStack spacing="1rem">
           <Image src="/images/avatar.png" w="150px" />
