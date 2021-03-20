@@ -10,7 +10,7 @@ export default function test({}: Props): ReactElement {
   const getData = async () => {
     if (loading) {
     } else {
-      const response = await fetch(`/api/users/${session?.user.email}`);
+      const response = await fetch(`/api/groups`);
       const data = await response.json();
       console.log(data);
     }

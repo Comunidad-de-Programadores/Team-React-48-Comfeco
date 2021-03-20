@@ -14,11 +14,14 @@ import {
 import Card from "./CardGroups";
 import ButtonAction from "../../share/Button";
 
-interface Props {}
+interface Props {
+  data?: any;
+}
 
-export default function Groups({}: Props): ReactElement {
+export default function Groups({ data }: Props): ReactElement {
   const MemberRender = () => (
     <Box w="100%">
+      {console.log(data)}
       <HStack justifyContent="space-between" w="100%" my="1rem" px="1rem">
         <HStack>
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
