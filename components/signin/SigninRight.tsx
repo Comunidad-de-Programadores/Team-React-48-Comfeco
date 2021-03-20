@@ -8,19 +8,15 @@ import {
   Input,
   InputRightElement,
   Checkbox,
+  Heading,
   Text,
   Button,
 } from "@chakra-ui/react";
-import {
-  GrFacebook,
-  GrGoogle,
-  GrFormViewHide,
-  GrFormView,
-} from "react-icons/gr";
+import { GrFormViewHide, GrFormView } from "react-icons/gr";
 import useValidation from "../../hooks/useValidation";
 import loginValidator from "../../utils/validators/loginValidator";
 import { LoginErrors } from "../../interfaces";
-
+import LoginSocial from "../share/LoginSocial";
 interface Props {}
 
 export default function SigninRight({}: Props): ReactElement {
@@ -75,16 +71,19 @@ export default function SigninRight({}: Props): ReactElement {
 
   return (
     <Box w={{ sm: "100%", md: "45%" }} flexDirection="column">
+      <Heading textAlign="center" color="text.100" as="h1">
+        Iniciar Sesion
+      </Heading>
       <Box width="100%" py={{ sm: "1rem", md: "1rem" }} px={{ md: "2rem" }}>
         <form onSubmit={handleSubmit}>
           <Box d="flex" alignItems="center" flexDir="column">
             <Input
-              w={{ sm: "70%", md: "100%" }}
+              w={{ base: "100%", md: "80%" }}
               variant="filled"
-              bg="E9EFF6"
+              bg="#fff"
               fontSize={{ sm: "16px", md: "18px" }}
               h={{ sm: "3rem", md: "3.5rem" }}
-              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+              filter="drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25))"
               placeholder="Correo electronico"
               name="email"
               values={email}
@@ -96,15 +95,15 @@ export default function SigninRight({}: Props): ReactElement {
               </Text>
             )}
             <InputGroup
-              w={{ sm: "70%", md: "100%" }}
+              w={{ base: "100%", md: "80%" }}
               d="flex"
               alignItems="center"
               flexDir="column"
             >
               <Input
+                bg="#fff"
                 w="100%"
                 variant="filled"
-                bg="E9EFF6"
                 fontSize={{ sm: "16px", md: "18px" }}
                 h={{ sm: "3rem", md: "3.5rem" }}
                 mt="1em"
@@ -113,7 +112,7 @@ export default function SigninRight({}: Props): ReactElement {
                 name="password"
                 value={password}
                 onChange={handleChange}
-                filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+                filter="drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25))"
               />
               <InputRightElement
                 w="3.5em"
@@ -167,7 +166,13 @@ export default function SigninRight({}: Props): ReactElement {
               </Checkbox>
             </Box>
           </Box>
-          <Box d="flex" justifyContent="center" mt="1.5em">
+          <Box
+            d="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            mt="1.5em"
+          >
             {apiError && (
               <Text textAlign="center" color="red">
                 {apiError}
@@ -181,6 +186,7 @@ export default function SigninRight({}: Props): ReactElement {
             )}
 
             <Button
+              isLoading={loginSuccess}
               w="15rem"
               height="3.5rem"
               borderRadius="10px"
@@ -198,44 +204,8 @@ export default function SigninRight({}: Props): ReactElement {
               Ingresar
             </Button>
           </Box>
-          <Box mt="1.5em">
-            <Text
-              fontSize={{ sm: "14px", md: "16px" }}
-              padding={{ sm: "10px" }}
-              textAlign="center"
-              color="#85898D"
-              justifySelf="center"
-            >
-              O continua con:
-            </Text>
-          </Box>
-          <Box d="flex" justifyContent="space-evenly" mt="1.5rem">
-            <Box
-              w={{ sm: "50px", lg: "80px" }}
-              h={{ sm: "50px", lg: "80px" }}
-              p={{ sm: "10px", lg: "1.5rem" }}
-              bg="white"
-              cursor="pointer"
-              borderRadius={{ sm: "5px", lg: "7px" }}
-              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-              onClick={() => signIn("google")}
-            >
-              <GrGoogle size="small" />
-            </Box>
-            <Box
-              w={{ sm: "50px", lg: "80px" }}
-              h={{ sm: "50px", lg: "80px" }}
-              p={{ sm: "10px", lg: "1.5rem" }}
-              bg="white"
-              cursor="pointer"
-              borderRadius={{ sm: "5px", lg: "7px" }}
-              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
-              onClick={() => signIn("facebook")}
-            >
-              <GrFacebook size="small" />
-            </Box>
-          </Box>
         </form>
+        <LoginSocial />
       </Box>
     </Box>
   );

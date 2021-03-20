@@ -20,7 +20,7 @@ export default function SignIn({}: Props): ReactElement {
       <Box
         d="flex"
         justifyContent="space-between"
-        alignItems="center"
+        alignItems="flex-start"
         padding="2rem"
       >
         <SignInLeft />
