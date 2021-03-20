@@ -1,52 +1,80 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-
-const date = moment("20-03-2022", "DD-MM-YYYY");
-const actualDate = moment();
-console.log(date);
-
-export default function Timer() {
-  const [day, setDay] = useState("");
-  const [hour, setHour] = useState("");
-  const [mins, setMin] = useState("");
-  const [second, setSecond] = useState("");
+interface Props {
+  dashboard: boolean;
+}
+export default function Timer({ dashboard }: Props) {
+  console.log(dashboard);
+  const [month, setMonth] = useState(Number);
+  const [day, setDay] = useState(Number);
+  const [hour, setHour] = useState(Number);
+  const [mins, setMin] = useState(Number);
+  const [secs, setSecs] = useState(Number);
 
   useEffect(() => {
     setInterval(() => {
       const finalDate = moment("20-03-2022", "DD-MM-YYYY");
       const currentDate = moment();
-      const counter = moment(finalDate - currentDate);
-      const days = counter.format("D");
-      const hours = counter.format("HH");
-      const minutes = counter.format("mm");
-      const secs = counter.format("ss");
+      const counter = moment.duration(finalDate.diff(currentDate));
+      const months = counter.months();
+      const days = counter.days();
+      const hours = counter.hours();
+      const minutes = counter.minutes();
+      const seconds = counter.seconds();
+      setMonth(months);
       setDay(days);
       setHour(hours);
       setMin(minutes);
-      setSecond(secs);
+      setSecs(seconds);
     }, 1000);
   }, []);
 
   return (
     <Box
       width="100%"
-      height={{ lg: "30rem" }}
+      height={dashboard ? "100%" : "{{ lg: '30rem' }}"}
       display="flex"
       justifyContent="center"
-      alignItems="center"
-      padding="3rem 0"
+      alignItems={dashboard ? "initial" : "center"}
+      padding={dashboard ? "initial" : "3rem 0"}
     >
-      <Box w={{ md: "80%" }} h="80%">
+      <Box w={dashboard ? "100%" : "{{ md: '80%' }}"} h="80%">
         <Heading
-          padding={{ sm: "0 1rem", md: "initial" }}
-          color="#272727"
-          as="h4"
+          color="#850294"
+          as="h2"
           size="lg"
           textAlign="center"
-          mb="2rem"
+          mt="1em"
+          mb="5px"
+          display={dashboard ? "block" : "none"}
         >
-          Preparate lo bueno esta por venir
+          Bienvenidos a Comunity <br /> fest and Code
+        </Heading>
+        <Heading
+          display={dashboard ? "block" : "none"}
+          as="h4"
+          size="md"
+          textAlign="center"
+          fontWeight="400"
+          my="1em"
+        >
+          ¡Hazte parte de la comunidad Concursa y gana!
+        </Heading>
+        <Text w="80%" m="0 auto" display={dashboard ? "block" : "none"}>
+          La proxima edicion regresa en el 2022, en el cual se planea involucrar
+          a todos los programadores independientes del area del conocimiento que
+          se encuentre, todo con un mismo proposito, aprender en comunidad.
+        </Text>
+        <Heading
+          padding={{ sm: "0 1rem", md: "initial" }}
+          color={dashboard ? "#9A30A6" : "#272727"}
+          as={dashboard ? "h6" : "h4"}
+          size={dashboard ? "sm" : "lg"}
+          textAlign="center"
+          mb={dashboard ? "5px" : "2rem"}
+        >
+          Preparate, lo bueno esta por venir!
         </Heading>
         <Box
           w="100%"
@@ -57,13 +85,46 @@ export default function Timer() {
           <Box
             display={{
               sm: "grid",
-              md: "flex",
+              lg: "flex",
             }}
             justifyContent="space-evenly"
             gridTemplateColumns="repeat(2, 1fr)"
-            w={{ sm: "100%", md: "80%" }}
+            w={dashboard ? "100%" : "{{ sm: '100%', lg: '80%' }}"}
           >
-            <Box position="relative" w={{ md: "20%" }}>
+            <Box position="relative" w={{ lg: "20%" }}>
+              <Text
+                fontSize="5rem"
+                fontWeight="bold"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                h="70%"
+              >
+                {month}
+              </Text>
+              <Text fontSize="25px" h="30%" textAlign="center">
+                Meses
+              </Text>
+              <Box
+                display={{
+                  sm: "none",
+                  xxl: "block",
+                }}
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "25%",
+                    left: "100%",
+                    fontSize: "80px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  :
+                </span>
+              </Box>
+            </Box>
+            <Box position="relative" w={{ lg: "20%" }}>
               <Text
                 fontSize="5rem"
                 fontWeight="bold"
@@ -74,19 +135,19 @@ export default function Timer() {
               >
                 {day}
               </Text>
-              <Text fontSize="30px" h="30%" textAlign="center">
-                Dias
+              <Text fontSize="25px" h="30%" textAlign="center">
+                Días
               </Text>
               <Box
                 display={{
                   sm: "none",
-                  md: "block",
+                  xxl: "block",
                 }}
               >
                 <span
                   style={{
                     position: "absolute",
-                    bottom: "40%",
+                    bottom: "25%",
                     left: "100%",
                     fontSize: "80px",
                     fontWeight: "bold",
@@ -96,7 +157,7 @@ export default function Timer() {
                 </span>
               </Box>
             </Box>
-            <Box position="relative" w={{ md: "20%" }}>
+            <Box position="relative" w={{ lg: "20%" }}>
               <Text
                 fontSize="5rem"
                 fontWeight="bold"
@@ -107,19 +168,19 @@ export default function Timer() {
               >
                 {hour}
               </Text>
-              <Text fontSize="30px" h="30%" textAlign="center">
+              <Text fontSize="25px" h="30%" textAlign="center">
                 Horas
               </Text>
               <Box
                 display={{
                   sm: "none",
-                  md: "block",
+                  xxl: "block",
                 }}
               >
                 <span
                   style={{
                     position: "absolute",
-                    bottom: "40%",
+                    bottom: "25%",
                     left: "100%",
                     fontSize: "80px",
                     fontWeight: "bold",
@@ -129,7 +190,7 @@ export default function Timer() {
                 </span>
               </Box>
             </Box>
-            <Box position="relative" w={{ md: "20%" }}>
+            <Box position="relative" w={{ lg: "20%" }}>
               <Text
                 fontSize="5rem"
                 fontWeight="bold"
@@ -140,19 +201,19 @@ export default function Timer() {
               >
                 {mins}
               </Text>
-              <Text fontSize="30px" h="30%" textAlign="center">
+              <Text fontSize="25px" h="30%" textAlign="center">
                 Minutos
               </Text>
               <Box
                 display={{
                   sm: "none",
-                  md: "block",
+                  xxl: "block",
                 }}
               >
                 <span
                   style={{
                     position: "absolute",
-                    bottom: "40%",
+                    bottom: "25%",
                     left: "100%",
                     fontSize: "80px",
                     fontWeight: "bold",
@@ -162,7 +223,7 @@ export default function Timer() {
                 </span>
               </Box>
             </Box>
-            <Box position="relative" w={{ md: "20%" }}>
+            <Box position="relative" w={{ lg: "20%" }} gridColumn="1/3">
               <Text
                 fontSize="5rem"
                 fontWeight="bold"
@@ -171,9 +232,9 @@ export default function Timer() {
                 justifyContent="center"
                 h="70%"
               >
-                {second}
+                {secs}
               </Text>
-              <Text fontSize="30px" h="30%" textAlign="center">
+              <Text fontSize="25px" h="30%" textAlign="center">
                 Segundos
               </Text>
             </Box>
