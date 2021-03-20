@@ -1,9 +1,9 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
-import Countdown from "./Countdown";
+import Layout from "../Layout";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
-import Layout from "../Layout";
+import Timer from "./Timer";
 interface Props {}
 
 export default function LandingUser({}: Props): ReactElement {
@@ -12,30 +12,30 @@ export default function LandingUser({}: Props): ReactElement {
       <Grid
         templateColumns={{
           sm: "1fr",
-          md: "repeat(9, 1fr)",
+          lg: "repeat(9, 1fr)",
         }}
         rowGap={{
           sm: "3rem",
-          md: "initial",
+          lg: "initial",
         }}
-        margin={{ sm: "0 0 2rem", md: "initial" }}
+        margin={{ sm: "0 0 2rem", lg: "initial" }}
       >
         <GridItem
           colSpan={{
             sm: 1,
-            md: 2,
+            lg: 2,
           }}
           rowStart={{
             sm: 2,
-            md: 1,
+            lg: 1,
           }}
           rowEnd={{
             sm: 3,
-            md: 1,
+            lg: 1,
           }}
           margin={{
             sm: "0 0 3rem",
-            md: "initial",
+            lg: "initial",
           }}
         >
           <LeftSidebar />
@@ -43,27 +43,27 @@ export default function LandingUser({}: Props): ReactElement {
         <GridItem
           colSpan={{
             sm: 1,
-            md: 5,
+            lg: 5,
           }}
           rowStart={{
             sm: 1,
-            md: 1,
+            lg: 1,
           }}
           rowEnd={{
             sm: 2,
-            md: 1,
+            lg: 1,
           }}
           padding={{
             sm: "0 1rem",
-            md: "initial",
+            lg: "initial",
           }}
         >
-          <Countdown />
+          <Timer dashboard={true} />
         </GridItem>
         <GridItem
           colSpan={{
             sm: 1,
-            md: 2,
+            lg: 2,
           }}
         >
           <RightSidebar />

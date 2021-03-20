@@ -1,11 +1,10 @@
-import React, { ReactElement } from "react";
-
 import { Box } from "@chakra-ui/react";
-import Layout from "../Layout";
+import React, { ReactElement } from "react";
 import Banner from "../dashboard/Banner";
-import Countdown from "./Timer";
-import Sponsors from "../dashboard/Sponsors";
 import Personas from "../dashboard/Personas";
+import Sponsors from "../dashboard/Sponsors";
+import Layout from "../Layout";
+import Timer from "./Timer";
 
 interface Props {}
 
@@ -17,7 +16,7 @@ export default function Landing2({}: Props): ReactElement {
         <Personas />
         <Sponsors />
         <Box bg="#fff">
-          <Countdown />
+          <Timer dashboard={false} />
         </Box>
       </div>
     </Layout>
