@@ -15,6 +15,7 @@ function LadingDashboard() {
   const [view, setView] = useState("profile");
   const [session, loading] = useSession();
   const [data, setData] = useState();
+  const [groupD, setGroupD] = useState();
 
   const getData = async () => {
     if (loading) {
@@ -26,14 +27,28 @@ function LadingDashboard() {
       return data;
     }
   };
+  const getDataGroups = async () => {
+    if (loading) {
+      return false;
+    } else {
+      const response = await fetch(`/api/groups/`);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
       setData(data);
     };
-
+    const fetchDataGroups = async () => {
+      const data = await getDataGroups();
+      setGroupD(data);
+    };
     fetchData();
+    fetchDataGroups();
   }, []);
 
   const ProfileView = () => (
@@ -111,7 +126,7 @@ function LadingDashboard() {
           </Fade>
         ) : view === "groups" ? (
           <Fade in={true}>
-            <Groups />
+            <Groups data={groupD} />
           </Fade>
         ) : view === "form-profile" ? (
           <Fade in={true}>
