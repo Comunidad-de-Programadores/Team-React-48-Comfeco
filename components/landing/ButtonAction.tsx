@@ -14,7 +14,7 @@ const ButtonAction = (props: Props) => {
       borderRadius={{ sm: "5px", lg: "7px" }}
       padding=".2rem "
       color="white"
-      width="10rem"
+      width="100%"
       fontSize="1.5rem"
       height="48px"
       _hover={{ bg: "#78428a" }}
