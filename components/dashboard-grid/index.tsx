@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GridItem, Grid, Box, Fade } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
+
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import MiddleSection from "./MiddleSection";
@@ -11,6 +13,29 @@ import Nav from "./Nav";
 
 function LadingDashboard() {
   const [view, setView] = useState("profile");
+  const [session, loading] = useSession();
+  const [data, setData] = useState();
+
+  const getData = async () => {
+    if (loading) {
+      return false;
+    } else {
+      const response = await fetch(`/api/users/${session?.user.email}`);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData();
+      setData(data);
+    };
+
+    fetchData();
+  }, []);
+
   const ProfileView = () => (
     <Grid
       templateColumns={{
@@ -90,7 +115,7 @@ function LadingDashboard() {
           </Fade>
         ) : view === "form-profile" ? (
           <Fade in={true}>
-            <FormProfile />
+            <FormProfile data={data} />
           </Fade>
         ) : view === "events" ? (
           <Fade in={true}>

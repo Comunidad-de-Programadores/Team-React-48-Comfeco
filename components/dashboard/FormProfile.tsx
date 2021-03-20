@@ -1,6 +1,7 @@
 import React, {
   ReactElement,
   useState,
+  useEffect,
   useRef,
   MouseEventHandler,
 } from "react";
@@ -18,7 +19,9 @@ import { useSession } from "next-auth/client";
 import TheInput from "../share/TheInput";
 import ButtonAction from "../landing/ButtonAction";
 
-interface Props {}
+interface Props {
+  data?: any;
+}
 interface User {
   avatar?: string | null | File;
   name?: string | null | File;
@@ -35,24 +38,16 @@ interface User {
   github?: string | null | File;
 }
 
-export default function FormProfile({}: Props): ReactElement {
+export default function FormProfile({ data }: Props): ReactElement {
   const [session, loading] = useSession();
-
-  const getData = async () => {
-    if (loading) {
-    } else {
-      const response = await fetch(
-        `http://localhost:3000/api/users/${session?.user.email}`
-      );
-      const data = await response.json();
-      console.log(data);
-    }
-  };
+  useEffect(() => {
+    console.log(data);
+  }, []);
 
   const form = useRef(null);
   const [user, setUser] = useState<User>({
     avatar: "",
-    name: "Nick",
+    name: `${data.data ? data.data.username : "owo"}`,
     description: "Una descripcion vacan...",
     email: "nick@comfeco.com",
     gender: "other",
