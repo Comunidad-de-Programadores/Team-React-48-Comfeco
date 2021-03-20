@@ -25,8 +25,12 @@ class UserService {
     });
     return user;
   }
+<<<<<<< HEAD
 
   async getBadges(email: string, bad: any): Promise<User | null> {
+=======
+  async getBadges(email: string, bad: string): Promise<User | null> {
+>>>>>>> d58f140421a57d399cebac793922fa9695084c20
     const userDB = await UserModel.findOne({ email });
     console.log("userDB", userDB.toObject());
     const userd = userDB.toObject();
@@ -43,6 +47,7 @@ class UserService {
     } else {
       return null;
     }
+<<<<<<< HEAD
   }
 
   async getGroups(email: string, id: string): Promise<User | null> {
@@ -100,6 +105,8 @@ class UserService {
     } else {
       return null;
     }
+=======
+>>>>>>> d58f140421a57d399cebac793922fa9695084c20
   }
 }
 
