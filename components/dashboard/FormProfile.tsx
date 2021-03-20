@@ -41,12 +41,13 @@ export default function FormProfile({}: Props): ReactElement {
   const getData = async () => {
     if (loading) {
     } else {
-      const response = await fetch(`/api/users/${session?.user.email}`);
+      const response = await fetch(
+        `http://localhost:3000/api/users/${session?.user.email}`
+      );
       const data = await response.json();
-      return data;
+      console.log(data);
     }
   };
-  console.log(getData());
 
   const form = useRef(null);
   const [user, setUser] = useState<User>({
@@ -89,6 +90,7 @@ export default function FormProfile({}: Props): ReactElement {
   };
   return (
     <form ref={form}>
+      <Box onClick={() => getData()}>owowowo</Box>
       <FormControl
         d="flex"
         flexDirection="column"
