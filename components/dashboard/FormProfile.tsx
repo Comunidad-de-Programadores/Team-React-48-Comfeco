@@ -1,10 +1,4 @@
-import React, {
-  ReactElement,
-  useState,
-  useEffect,
-  useRef,
-  MouseEventHandler,
-} from "react";
+import React, { ReactElement, useState, useRef } from "react";
 import FileBase from "react-file-base64";
 import {
   FormControl,
@@ -15,9 +9,6 @@ import {
   Input,
   Box,
 } from "@chakra-ui/react";
-import { useSession } from "next-auth/client";
-import TheInput from "../share/TheInput";
-import ButtonAction from "../landing/ButtonAction";
 
 interface Props {
   data?: any;
@@ -39,11 +30,6 @@ interface User {
 }
 
 export default function FormProfile({ data }: Props): ReactElement {
-  const [session, loading] = useSession();
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
   const form = useRef(null);
   const [user, setUser] = useState<User>({
     avatar: `${data.data ? data.data.image : ""}`,
@@ -55,11 +41,12 @@ export default function FormProfile({ data }: Props): ReactElement {
     twitter: `${data.data ? data.data.social.twitter : ""}`,
     linkedin: `${data.data ? data.data.social.linkedin : ""}`,
     birth: `${data.data ? data.data.birth : ""}`,
-    password: ``,
-    repeatedPassword: ``,
+    password: `Contraseña`,
+    repeatedPassword: `Nueva contraseña`,
     facebook: `${data.data ? data.data.social.facebook : ""}`,
     github: `${data.data ? data.data.social.github : ""}`,
   });
+  console.log(data.data.image);
 
   const handleSubmit = () => {
     if (form && form.current) {
@@ -85,7 +72,6 @@ export default function FormProfile({ data }: Props): ReactElement {
   };
   return (
     <form ref={form}>
-      <Box onClick={() => getData()}>owowowo</Box>
       <FormControl
         d="flex"
         flexDirection="column"
@@ -113,8 +99,13 @@ export default function FormProfile({ data }: Props): ReactElement {
             spacing={{ sm: "1.5rem", md: "1.5rem" }}
             mb={{ sm: "1.5rem", md: "0" }}
           >
-            {/* Traer la imagen de la base de datos */}
-            <Image src={user.avatar} boxSize="150px" />
+            <Image
+              src={user.avatar?.toString()}
+              alt={user.name?.toString()}
+              boxSize="150px"
+              borderRadius="50%"
+              filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+            />
             <FileBase
               borderRadius="5px"
               type="file"
