@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const Groups = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
     },
-    description: {
+    discord: {
       type: String,
     },
     type: {
-      type: [String],
+      type: [Object],
     },
     image: {
       type: String,

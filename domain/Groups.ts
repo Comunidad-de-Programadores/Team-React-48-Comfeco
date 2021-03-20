@@ -1,15 +1,15 @@
 export class Group {
   readonly id: string;
-  readonly name: string;
-  readonly description: string;
+  readonly title: string;
+  readonly discord: string;
   readonly image: string;
   readonly type: string[];
 
-  constructor({ id, name, description, type, image }: BadgeAttr) {
+  constructor({ id, title, discord, type, image }: GroupAttr) {
     this.id = id;
     this.type = type;
-    this.name = name;
-    this.description = description;
+    this.title = title;
+    this.discord = discord;
     this.image = image;
   }
 
@@ -17,17 +17,17 @@ export class Group {
     return {
       _id: this.id,
       type: this.type,
-      description: this.description,
-      name: this.name,
+      discord: this.discord,
+      title: this.title,
       image: this.image,
     };
   }
 }
 
-interface BadgeAttr {
+interface GroupAttr {
   id: string;
-  name: string;
+  title: string;
   type: string[];
-  description: string;
+  discord: string;
   image: string;
 }

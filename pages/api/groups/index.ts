@@ -16,13 +16,13 @@ handler.use(middleware);
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { type, name, description, image } = req.body;
+    const { type, title, discord, image } = req.body;
     const id = idService.generate();
     const group = new Group({
       id,
       type,
-      name,
-      description,
+      title,
+      discord,
       image,
     });
     await groupService.create(group);

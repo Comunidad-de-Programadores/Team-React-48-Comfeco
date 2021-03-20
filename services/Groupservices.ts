@@ -9,7 +9,7 @@ export class GroupService {
 
   async get(): Promise<Group[]> {
     const groupsDB = await GroupMode.find();
-    const groups = groupsDB.map((groups) => new groups(groups));
-    return groups;
+    const dat = groupsDB.map((sss) => new Group(sss));
+    return dat;
   }
 }
