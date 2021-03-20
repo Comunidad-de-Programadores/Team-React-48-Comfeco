@@ -1,5 +1,5 @@
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { Box, Text, Button, Heading } from "@chakra-ui/react";
 function MiddleSection() {
   return (
     <Box justifyContent="center" py="1rem" px="2rem">
@@ -28,11 +28,14 @@ function MiddleSection() {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              flexDirection={{ sm: "column", lg: "row" }}
             >
-              <Text fontSize="16px">
+              <Text fontSize="16px" margin={{ sm: "0 0 1rem", lg: "initial" }}>
                 Te has Unido al evento Community Fest and Code
               </Text>
-              <Button variant="normal">ver evento</Button>
+              <Button margin={{ sm: "auto", lg: "initial" }} variant="normal">
+                ver evento
+              </Button>
             </Box>
           </Box>
         </Box>

@@ -5,7 +5,6 @@ interface Props {
   dashboard: boolean;
 }
 export default function Timer({ dashboard }: Props) {
-  console.log(dashboard);
   const [month, setMonth] = useState(Number);
   const [day, setDay] = useState(Number);
   const [hour, setHour] = useState(Number);

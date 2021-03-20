@@ -1,6 +1,6 @@
+import { Box, Heading } from "@chakra-ui/react";
 import React from "react";
 import EventCardSm from "../dashboard/EventCardSm";
-import { Box, Heading } from "@chakra-ui/react";
 
 function RightSidebar() {
   const color = "#793E93";
@@ -17,7 +17,13 @@ function RightSidebar() {
       >
         Eventos de tu interes
       </Heading>
-      <Box d="flex" alignItems="center" flexDirection="column">
+      <Box
+        d="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="row"
+        flexWrap="wrap"
+      >
         <EventCardSm />
         <EventCardSm />
         <EventCardSm />

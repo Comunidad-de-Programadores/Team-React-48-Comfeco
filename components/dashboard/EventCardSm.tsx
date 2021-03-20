@@ -1,14 +1,14 @@
+import { Box, Button, Heading, Img } from "@chakra-ui/react";
 import React from "react";
-import { Box, Img, Heading, Button } from "@chakra-ui/react";
 
 function EventCardSm(): JSX.Element {
   return (
     <Box
-      w="90%"
+      w={{ sm: "15rem", lg: "90%" }}
       h="14rem"
       bg="text.300"
       borderRadius="8px"
-      mb="1rem"
+      m={{ sm: "0 1rem 2rem", lg: "0 0 1.5rem" }}
       textAlign="center"
       filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
     >

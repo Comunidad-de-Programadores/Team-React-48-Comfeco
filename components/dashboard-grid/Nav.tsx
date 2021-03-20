@@ -1,5 +1,5 @@
+import { Box, HStack, Img, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
-import { Box, Text, Img, HStack, Flex, useMediaQuery } from "@chakra-ui/react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 interface props {
@@ -20,6 +20,7 @@ function Nav({ click }: props): JSX.Element {
       alignItems="center"
       onClick={() => click(tab)}
       cursor="pointer"
+      margin="1rem"
     >
       <Img boxSize="1.2rem" src={icon} />
       <Text fontSize="1.2rem" color="text.500" ml="10px" fontWeight="600">
@@ -29,7 +30,7 @@ function Nav({ click }: props): JSX.Element {
   );
   const NavDesk = () => (
     <>
-      <Flex
+      <Box
         color="text.500"
         mr="2rem"
         cursor="pointer"
@@ -40,10 +41,9 @@ function Nav({ click }: props): JSX.Element {
       >
         <AiOutlineArrowLeft />
         <Text>Back</Text>
-      </Flex>
+      </Box>
       <HStack
-        justifyContent="center"
-        spacing="2.5rem"
+        justifyContent="space-between"
         borderRadius="10px"
         filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
       >
@@ -57,19 +57,38 @@ function Nav({ click }: props): JSX.Element {
   );
 
   const NavMobile = () => (
-    <HStack spacing="0.5rem">
-      <NavItemD label="Perfil" tab="profile" icon="/svg/man.svg" />
-      <NavItemD label="Insignias" tab="badged" icon="/svg/medal.svg" />
-      <NavItemD label="Grupos" tab="groups" icon="/svg/team.svg" />
-      <NavItemD label="Eventos" tab="events" icon="/svg/calendar.svg" />
-    </HStack>
+    <Box>
+      <Box
+        color="text.500"
+        mr="2rem"
+        cursor="pointer"
+        fontSize="22px"
+        alignItems="center"
+        fontWeight="500"
+        onClick={() => click("profile")}
+        d="flex"
+      >
+        <AiOutlineArrowLeft />
+        <Text>Back</Text>
+      </Box>
+      <Box w="90%" d="flex" justifyContent="center" flexWrap="wrap">
+        <Box d="flex">
+          <NavItemD label="Perfil" tab="profile" icon="/svg/man.svg" />
+          <NavItemD label="Insignias" tab="badged" icon="/svg/medal.svg" />
+        </Box>
+        <Box d="flex">
+          <NavItemD label="Grupos" tab="groups" icon="/svg/team.svg" />
+          <NavItemD label="Eventos" tab="events" icon="/svg/calendar.svg" />
+        </Box>
+      </Box>
+    </Box>
   );
   return (
     <Box
       d="flex"
       m="0 auto"
       w={{ base: "100%", lg: "80%" }}
-      justifyContent="space-between"
+      justifyContent={isLargerThan1280 ? "space-between" : "center"}
       bottom="0"
       px={{ base: "1em", lg: "2rem" }}
       py={{ base: "2em", lg: 0 }}
