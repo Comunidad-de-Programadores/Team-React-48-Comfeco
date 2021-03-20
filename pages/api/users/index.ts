@@ -33,7 +33,19 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const data = req.body;
     const id = idService.generate();
-    const user = new User({ ...data, id });
+    let da = {
+      genre: "Generp",
+      country: "Pais",
+      description: "Descripcion",
+      social: {
+        facebook: "facebook/username",
+        twitter: "twitter/username",
+        linkedin: "linkedin/username",
+        github: "github/username",
+      },
+    };
+    const user = new User({ ...data, ...da, id });
+
     const isRegistered = await userService.getByEmail(user.email);
 
     if (isRegistered) throw UserError.ALREADY_REGISTERED;
