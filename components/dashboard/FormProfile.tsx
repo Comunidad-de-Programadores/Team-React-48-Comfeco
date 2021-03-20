@@ -14,6 +14,7 @@ import {
   Input,
   Box,
 } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
 import TheInput from "../share/TheInput";
 import ButtonAction from "../landing/ButtonAction";
 
@@ -35,7 +36,17 @@ interface User {
 }
 
 export default function FormProfile({}: Props): ReactElement {
-  // fetch y traer los datos del usuario para asignar los valores como placeholder
+  const [session, loading] = useSession();
+
+  const getData = async () => {
+    if (loading) {
+    } else {
+      const response = await fetch(`/api/users/${session?.user.email}`);
+      const data = await response.json();
+      return data;
+    }
+  };
+  console.log(getData());
 
   const form = useRef(null);
   const [user, setUser] = useState<User>({
