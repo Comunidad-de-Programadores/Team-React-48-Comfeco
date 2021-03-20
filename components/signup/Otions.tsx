@@ -3,14 +3,6 @@ import { GrFacebook, GrGoogle } from "react-icons/gr";
 import { Box, Text, Divider } from "@chakra-ui/react";
 
 function Otions(): JSX.Element {
-  const boxStyle = {
-    Position: "absolute",
-    top: "50%",
-    zIndex: 1,
-    borderTopWidth: "2px",
-    borderColor: "#E1E2E7",
-    width: "100%",
-  };
   const colorText = "#515151";
   return (
     <Box w={{ sm: "100%", lg: "50%" }}>

@@ -13,14 +13,14 @@ function EventCard(): JSX.Element {
       w="22rem"
       mb="2.5rem"
       bg="#f2f2f2"
-      borderRadius="18px"
+      borderRadius="10px"
       filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
     >
       <Img
         w="100%"
         h="100%"
         backgroundSize="cover"
-        borderRadius="18px 18px 0 0"
+        borderRadius="10px 10px 0 0"
         alt="img"
         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fz%2Fhtml-code-text-editor-33431327.jpg&f=1&nofb=1"
       />
