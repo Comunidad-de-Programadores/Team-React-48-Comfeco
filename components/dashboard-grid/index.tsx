@@ -10,7 +10,7 @@ import Events from "../dashboard/Events";
 import Nav from "./Nav";
 
 function LadingDashboard() {
-  const [view, setView] = useState("groups");
+  const [view, setView] = useState("profile");
   const ProfileView = () => (
     <Grid
       templateColumns={{
