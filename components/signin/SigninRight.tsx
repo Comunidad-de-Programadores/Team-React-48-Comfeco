@@ -42,7 +42,7 @@ export default function SigninRight({}: Props): ReactElement {
       const data = await response.json();
       if (data.code === 200) {
         signIn("credentials", {
-          callbackUrl: window.location.origin,
+          callbackUrl: `${window.location.origin}/dashboard`,
           email: values.email,
           password: values.password,
         });

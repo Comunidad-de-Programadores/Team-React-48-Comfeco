@@ -113,7 +113,9 @@ function HeaderLogin() {
             </HStack>
           </MenuButton>
           <MenuList>
-            <MenuItem>Mi Perfil</MenuItem>
+            <MenuItem>
+              <Link href="/dashboard">Mi Perfil</Link>
+            </MenuItem>
             <MenuItem onClick={() => signOut()}>Cerrar sesion</MenuItem>
           </MenuList>
         </Menu>

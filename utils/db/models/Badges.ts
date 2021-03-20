@@ -11,7 +11,7 @@ const Badges = new mongoose.Schema(
     howToWin: {
       type: String,
     },
-    icon: {
+    ico: {
       type: String,
     },
   },

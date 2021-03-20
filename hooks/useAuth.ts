@@ -37,7 +37,7 @@ function useAuth() {
       const data = await response.json();
       if (data.code === 201) {
         signIn("credentials", {
-          callbackUrl: window.location.origin,
+          callbackUrl: `${window.location.origin}/dashboard`,
           email: values.email,
           password: values.password,
         });
