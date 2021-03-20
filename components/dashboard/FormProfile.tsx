@@ -36,7 +36,7 @@ export default function FormProfile({ data }: Props): ReactElement {
     name: `${data.data ? data.data.username : ""}`,
     description: `${data.data ? data.data.description : ""}`,
     email: `${data.data ? data.data.email : ""}`,
-    gender: `${data.data ? data.data.gender : ""}`,
+    gender: `${data.data ? data.data.genre : ""}`,
     country: `${data.data ? data.data.country : ""}`,
     twitter: `${data.data ? data.data.social.twitter : ""}`,
     linkedin: `${data.data ? data.data.social.linkedin : ""}`,
