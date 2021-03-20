@@ -13,17 +13,18 @@ class User {
   readonly country: string;
   readonly social: SocialMedia;
   readonly description: string;
-  readonly photo: string;
+  readonly image: string;
   readonly communities: Community[];
   readonly groups: Group[];
   readonly badges: Badges[];
   readonly workshops: WorkShop[];
+  readonly bird: Date;
   public password: string;
 
   constructor({
     id,
     username,
-    photo,
+    image,
     email,
     password,
     genre,
@@ -31,6 +32,7 @@ class User {
     social,
     description,
     communities,
+    bird,
     groups,
     badges,
     workshops,
@@ -43,11 +45,12 @@ class User {
     this.country = country;
     this.social = social;
     this.description = description;
-    this.photo = photo;
+    this.image = image;
     this.communities = communities;
     this.groups = groups;
     this.badges = badges;
     this.workshops = workshops;
+    this.bird = this.bird;
   }
 
   public hashPassword(): void {
@@ -78,11 +81,12 @@ class User {
       country: this.country,
       social: this.social,
       description: this.description,
-      photo: this.photo,
+      image: this.image,
       communities: this.communities,
       groups: this.groups,
       badges: this.badges,
       workshops: this.workshops,
+      bird: this.bird,
     };
   }
 
@@ -95,7 +99,8 @@ class User {
       country: this.country,
       social: this.social,
       description: this.description,
-      photo: this.photo,
+      image: this.image,
+      bird: this.bird,
     };
   }
 }
@@ -116,11 +121,12 @@ interface UserAttr {
   social: SocialMedia;
   description: string;
   password: string;
-  photo: string;
+  image: string;
   communities: Community[];
   groups: Group[];
   badges: Badges[];
   workshops: WorkShop[];
+  bird: Date;
 }
 
 export default User;

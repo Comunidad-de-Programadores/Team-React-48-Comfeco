@@ -36,7 +36,10 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     let da = {
       genre: "Generp",
       country: "Pais",
+      bird: "04/18/2021",
       description: "Descripcion",
+      image:
+        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vFYAYMSIurPqs1eV7L0GpwHaHa%26pid%3DApi&f=1",
       social: {
         facebook: "facebook/username",
         twitter: "twitter/username",

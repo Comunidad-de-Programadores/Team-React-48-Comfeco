@@ -1,17 +1,17 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
   username: {
-    type: String
+    type: String,
   },
   email: {
-    type: String
+    type: String,
   },
   password: {
-    type: String
+    type: String,
   },
   genre: {
-    type: String
+    type: String,
   },
   country: {
     type: String,
@@ -20,29 +20,31 @@ const UserSchema = new mongoose.Schema({
     twitter: String,
     linkedin: String,
     facebook: String,
-    github: String
+    github: String,
   },
   description: {
-    type: String
+    type: String,
   },
-  photo: {
-    type: String
+  image: {
+    type: String,
   },
   groups: {
-    type: [Object]
+    type: [Object],
   },
   communities: {
-    type: [Object]
+    type: [Object],
   },
   badges: {
-    type: [Object]
+    type: [Object],
   },
   workshops: {
-    type: [Object]
+    type: [Object],
   },
-  
+  bird: {
+    type: Date,
+  },
 });
 
-const User = mongoose.models.User || mongoose.model('User', UserSchema);
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
 
 export default User;
