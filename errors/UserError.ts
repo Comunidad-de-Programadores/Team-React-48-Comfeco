@@ -14,6 +14,21 @@ class UserError extends IApiErrors {
     "El usuario introducido ya esta registrado"
   );
 
+  static readonly ALREADY_BADGE = new UserError(
+    HttpStatusCode.UNAUTHORIZED,
+    "error",
+    "Ya has obtenido esta medalla"
+  );
+  static readonly ALREADY_GROUP = new UserError(
+    HttpStatusCode.UNAUTHORIZED,
+    "error",
+    "Ya perteneces a este grupo"
+  );
+  static readonly ALREADY_COMMITY = new UserError(
+    HttpStatusCode.UNAUTHORIZED,
+    "error",
+    "Ya perteneces a esta comunidad"
+  );
   static readonly BAD_CREDENTIALS = new UserError(
     HttpStatusCode.UNAUTHORIZED,
     "error",
