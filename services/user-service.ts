@@ -25,7 +25,6 @@ class UserService {
     });
     return user;
   }
-
   async getBadges(email: string, bad: any): Promise<User | null> {
     const userDB = await UserModel.findOne({ email });
     console.log("userDB", userDB.toObject());
@@ -44,7 +43,6 @@ class UserService {
       return null;
     }
   }
-
   async getGroups(email: string, id: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ email });
     console.log("userDB", userDB.toObject());
