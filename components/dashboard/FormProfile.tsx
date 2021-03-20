@@ -46,19 +46,19 @@ export default function FormProfile({ data }: Props): ReactElement {
 
   const form = useRef(null);
   const [user, setUser] = useState<User>({
-    avatar: "",
-    name: `${data.data ? data.data.username : "owo"}`,
-    description: "Una descripcion vacan...",
-    email: "nick@comfeco.com",
-    gender: "other",
-    country: "Colombia",
-    twitter: "@nicktwitter",
-    linkedin: "@nicklinkedin",
-    birth: "6.09.210",
-    password: "holaholahola",
-    repeatedPassword: "holaholahola",
-    facebook: "nickfacebook",
-    github: "nickgithub",
+    avatar: `${data.data ? data.data.username : ""}`,
+    name: `${data.data ? data.data.username : ""}`,
+    description: `${data.data ? data.data.description : ""}`,
+    email: `${data.data ? data.data.email : ""}`,
+    gender: `${data.data ? data.data.gender : ""}`,
+    country: `${data.data ? data.data.country : ""}`,
+    twitter: `${data.data ? data.data.social.twitter : ""}`,
+    linkedin: `${data.data ? data.data.social.linkedin : ""}`,
+    birth: `${data.data ? data.data.birth : ""}`,
+    password: `${data.data ? data.data.password : ""}`,
+    repeatedPassword: `${data.data ? data.data.repeatedPassword : ""}`,
+    facebook: `${data.data ? data.data.social.facebook : ""}`,
+    github: `${data.data ? data.data.social.github : ""}`,
   });
 
   const handleSubmit = () => {
@@ -114,7 +114,7 @@ export default function FormProfile({ data }: Props): ReactElement {
             mb={{ sm: "1.5rem", md: "0" }}
           >
             {/* Traer la imagen de la base de datos */}
-            <Image src="/images/avatar.png" boxSize="150px" />
+            <Image src={user.avatar} boxSize="150px" />
             <FileBase
               borderRadius="5px"
               type="file"
