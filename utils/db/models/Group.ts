@@ -9,7 +9,7 @@ const Groups = new mongoose.Schema(
       type: String,
     },
     type: {
-      type: String,
+      type: [String],
     },
     image: {
       type: String,
