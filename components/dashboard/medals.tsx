@@ -1,10 +1,24 @@
-import { Grid, GridItem, Text, HStack, Box } from "@chakra-ui/react";
-import React from "react";
+import { Text, Box, HStack } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 import CardMedal from "../Medals/CardMedal";
 
 interface Props {}
 
 const medals = ({}: Props) => {
+  const [badges, setBadges] = useState([]);
+  useEffect(() => {
+    fetchBadge();
+  }, []);
+
+  const fetchBadge = async () => {
+    try {
+      const response = await fetch(`/api/badges/`);
+      const badges = await response.json();
+      setBadges(badges.data);
+    } catch (error) {
+      console.log("Error Fetching badges", error);
+    }
+  };
   return (
     <Box w="100%">
       <Text
@@ -24,10 +38,14 @@ const medals = ({}: Props) => {
         spacing="1rem"
         flexWrap="wrap"
       >
-        <CardMedal type="colaborator" />
-        <CardMedal type="participative" />
-        <CardMedal type="fullData" />
-        <CardMedal type="contribuitor" />
+        <HStack spacing="1rem">
+          {badges.length > 0 &&
+            badges.map((p: any) => (
+              <Box key={p.id}>
+                <CardMedal data={p} />
+              </Box>
+            ))}
+        </HStack>
       </Box>
     </Box>
   );

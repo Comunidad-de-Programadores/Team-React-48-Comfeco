@@ -2,10 +2,10 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 interface Props {
-  type?: string;
+  data?: any;
 }
 
-const CardMedal = ({ type }: Props) => {
+const CardMedal = ({ data }: Props) => {
   return (
     <Box
       borderRadius="40px"
@@ -20,8 +20,8 @@ const CardMedal = ({ type }: Props) => {
           // src={medals.categories.type.src}
           width="10rem"
           height="auto"
-          src={`/images/${type}.svg`}
-          alt={`Medal of ${type}`}
+          src={`/images/${data.ico}.svg`}
+          alt={`Medal of ${data.ico}`}
         />
       </Box>
       <Box padding="0 1rem">
@@ -33,12 +33,9 @@ const CardMedal = ({ type }: Props) => {
           textAlign="center"
           fontWeight="800"
         >
-          Lorem ipsum dolor
+          {data.name}
         </Text>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Text>
+        <Text>{data.description}</Text>
       </Box>
       <hr
         style={{
@@ -57,7 +54,7 @@ const CardMedal = ({ type }: Props) => {
         >
           ¿Cómo ganarla?
         </Text>
-        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+        <Text>{data.howToWin}</Text>
       </Box>
     </Box>
   );
