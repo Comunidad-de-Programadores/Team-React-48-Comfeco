@@ -11,7 +11,6 @@ export default function SignUp(): JSX.Element {
           display="flex"
           flexDirection="column"
           w={{ sm: "100%", md: "55%", lg: "55%" }}
-          // pt={{ sm: "6rem", lg: "6rem" }}
           px={{ sm: "1rem" }}
           textAlign="center"
           alignItems="center"

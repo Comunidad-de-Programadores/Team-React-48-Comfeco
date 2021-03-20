@@ -74,9 +74,6 @@ function HeaderLogout({ type }: props) {
               C#MFECO
             </Text>
           </Flex>
-          {/* <Text ml="10px" color="#555555" fontWeight="bold" fontSize="20px">
-            C#MFECO
-          </Text> */}
         </Box>
       </Box>
       <Box
@@ -139,6 +136,7 @@ function HeaderLogout({ type }: props) {
           <Link href="/sign-up">
             <Box>
               <Image
+                cursor="pointer"
                 src="/svg/man.svg"
                 w="40px"
                 display={{
