@@ -3,7 +3,7 @@ export class Group {
   readonly name: string;
   readonly description: string;
   readonly image: string;
-  readonly type: string;
+  readonly type: string[];
 
   constructor({ id, name, description, type, image }: BadgeAttr) {
     this.id = id;
@@ -27,7 +27,7 @@ export class Group {
 interface BadgeAttr {
   id: string;
   name: string;
-  type: string;
+  type: string[];
   description: string;
   image: string;
 }
