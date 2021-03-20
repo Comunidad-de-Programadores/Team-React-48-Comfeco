@@ -20,7 +20,12 @@ export default function CardGroups({}: Props): ReactElement {
         Los Crypto
       </Text>
       <Text>Lorem ipsum has been the industry's</Text>
-      <Button type="solid" label="Ir al chat" fullW={true} />
+      <Button
+        group="festandcode"
+        type="solid"
+        label="Ir al chat"
+        fullW={true}
+      />
     </Box>
   );
 }
