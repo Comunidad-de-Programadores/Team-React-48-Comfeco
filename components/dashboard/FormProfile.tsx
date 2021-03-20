@@ -46,7 +46,7 @@ export default function FormProfile({ data }: Props): ReactElement {
 
   const form = useRef(null);
   const [user, setUser] = useState<User>({
-    avatar: `${data.data ? data.data.username : ""}`,
+    avatar: `${data.data ? data.data.image : ""}`,
     name: `${data.data ? data.data.username : ""}`,
     description: `${data.data ? data.data.description : ""}`,
     email: `${data.data ? data.data.email : ""}`,
@@ -55,8 +55,8 @@ export default function FormProfile({ data }: Props): ReactElement {
     twitter: `${data.data ? data.data.social.twitter : ""}`,
     linkedin: `${data.data ? data.data.social.linkedin : ""}`,
     birth: `${data.data ? data.data.birth : ""}`,
-    password: `${data.data ? data.data.password : ""}`,
-    repeatedPassword: `${data.data ? data.data.repeatedPassword : ""}`,
+    password: ``,
+    repeatedPassword: ``,
     facebook: `${data.data ? data.data.social.facebook : ""}`,
     github: `${data.data ? data.data.social.github : ""}`,
   });
@@ -124,29 +124,31 @@ export default function FormProfile({ data }: Props): ReactElement {
               }
             />
 
-            <Input name="name" placeholder={user.name} />
+            <Input name="name" placeholder={user.name} required />
             <Textarea
               name="description"
               bg="#E9EFF6"
               placeholder={user.description}
+              required
             />
           </VStack>
           <VStack spacing="1.5rem" mb={{ sm: "1.5rem", md: "0" }}>
-            <Input name="email" placeholder={user.email} />
-            <Input name="gender" placeholder={user.gender} />
-            <Input name="country" placeholder={user.country} />
-            <Input name="twitter" placeholder={user.twitter} />
-            <Input name="linkedin" placeholder={user.linkedin} />
+            <Input name="email" placeholder={user.email} required />
+            <Input name="gender" placeholder={user.gender} required />
+            <Input name="country" placeholder={user.country} required />
+            <Input name="twitter" placeholder={user.twitter} required />
+            <Input name="linkedin" placeholder={user.linkedin} required />
           </VStack>
           <VStack spacing="1.5rem">
-            <Input name="birth" placeholder={user.birth} />
-            <Input name="password" placeholder={user.password} />
+            <Input name="birth" placeholder={user.birth} required />
+            <Input name="password" placeholder={user.password} required />
             <Input
               name="repeatedPassword"
               placeholder={user.repeatedPassword}
+              required
             />
-            <Input name="facebook" placeholder={user.facebook} />
-            <Input name="github" placeholder={user.github} />
+            <Input name="facebook" placeholder={user.facebook} required />
+            <Input name="github" placeholder={user.github} required />
           </VStack>
         </Stack>
         <Box
