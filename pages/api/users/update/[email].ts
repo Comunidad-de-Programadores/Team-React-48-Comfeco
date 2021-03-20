@@ -18,11 +18,9 @@ handler.put(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const email = req.query.email.toString();
     const data = req.body;
-
     // const isGroup = await userService.getGroups(email, data.badges.id);
     // const isWorkshop = await userService.getWorkshops(email, data.badges.id);
     // const isCommunity = await userService.getComunnities(email, data.badges.id);
-
     // if (isWorkshop) throw UserError.ALREADY_REGISTERED;
     // if (isGroup) throw UserError.ALREADY_GROUP;
     // if (isCommunity) throw UserError.ALREADY_COMMITY;
