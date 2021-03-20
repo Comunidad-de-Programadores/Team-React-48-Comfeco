@@ -6,8 +6,8 @@ import useAuth from "../../hooks/useAuth";
 interface Props {
   placeholder: string;
   type?: string;
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   right?: boolean;
   left?: boolean;
   errors?: any;

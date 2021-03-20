@@ -5,15 +5,16 @@ interface Props {}
 
 export default function SigninLeft({}: Props): ReactElement {
   return (
-    <Box position="relative" d={{ sm: "none", md: "block" }} w={{ md: "45%" }}>
-      <Image src="/images/bgleft.png" w="80%" />
+    <Box position="relative" d={{ sm: "none", md: "block" }} w={{ md: "60%" }}>
+      <Box zIndex={2} pos="relative">
+        <Image src="/images/bgleft.png" w="80%" />
+      </Box>
       <Box
-        boxSize="7rem"
         position="absolute"
-        bottom="calc(100% - 3.5rem)"
+        bottom={{ md: "30px", lg: "30px" }}
+        zIndex={1}
         right="0"
-        mt="-450px"
-        ml="300px"
+        ml={{ md: "150px", lg: "270px" }}
       >
         <Image w="100%" h="100%" src="/images/setting.png" />
       </Box>

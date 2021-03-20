@@ -28,7 +28,7 @@ const Layout = ({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Grid bg={type ? "bg.200" : "bg.100"} backgroundSize="cover" w="100%">
-        {session ? <HeaderLogin /> : <HeaderLogout />}
+        {session ? <HeaderLogin /> : <HeaderLogout type={type} />}
         {children}
         <FooterComponent />
       </Grid>

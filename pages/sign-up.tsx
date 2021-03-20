@@ -2,8 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Box, Text, Image } from "@chakra-ui/react";
 import Form from "../components/signup/Form";
-import Options from "../components/signup/Otions";
-
+import LoginSocial from "../components/share/LoginSocial";
 export default function SignUp(): JSX.Element {
   return (
     <Layout title="Registro">
@@ -16,14 +15,15 @@ export default function SignUp(): JSX.Element {
           px={{ sm: "1rem" }}
           textAlign="center"
           alignItems="center"
-          bg="blue.400"
         >
           <Text fontSize="3rem" color={"#222"}>
             Bienvenido a bordo
           </Text>
 
           <Form />
-          <Options />
+          <Box w="100%" mb="2rem">
+            <LoginSocial />
+          </Box>
         </Box>
         <Box
           display={{ sm: "none", md: "flex", lg: "flex" }}
