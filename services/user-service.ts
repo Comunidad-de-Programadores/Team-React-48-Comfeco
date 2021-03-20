@@ -1,5 +1,5 @@
-import User from '../domain/User';
-import UserModel from '../utils/db/models/User';
+import User from "../domain/User";
+import UserModel from "../utils/db/models/User";
 
 class UserService {
   async create(user: User) {
@@ -8,31 +8,40 @@ class UserService {
   }
 
   async update(user: User): Promise<void> {
-    await UserModel.updateOne({ _id: user.id }, {
-      $set: user.toPersistence()
-    });
+    await UserModel.updateOne(
+      { _id: user.id },
+      {
+        $set: user.toPersistence(),
+      }
+    );
   }
 
   async getByEmail(email: string): Promise<User | null> {
     const userDB = await UserModel.findOne({ email });
-    if(!userDB) return null;
+    if (!userDB) return null;
     const user = new User({
       id: userDB._id,
-      ...userDB.toObject()
+      ...userDB.toObject(),
     });
     return user;
   }
-
-  async getById(id: string): Promise<User | null> {
-    const userDB = await UserModel.findOne({ _id:  id});
-    console.log("userDB", userDB.toObject())
-    if(!userDB) return null;
-    const user = new User({
-      id: userDB._id,
-      ...userDB.toObject()
+  async getBadges(email: string, bad: string): Promise<User | null> {
+    const userDB = await UserModel.findOne({ email });
+    console.log("userDB", userDB.toObject());
+    const userd = userDB.toObject();
+    let reee = false;
+    userd.badges.forEach((element: any) => {
+      if (element.id === bad) {
+        reee = true;
+      } else {
+        reee = false;
+      }
     });
-
-    return user;
+    if (reee) {
+      return userd;
+    } else {
+      return null;
+    }
   }
 }
 
