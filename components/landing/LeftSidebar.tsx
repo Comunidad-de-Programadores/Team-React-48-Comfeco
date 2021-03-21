@@ -55,19 +55,13 @@ const LeftSidebar = ({}: Props) => {
             lg: "initial",
           }}
         >
-          <List
-            pt="1rem"
-            display={{
-              sm: "flex",
-              lg: "block",
-            }}
-          >
+          <Box pt="1rem" d="block">
             {communities.map((community: any) => (
-              <ListItem key={community.id}>
+              <Box key={community.id}>
                 <CardHorizontal text={community.title} />
-              </ListItem>
+              </Box>
             ))}
-          </List>
+          </Box>
         </Box>
       </Box>
       <Box

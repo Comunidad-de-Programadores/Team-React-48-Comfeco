@@ -108,12 +108,14 @@ const RightSidebar = ({}: Props) => {
         >
           <List
             display={{
-              sm: "flex",
+              sm: "block",
               lg: "block",
             }}
           >
             {events.map((event: any) => (
               <ListItem
+                d="flex"
+                flexDirection="column"
                 key={event.id}
                 minWidth={{ sm: "20rem", lg: "initial" }}
                 padding={{ sm: "0 1rem", lg: "initial" }}
