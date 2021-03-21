@@ -5,11 +5,14 @@ export default function Countdown(): ReactElement {
   return (
     <section>
       <Box h="100%" w="100%" display="flex" justifyContent="center">
-        <Box bg="#fff" 
-        h={{
-          lg:"100vh"
-        }} 
-        p="2rem 1em" borderRadius="1em">
+        <Box
+          bg="#fff"
+          h={{
+            lg: "100vh",
+          }}
+          p="2rem 1em"
+          borderRadius="1em"
+        >
           <Heading
             color="#850294"
             as="h2"
@@ -47,21 +50,22 @@ export default function Countdown(): ReactElement {
           <Box
             w="100%"
             h={{
-              lg:"5rem"
+              lg: "5rem",
             }}
             display="flex"
             justifyContent="center"
             mt="2em"
           >
-            <Box 
-            display={{
-              sm:"grid",
-              md:"flex"
-            }} 
-            justifyContent="space-evenly"
-            gridTemplateColumns='repeat(2, 1fr)'
-            w="80%">
-              <Box position="relative" w={{md:"20%"}}>
+            <Box
+              display={{
+                sm: "grid",
+                md: "flex",
+              }}
+              justifyContent="space-evenly"
+              gridTemplateColumns="repeat(2, 1fr)"
+              w="80%"
+            >
+              <Box position="relative" w={{ md: "20%" }}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -76,10 +80,10 @@ export default function Countdown(): ReactElement {
                   Dias
                 </Text>
                 <Box
-                display={{
-                  sm:"none",
-                  md:"block"
-                }}
+                  display={{
+                    sm: "none",
+                    md: "block",
+                  }}
                 >
                   <span
                     style={{
@@ -94,7 +98,7 @@ export default function Countdown(): ReactElement {
                   </span>
                 </Box>
               </Box>
-              <Box position="relative" w={{md:"20%"}}>
+              <Box position="relative" w={{ md: "20%" }}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -109,10 +113,10 @@ export default function Countdown(): ReactElement {
                   Horas
                 </Text>
                 <Box
-                display={{
-                  sm:"none",
-                  md:"block"
-                }}
+                  display={{
+                    sm: "none",
+                    md: "block",
+                  }}
                 >
                   <span
                     style={{
@@ -127,7 +131,7 @@ export default function Countdown(): ReactElement {
                   </span>
                 </Box>
               </Box>
-              <Box position="relative" w={{md:"20%"}}>
+              <Box position="relative" w={{ md: "20%" }}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"
@@ -142,10 +146,10 @@ export default function Countdown(): ReactElement {
                   Minutos
                 </Text>
                 <Box
-                display={{
-                  sm:"none",
-                  md:"block"
-                }}
+                  display={{
+                    sm: "none",
+                    md: "block",
+                  }}
                 >
                   <span
                     style={{
@@ -160,7 +164,7 @@ export default function Countdown(): ReactElement {
                   </span>
                 </Box>
               </Box>
-              <Box position="relative" w={{md:"20%"}}>
+              <Box position="relative" w={{ md: "20%" }}>
                 <Text
                   fontSize="30px"
                   fontWeight="bold"

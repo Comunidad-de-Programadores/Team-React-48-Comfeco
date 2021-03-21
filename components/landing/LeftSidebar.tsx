@@ -1,7 +1,7 @@
+import { Box, Heading, List, ListItem } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Heading, Box, List, ListItem } from "@chakra-ui/react";
-import CardHorizontal from "./CardHorizontal";
 import ButtonAction from "./ButtonAction";
+import CardHorizontal from "./CardHorizontal";
 interface Props {}
 
 const LeftSidebar = ({}: Props) => {
@@ -27,14 +27,14 @@ const LeftSidebar = ({}: Props) => {
     <Box
       padding={{
         sm: "initial",
-        md: "3rem",
+        lg: "3rem",
       }}
       overflow={{
         sm: "hidden",
-        md: "initial",
+        lg: "initial",
       }}
       maxWidth={{
-        md: "initial",
+        lg: "initial",
       }}
     >
       <Box>
@@ -52,14 +52,14 @@ const LeftSidebar = ({}: Props) => {
         <Box
           overflowX={{
             sm: "scroll",
-            md: "initial",
+            lg: "initial",
           }}
         >
           <List
             pt="1rem"
             display={{
               sm: "flex",
-              md: "block",
+              lg: "block",
             }}
           >
             {communities.map((community: any) => (
@@ -73,14 +73,14 @@ const LeftSidebar = ({}: Props) => {
       <Box
         display={{
           sm: "flex",
-          md: "block",
+          lg: "block",
         }}
         justifyContent="center"
       >
         <Box
           width={{
             sm: "15rem",
-            md: "initial",
+            lg: "initial",
           }}
         >
           <ButtonAction textButton="Ver más" />

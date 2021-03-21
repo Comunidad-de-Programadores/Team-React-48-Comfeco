@@ -1,14 +1,13 @@
-import React from "react";
 import {
   Box,
-  Input,
-  InputRightElement,
-  Text,
+  Button,
   FormControl,
   HStack,
-  Button,
+  Input,
+  InputRightElement,
+  Text
 } from "@chakra-ui/react";
-
+import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { SignupErrors } from "../../interfaces";
 
@@ -96,8 +95,8 @@ function Form(): JSX.Element {
           </Box>
         </HStack>
         <HStack
-          spacing={{ base: "0", md: "0", lg: "2rem" }}
-          flexDirection={{ base: "column", md: "row" }}
+          spacing={{ base: "0", lg: "2rem" }}
+          flexDirection={{ base: "column", lg: "row" }}
         >
           <Box w="100%" mb="1.5rem" h="100%" position="relative">
             <Input

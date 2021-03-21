@@ -40,10 +40,10 @@ const RightSidebar = ({}: Props) => {
       <Box
         overflow={{
           sm: "hidden",
-          md: "initial",
+          lg: "initial",
         }}
         width={{
-          md: "initial",
+          lg: "initial",
         }}
       >
         <Heading
@@ -51,7 +51,7 @@ const RightSidebar = ({}: Props) => {
           size="lg"
           color="#793E93"
           margin="0 0 1rem 0"
-          padding={{ sm: "0 0 0 1rem", md: "initial" }}
+          padding={{ sm: "0 0 0 1rem", lg: "initial" }}
         >
           Talleres
         </Heading>
@@ -62,7 +62,7 @@ const RightSidebar = ({}: Props) => {
             margin="0 0 2rem 0"
             padding={{
               sm: "0 1rem",
-              md: "initial",
+              lg: "initial",
             }}
           >
             <Text fontSize="1.1rem" color="#555555">
@@ -74,14 +74,14 @@ const RightSidebar = ({}: Props) => {
           <Box
             display={{
               sm: "flex",
-              md: "block",
+              lg: "block",
             }}
             justifyContent="center"
           >
             <Box
               width={{
                 sm: "15rem",
-                md: "initial",
+                lg: "initial",
               }}
             >
               <ButtonAction textButton="Filtro" />
@@ -95,7 +95,7 @@ const RightSidebar = ({}: Props) => {
           margin="0 0 1.5rem 0"
           padding={{
             sm: "0 1rem",
-            md: "initial",
+            lg: "initial",
           }}
         >
           Area de conocimiento
@@ -103,20 +103,20 @@ const RightSidebar = ({}: Props) => {
         <Box
           overflowX={{
             sm: "scroll",
-            md: "initial",
+            lg: "initial",
           }}
         >
           <List
             display={{
               sm: "flex",
-              md: "block",
+              lg: "block",
             }}
           >
             {events.map((event: any) => (
               <ListItem
                 key={event.id}
-                minWidth={{ sm: "20rem", md: "initial" }}
-                padding={{ sm: "0 1rem", md: "initial" }}
+                minWidth={{ sm: "20rem", lg: "initial" }}
+                padding={{ sm: "0 1rem", lg: "initial" }}
               >
                 <EventCard
                   title={event.title}
@@ -127,29 +127,6 @@ const RightSidebar = ({}: Props) => {
             ))}
           </List>
         </Box>
-        <Heading
-          as="h4"
-          fontSize="1.5rem"
-          color="#793E93"
-          margin="0 0 1.5rem 0"
-          padding={{
-            sm: "0 1rem",
-            md: "initial",
-          }}
-        >
-          Area de conocimiento
-        </Heading>
-        <List>
-          {events.map((event: any) => (
-            <ListItem key={event.id}>
-              <EventCard
-                title={event.title}
-                hour={event.hour}
-                author={event.author}
-              />
-            </ListItem>
-          ))}
-        </List>
       </Box>
     </Box>
   );
