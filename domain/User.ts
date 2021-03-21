@@ -50,7 +50,7 @@ class User {
     this.groups = groups;
     this.badges = badges;
     this.workshops = workshops;
-    this.bird = this.bird;
+    this.bird = bird;
   }
 
   public hashPassword(): void {

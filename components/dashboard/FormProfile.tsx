@@ -40,7 +40,7 @@ export default function FormProfile({ data }: Props): ReactElement {
     country: `${data.data ? data.data.country : ""}`,
     twitter: `${data.data ? data.data.social.twitter : ""}`,
     linkedin: `${data.data ? data.data.social.linkedin : ""}`,
-    birth: `${data.data ? data.data.birth : ""}`,
+    birth: `${data.data ? data.data.bird : ""}`,
     password: `Contraseña`,
     repeatedPassword: `Nueva contraseña`,
     facebook: `${data.data ? data.data.social.facebook : ""}`,
