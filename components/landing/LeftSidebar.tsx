@@ -58,7 +58,10 @@ const LeftSidebar = ({}: Props) => {
           <Box pt="1rem" d="block">
             {communities.map((community: any) => (
               <Box key={community.id}>
-                <CardHorizontal text={community.title} />
+                <CardHorizontal
+                  link={community.description}
+                  text={community.title}
+                />
               </Box>
             ))}
           </Box>
