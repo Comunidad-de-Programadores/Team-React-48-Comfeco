@@ -27,6 +27,10 @@ interface User {
   repeatedPassword?: string | null | File;
   facebook?: string | null | File;
   github?: string | null | File;
+  badges?: {
+    id: string;
+    ico: sting;
+  };
 }
 
 export default function FormProfile({ data }: Props): ReactElement {
@@ -64,6 +68,10 @@ export default function FormProfile({ data }: Props): ReactElement {
         repeatedPassword: formData.get("repeatedPassword"),
         facebook: formData.get("facebook"),
         github: formData.get("github"),
+        badges: {
+          id: "6055cbfcbe3ac41f1c796cbd",
+          ico: "fullData",
+        },
       };
       const putData = async (person) => {
         if (loading) {
