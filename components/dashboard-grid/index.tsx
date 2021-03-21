@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { GridItem, Grid, Box, Fade } from "@chakra-ui/react";
+import { Box, Fade, Grid, GridItem } from "@chakra-ui/react";
 import { useSession } from "next-auth/client";
-
-import LeftSidebar from "./LeftSidebar";
-import RightSidebar from "./RightSidebar";
-import MiddleSection from "./MiddleSection";
-import FormProfile from "../dashboard/FormProfile";
-import Medals from "../dashboard/medals";
-import Groups from "../dashboard/Groups/Groups";
+import React, { useEffect, useState } from "react";
 import Events from "../dashboard/Events";
+import FormProfile from "../dashboard/FormProfile";
+import Groups from "../dashboard/Groups/Groups";
+import Medals from "../dashboard/medals";
+import LeftSidebar from "./LeftSidebar";
+import MiddleSection from "./MiddleSection";
 import Nav from "./Nav";
+import RightSidebar from "./RightSidebar";
 
 function LadingDashboard() {
   const [view, setView] = useState("profile");
   const [session, loading] = useSession();
   const [data, setData] = useState();
-  const [groupD, setGroupD] = useState();
+  const [groupD, setGroupD] = useState({});
 
   const getData = async () => {
     if (loading) {
@@ -46,9 +45,11 @@ function LadingDashboard() {
     const fetchDataGroups = async () => {
       const data = await getDataGroups();
       setGroupD(data);
+      console.log(`Este es el data del fetchGroups${data}`);
     };
     fetchData();
     fetchDataGroups();
+    console.log(`Este es el useState${groupD}`);
   }, []);
 
   const ProfileView = () => (

@@ -1,18 +1,20 @@
-import React, { ReactElement } from "react";
 import {
-  Box,
-  HStack,
-  Select,
-  VStack,
-  Divider,
-  Text,
-  Link,
-  Flex,
   Avatar,
+  Box,
+  Divider,
+  Flex,
+  HStack,
   Input,
+  Link,
+  List,
+  ListItem,
+  Select,
+  Text,
+  VStack
 } from "@chakra-ui/react";
-import Card from "./CardGroups";
+import React, { ReactElement } from "react";
 import ButtonAction from "../../share/Button";
+import Card from "./CardGroups";
 
 interface Props {
   data?: any;
@@ -21,7 +23,7 @@ interface Props {
 export default function Groups({ data }: Props): ReactElement {
   const MemberRender = () => (
     <Box w="100%">
-      {console.log(data)}
+      {console.log("hijo", data)}
       <HStack justifyContent="space-between" w="100%" my="1rem" px="1rem">
         <HStack>
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
@@ -104,10 +106,20 @@ export default function Groups({ data }: Props): ReactElement {
           />
         </HStack>
         <Flex justifyContent="center" my="2rem" flexWrap="wrap">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {
+            <List d="flex" flexWrap="wrap">
+              {data &&
+                data.data.map((groupData) => (
+                  <ListItem key={groupData.id}>
+                    <Card
+                      discordLink={groupData.discord}
+                      name={groupData.title}
+                      src={groupData.image}
+                    />
+                  </ListItem>
+                ))}
+            </List>
+          }
         </Flex>
       </Box>
     </Box>
