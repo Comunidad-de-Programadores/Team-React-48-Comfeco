@@ -81,7 +81,7 @@ function LadingDashboard() {
           md: "initial",
         }}
       >
-        <LeftSidebar click={setView} />
+        <LeftSidebar da={data} click={setView} />
       </GridItem>
       <GridItem
         colSpan={{
@@ -119,7 +119,7 @@ function LadingDashboard() {
         <Nav click={setView} />
         {view === "profile" ? (
           <Fade in={true}>
-            <ProfileView />
+            <ProfileView data={data} />
           </Fade>
         ) : view === "badged" ? (
           <Fade in={true}>

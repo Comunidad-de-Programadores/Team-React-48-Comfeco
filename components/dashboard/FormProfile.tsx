@@ -9,20 +9,25 @@ import {
   Input,
   Box,
 } from "@chakra-ui/react";
+import { useSession } from "next-auth/client";
 
 interface Props {
   data?: any;
 }
 interface User {
-  avatar?: string | null | File;
-  name?: string | null | File;
+  image?: string | null | File;
+  username?: string | null | File;
   description?: string | null | File;
   email?: string | null | File;
-  gender?: string | null | File;
+  genre?: string | null | File;
   country?: string | null | File;
-  twitter?: string | null | File;
-  linkedin?: string | null | File;
-  birth?: string | null | File;
+  social: {
+    twitter?: string | null | File;
+    linkedin?: string | null | File;
+    facebook?: string | null | File;
+    github?: string | null | File;
+  };
+  bird?: string | null | File;
   password?: string | null | File;
   repeatedPassword?: string | null | File;
   facebook?: string | null | File;
@@ -34,36 +39,44 @@ interface User {
 }
 
 export default function FormProfile({ data }: Props): ReactElement {
+  const [session, loading] = useSession();
+
   const form = useRef(null);
   const [user, setUser] = useState<User>({
-    avatar: `${data.data ? data.data.image : ""}`,
-    name: `${data.data ? data.data.username : ""}`,
+    image: `${data.data ? data.data.image : ""}`,
+    username: `${data.data ? data.data.username : ""}`,
     description: `${data.data ? data.data.description : ""}`,
     email: `${data.data ? data.data.email : ""}`,
-    gender: `${data.data ? data.data.genre : ""}`,
+    genre: `${data.data ? data.data.genre : ""}`,
     country: `${data.data ? data.data.country : ""}`,
-    twitter: `${data.data ? data.data.social.twitter : ""}`,
-    linkedin: `${data.data ? data.data.social.linkedin : ""}`,
-    birth: `${data.data ? data.data.bird : ""}`,
+    social: {
+      twitter: `${data.data ? data.data.social.twitter : ""}`,
+      linkedin: `${data.data ? data.data.social.linkedin : ""}`,
+      facebook: `${data.data ? data.data.social.facebook : ""}`,
+      github: `${data.data ? data.data.social.github : ""}`,
+    },
+    bird: `${data.data ? data.data.bird : ""}`,
     password: `Contraseña`,
     repeatedPassword: `Nueva contraseña`,
-    facebook: `${data.data ? data.data.social.facebook : ""}`,
-    github: `${data.data ? data.data.social.github : ""}`,
   });
 
   const handleSubmit = () => {
     if (form && form.current) {
       const formData = new FormData(form.current);
       const person: User = {
-        avatar: user.avatar,
-        name: formData.get("name"),
+        image: user.image,
+        username: formData.get("name"),
         description: formData.get("description"),
         email: formData.get("email"),
-        gender: formData.get("gender"),
+        genre: formData.get("gender"),
         country: formData.get("country"),
-        twitter: formData.get("twitter"),
-        linkedin: formData.get("linkedin"),
-        birth: formData.get("birth"),
+        social: {
+          twitter: formData.get("twitter"),
+          linkedin: formData.get("linkedin"),
+          facebook: formData.get("facebook"),
+          github: formData.get("github"),
+        },
+        bird: formData.get("birth"),
         password: formData.get("password"),
         repeatedPassword: formData.get("repeatedPassword"),
         facebook: formData.get("facebook"),
@@ -77,12 +90,21 @@ export default function FormProfile({ data }: Props): ReactElement {
         if (loading) {
           return false;
         } else {
-          const response = await fetch(`/api/users/${session?.user.email}`);
+          const response = await fetch(
+            `api/users/update/${session?.user.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(person),
+            }
+          );
           const data = await response.json();
           return data;
         }
       };
-      return putData(person);
+      putData(person);
     }
   };
   return (
@@ -117,8 +139,8 @@ export default function FormProfile({ data }: Props): ReactElement {
             w={{ sm: "100%" }}
           >
             <Image
-              src={user.avatar?.toString()}
-              alt={user.name?.toString()}
+              src={user.image?.toString()}
+              alt={user.username?.toString()}
               boxSize="150px"
               borderRadius="50%"
               filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
@@ -133,12 +155,12 @@ export default function FormProfile({ data }: Props): ReactElement {
                 type="file"
                 multiple={false}
                 onDone={({ base64 }: { base64: string }) =>
-                  setUser({ ...user, avatar: base64 })
+                  setUser({ ...user, image: base64 })
                 }
               />
             </Box>
 
-            <Input name="name" placeholder={user.name} required />
+            <Input name="name" placeholder={user.username} required />
             <Textarea
               name="description"
               bg="#E9EFF6"
@@ -152,21 +174,29 @@ export default function FormProfile({ data }: Props): ReactElement {
             w={{ sm: "100%" }}
           >
             <Input name="email" placeholder={user.email} required />
-            <Input name="gender" placeholder={user.gender} required />
+            <Input name="gender" placeholder={user.genre} required />
             <Input name="country" placeholder={user.country} required />
-            <Input name="twitter" placeholder={user.twitter} required />
-            <Input name="linkedin" placeholder={user.linkedin} required />
+            <Input name="twitter" placeholder={user.social.twitter} required />
+            <Input
+              name="linkedin"
+              placeholder={user.social.linkedin}
+              required
+            />
           </VStack>
           <VStack spacing="1.5rem" w={{ sm: "100%" }}>
-            <Input name="birth" placeholder={user.birth} required />
+            <Input name="birth" placeholder={user.bird} required />
             <Input name="password" placeholder={user.password} required />
             <Input
               name="repeatedPassword"
               placeholder={user.repeatedPassword}
               required
             />
-            <Input name="facebook" placeholder={user.facebook} required />
-            <Input name="github" placeholder={user.github} required />
+            <Input
+              name="facebook"
+              placeholder={user.social.facebook}
+              required
+            />
+            <Input name="github" placeholder={user.social.github} required />
           </VStack>
         </Stack>
         <Box
