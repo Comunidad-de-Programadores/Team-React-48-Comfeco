@@ -13,7 +13,7 @@ function LeftSidebar({ click }: props) {
   return (
     <Box
       d="grid"
-      gridTemplateRows=" 16rem 17rem 6rem 6rem"
+      gridTemplateRows=" 16rem 1fr rem 6rem 6rem"
       bg="transparent"
       w="100%"
       h="100%"

@@ -46,7 +46,6 @@ export default function FormProfile({ data }: Props): ReactElement {
     facebook: `${data.data ? data.data.social.facebook : ""}`,
     github: `${data.data ? data.data.social.github : ""}`,
   });
-  console.log(data.data.image);
 
   const handleSubmit = () => {
     if (form && form.current) {
@@ -66,17 +65,26 @@ export default function FormProfile({ data }: Props): ReactElement {
         facebook: formData.get("facebook"),
         github: formData.get("github"),
       };
-      // Hacer PUT en la base de datos de todo el usuario
-      alert(JSON.stringify(person));
+      const putData = async (person) => {
+        if (loading) {
+          return false;
+        } else {
+          const response = await fetch(`/api/users/${session?.user.email}`);
+          const data = await response.json();
+          return data;
+        }
+      };
+      return putData(person);
     }
   };
   return (
     <form ref={form}>
       <FormControl
+        ref={form}
         d="flex"
+        w="100%"
         flexDirection="column"
         my={{ sm: "2rem", lg: "2rem" }}
-        mx={{ lg: "5rem" }}
         p={{ sm: "1rem" }}
         borderRadius="1em"
         maxW={{ sm: "100vw" }}
@@ -85,7 +93,7 @@ export default function FormProfile({ data }: Props): ReactElement {
       >
         <Stack
           direction={{ sm: "column", md: "row", lg: "row" }}
-          w={{ lg: "80%" }}
+          w={{ sm: "100%", lg: "80%" }}
           alignItems="center"
           justifyContent="space-evenly"
           bg="#ffff"
@@ -98,6 +106,7 @@ export default function FormProfile({ data }: Props): ReactElement {
           <VStack
             spacing={{ sm: "1.5rem", md: "1.5rem" }}
             mb={{ sm: "1.5rem", md: "0" }}
+            w={{ sm: "100%" }}
           >
             <Image
               src={user.avatar?.toString()}
@@ -106,14 +115,20 @@ export default function FormProfile({ data }: Props): ReactElement {
               borderRadius="50%"
               filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
             />
-            <FileBase
+            <Box
+              w={{ sm: "100%" }}
               borderRadius="5px"
-              type="file"
-              multiple={false}
-              onDone={({ base64 }: { base64: string }) =>
-                setUser({ ...user, avatar: base64 })
-              }
-            />
+              overflow="hidden"
+              fontSize={{ sm: "10px" }}
+            >
+              <FileBase
+                type="file"
+                multiple={false}
+                onDone={({ base64 }: { base64: string }) =>
+                  setUser({ ...user, avatar: base64 })
+                }
+              />
+            </Box>
 
             <Input name="name" placeholder={user.name} required />
             <Textarea
@@ -123,14 +138,18 @@ export default function FormProfile({ data }: Props): ReactElement {
               required
             />
           </VStack>
-          <VStack spacing="1.5rem" mb={{ sm: "1.5rem", md: "0" }}>
+          <VStack
+            spacing="1.5rem"
+            mb={{ sm: "1.5rem", md: "0" }}
+            w={{ sm: "100%" }}
+          >
             <Input name="email" placeholder={user.email} required />
             <Input name="gender" placeholder={user.gender} required />
             <Input name="country" placeholder={user.country} required />
             <Input name="twitter" placeholder={user.twitter} required />
             <Input name="linkedin" placeholder={user.linkedin} required />
           </VStack>
-          <VStack spacing="1.5rem">
+          <VStack spacing="1.5rem" w={{ sm: "100%" }}>
             <Input name="birth" placeholder={user.birth} required />
             <Input name="password" placeholder={user.password} required />
             <Input
@@ -150,7 +169,7 @@ export default function FormProfile({ data }: Props): ReactElement {
           borderRadius={{ sm: "5px", lg: "7px" }}
           padding=".2rem "
           color="white"
-          width="100%"
+          width={{ sm: "100%", md: "80%" }}
           fontSize="1.5rem"
           height="48px"
           _hover={{ bg: "#78428a" }}
