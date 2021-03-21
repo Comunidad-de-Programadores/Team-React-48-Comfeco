@@ -82,4 +82,3 @@ Comfeco v0.1.35
 [Antonio Jimenez](https://github.com/Tonnraus) |
 [Nelson Mandela](https://github.com/nel193) |
 [Diango Gavidia](https://github.com/diangogav) |
-[Arias](https://github.com/Arias753) |
