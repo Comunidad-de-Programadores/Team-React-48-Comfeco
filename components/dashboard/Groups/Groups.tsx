@@ -12,12 +12,29 @@ import {
   Text,
   VStack
 } from "@chakra-ui/react";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useMemo, useState } from "react";
 import ButtonAction from "../../share/Button";
 import Card from "./CardGroups";
 
 interface Props {
   data?: any;
+}
+
+function useSearchGroups(groups) {
+  // const [state, setState] =
+  const [query, setQuery] = useState("");
+
+  const [filteredGroups, setFilteredGroups] = useState(groups);
+
+  useMemo(() => {
+    const result = groups.filter((group) => {
+      return `${group.title}`.toLowerCase().includes(query.toLowerCase());
+    });
+
+    setFilteredGroups(result);
+  }, [groups, query]);
+
+  return { query, setQuery, filteredGroups };
 }
 
 export default function Groups({ data }: Props): ReactElement {
@@ -41,6 +58,10 @@ export default function Groups({ data }: Props): ReactElement {
       <Divider borderColor="text.300" w="90%" m="0 auto" />
     </Box>
   );
+  const groups = data.data;
+  const { query, setQuery, filteredGroups } = useSearchGroups(groups);
+  console.log("este es el query", groups);
+
   return (
     <Box
       d="flex"
@@ -103,8 +124,30 @@ export default function Groups({ data }: Props): ReactElement {
             placeholder="Buscar Grupo"
             bg="text.400"
             filter="drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25))"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.currentTarget.value);
+            }}
           />
         </HStack>
+        {filteredGroups && filteredGroups.length > 0 && (
+          <Box>
+            <List d="flex" flexWrap="wrap">
+              {filteredGroups.map((group) => {
+                return (
+                  <ListItem key={group.id}>
+                    <Card
+                      discordLink={group.discord}
+                      name={group.title}
+                      src={group.image}
+                    />
+                  </ListItem>
+                );
+              })}
+            </List>
+            <Divider borderColor={"text.500"} />
+          </Box>
+        )}
         <Flex justifyContent="center" my="2rem" flexWrap="wrap">
           {
             <List d="flex" flexWrap="wrap">
