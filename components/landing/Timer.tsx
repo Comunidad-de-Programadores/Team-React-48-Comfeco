@@ -38,7 +38,7 @@ export default function Timer({ dashboard }: Props) {
       alignItems={dashboard ? "initial" : "center"}
       padding={dashboard ? "initial" : "3rem 0"}
     >
-      <Box w={dashboard ? "100%" : "{{ md: '80%' }}"} h="80%">
+      <Box w={dashboard ? "100%" : "80%"} h="80%">
         <Heading
           color="#850294"
           as="h2"
@@ -88,7 +88,7 @@ export default function Timer({ dashboard }: Props) {
             }}
             justifyContent="space-evenly"
             gridTemplateColumns="repeat(2, 1fr)"
-            w={dashboard ? "100%" : "{{ sm: '100%', lg: '80%' }}"}
+            w={dashboard ? "100%" : "80%"}
           >
             <Box position="relative" w={{ lg: "20%" }}>
               <Text
